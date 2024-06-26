@@ -34,7 +34,7 @@
   background: url('../../imgs/work-kit/kit-title.png') no-repeat center center / cover;
 }
 .project-title.webvr {
-  background: url('../../imgs/work-webvr/webvr-title.png') no-repeat center center / cover;
+  background: url('../../imgs/work-Webvr/webvr-title.png') no-repeat center center / cover;
 }
 .project-title.koke {
   background: url('../../imgs/work-koke/koke-title.png') no-repeat center center / cover;
@@ -153,9 +153,6 @@
   margin-top: 0;
   width: 100px; height: 100px;
 }
-
-/* .content.iframe {width: 100%; background-color: red;} */
-/* .content.iframe iframe {width: 100%;} */
 
 .content.desc li {
   line-height: 24px;
