@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.5, user-scalable=no"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:type" content="website" />
+  <!-- <meta property="og:url" content="https://.com/" /> -->
+  <meta property="og:site_name" content="김효은 포트폴리오">
+  <!-- <meta property="og:image" content="/static/img/common/meta_img.png" /> -->
+  <meta property="og:description" content="김효은 포트폴리오 웹사이트" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:title" content="김효은 포트폴리오" />
+  <!-- jQuery CDN -->
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+  <!-- <script src="./js/jquery-3.6.0.min.js"></script> -->
+  <script src="./js/jquery.scrollTo.min.js"></script>
+  <!-- google icon CDN -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <!-- Locomotive Scroll CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.0/dist/locomotive-scroll.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.0/dist/locomotive-scroll.css">
+  <!-- swiper CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.2.4/swiper-bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.2.4/swiper-bundle.min.css" />
+  <!-- gsap CDN : 애니메이션 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+  <!-- gsap CDN : 애니메이션 + 화면이동 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollToPlugin.min.js"></script>
+  <!-- scrollmagic CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/ScrollMagic.min.js"></script>
+  <!-- style sheets -->
+  <link rel="stylesheet" href="/public/css/default.css">
+  <link rel="stylesheet" href="/public/css/index.css">
+  <!-- scripts -->
+  <script src="/public/javascript/default.js" defer></script>
+  <title>Hyoeun Kim Portfolio</title>
+</head>
+<body>
+  <main class="main" data-scroll-container="">
+    <header class="header">
+      <a href="/index.html" class="header-title">
+        <p>Hyoeun Kim</p>
+        <p>Portfolio</p>
+      </a>
+      <figure class="ham-btn" id="hamBtn">
+        <span></span>
+        <span></span>
+        <span></span>
+      </figure>
+      <nav class="nav" id="mobileMenu">
+        <a href="#navAbout" class="menu-anchor">ABOUT</a>
+        <a href="#navWork" class="menu-anchor">WORK</a>
+        <a href="#navContact" class="menu-anchor">CONTACT</a>
+      </nav>
+
+      <!-- PC menu -->
+      <div class="pc-menu">
+        <ul>
+          <li><a href="#navAbout" class="menu-anchor">ABOUT</a></li>
+          <li><a href="#navWork" class="menu-anchor">WORK</a></li>
+          <li><a href="#navContact" class="menu-anchor">CONTACT</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <section class="section-visual" data-scroll-section="">
+      <div class="visual-video-container">
+        <video class="visual-video" src="/public/imgs/visual-video.mp4" autoplay loop muted></video>
+      </div>
+
+      <div class="visual-wrapper">
+        <h1 class="slogan" id="slogan">
+          <p>Connecting</p>
+          <p class="slogan-development">Development</p>
+          <p class="slogan-design"><span>and</span> Design</p>
+        </h1> 
+        <h2 class="slogan-disc" id="sloganDiscription">
+          <p>개발과 디자인의 경계를 허물고</p>
+          <p>기능성과 아름다움을 연결합니다.</p>
+        </h2>
+      </div>
+    </section>
+
+    <section class="section-about padding-horizon scrollEl" id="navAbout" data-scroll-section="">
+      <h2 class="about-title origin move-top">
+        <p>안녕하세요! 👋🏻</p>
+        <!-- <p><span>디자이너</span>이자 <span>퍼블리셔</span>, 그리고 현재 <span>개발자로 성장 중</span>인 김효은입니다.</p> -->
+        <p><span>웹 퍼블리셔</span>이자 <span>웹 디자이너</span>로</p>
+        <p>개발과 디자인을 잇는 <span>김효은</span>입니다.</p>
+      </h2>
+      <div class="flex-wrapper">
+        <ul class="about-desc origin move-left delay-01">
+          <li><span>불편함을 발견</span>하고 이를 <span>개선</span>하는 것에 초점을 맞추고, <br />개발에 대한 이해를 바탕으로 디자인을 진행합니다.</li>
+          <li>사랑하고 즐기면 행복해진다는 마음가짐으로, <br /><span>긍정적</span>으로 <span>소통</span>하며 지속적으로 <span>성장</span>하려 노력합니다.</li>
+        </ul>
+      </div>
+      <div class="skill-wrapper">
+        <div class="skill-item design origin move-top delay-03">
+          <h3 class="skill-title">Used in Design</h3>
+          <ul class="skill-desc">
+            <li>✧ 웹&앱 UX/UI 기획 및 디자인</li>
+            <li>✧ 상세 페이지, 배너 등 웹 마케팅 요소 디자인</li>
+          </ul>
+          <figure class="skill-imgs view">
+            <b>Tools</b>
+            <img src="/public/imgs/skill-figma.png" alt="Figma">
+            <img src="/public/imgs/skill-xd.png" alt="Adobe XD">
+            <img src="/public/imgs/skill-ps.png" alt="photoshop">
+            <img src="/public/imgs/skill-ai.png" alt="illustrator">
+          </figure>
+        </div>
+        <div class="skill-item Development origin move-top delay-06">
+          <h3 class="skill-title">Used in Development</h3>
+          <ul class="skill-desc">
+            <li>✧ 웹 접근성, 웹표준을 고려한 퍼블리싱</li>
+            <li>✧ 다양한 자바스크립트 라이브러리 활용</li>
+          </ul>
+          <figure class="skill-imgs view">
+            <b>Tools</b>
+            <img src="/public/imgs/skill-html.png" alt="HTML5">
+            <img src="/public/imgs/skill-css.png" alt="CSS3">
+            <img src="/public/imgs/skill-scss.png" alt="SCSS">
+            <img src="/public/imgs/skill-js.png" alt="JavaScript">
+            <img src="/public/imgs/skill-jquery.png" alt="jQuery">
+            <img src="/public/imgs/skill-react.png" alt="React">
+            <img src="/public/imgs/skill-styledcomponent.png" alt="Styled-components">
+            <!-- <img src="" alt="aws skill-new"> -->
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-work workScrollEl" id="navWork" data-scroll-section="" data-scroll-target="#navWork">
+      <div class="scale-wrapper origin-bg bigger">
+        <h2 class="work-title">WORK</h2>
+        <!-- <div class="btn-wrapper work-tabs">
+          <button type="button" class="btn">ALL</button>
+          <button type="button" class="btn">Design</button>
+        </div> -->
+        <div class="work-wrapper">
+          <div class="work-item">
+            <a class="work-img-wrapper" href="/view/work/kit.html" target="_blank">
+              <figure class="work-img">
+                <img src="/public/imgs/work-kit.png" alt="경남정보대학교 메타버스 플랫폼 구축">
+              </figure>
+            </a>
+            <div class="work-desc">
+              <h3 class="project-name">경남정보대학교 메타버스 플랫폼 구축</h3>
+              <ul class="project-tag">
+                <li>Design</li>
+                <li>Publishing</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="work-item">
+            <a class="work-img-wrapper" href="/view/work/webvr.html" target="_blank">
+              <figure class="work-img">
+                <img src="/public/imgs/work-webvr.png" alt="국립과학수사연구원 웹 기반 VR 에디터 개발">
+              </figure>
+            </a>
+            <div class="work-desc">
+              <h3 class="project-name">국립과학수사연구원 웹 기반 VR 에디터 개발</h3>
+              <ul class="project-tag">
+                <li>Design</li>
+                <li>Publishing</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="work-item">
+            <a class="work-img-wrapper" href="/view/work/koke.html" target="_blank">
+              <figure class="work-img">
+                <img src="/public/imgs/work-koke.png" alt="코케 쇼핑몰 리뉴얼 토이 프로젝트">
+              </figure>
+            </a>
+            <div class="work-desc">
+              <h3 class="project-name">코케 쇼핑몰 리뉴얼 토이 프로젝트</h3>
+              <ul class="project-tag">
+                <li>Design</li>
+                <li>Publishing</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="work-item">
+            <a class="work-img-wrapper" href="/view/work/plankorea.html" target="_blank">
+              <figure class="work-img">
+                <img src="/public/imgs/work-plankorea.png" alt="플랜코리아 웹사이트 리뉴얼 토이 프로젝트">
+              </figure>
+            </a>
+            <div class="work-desc">
+              <h3 class="project-name">플랜코리아 웹사이트 리뉴얼 토이 프로젝트</h3>
+              <ul class="project-tag">
+                <li>Design</li>
+                <li>Publishing</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="work-item">
+            <a class="work-img-wrapper" href="/view/work/bluedotlounge.html" target="_blank">
+              <figure class="work-img">
+                <img src="/public/imgs/work-bluedotlounge.png" alt="블루닷라운지 앱 제작">
+              </figure>
+            </a>
+            <div class="work-desc">
+              <h3 class="project-name">블루닷라운지 앱 제작</h3>
+              <ul class="project-tag">
+                <li>Design</li>
+                <li>Publishing</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- <button class="view-more" type="button">VIEW MORE</button> -->
+      </div>
+    </section>
+
+    <section class="section-contact scrollEl contactScrollEl" id="navContact" data-scroll-section="" data-scroll-target="#navContact">
+      <div class="contact-video-wrapper origin-bg-video width0">
+        <video class="contact-video" src="/public/imgs/visual-video.mp4" autoplay loop muted></video>
+      </div>
+      <div class="scroll-wrapper origin move-top">
+        <h2 class="contact-title">GET IN TOUCH!</h2>
+        <p class="contact-title-sub">함께 더 나은 경험을 만들어나가고 싶습니다.</p>
+      </div>
+      <ul class="contact-desc origin move-top delay-03">
+        <li><span>소통</span>과 <span>협업</span>을 통해 <span>긍정적인 시너지</span>와</li>
+        <li><span>만족스러운 결과물</span>을 내도록 노력하겠습니다.</li>
+        <li>편하게 연락주세요! 😊</li>
+      </ul>
+      <p class="contact-mail origin move-top delay-05">
+        <strong>hyobee.dev@gmail.com</strong>
+        <span class="material-symbols-rounded">copy_all</span>
+      </p>
+      <div class="infinite-slogan">
+        <div class="infinite-slogan-wrapper">
+          <p>CONTECT DEVELOPMENT AND DESIGN ✦ CONTECT DEVELOPMENT AND DESIGN ✦ CONTECT DEVELOPMENT AND DESIGN ✦ CONTECT DEVELOPMENT AND DESIGN ✦ CONTECT DEVELOPMENT AND DESIGN ✦ CONTECT DEVELOPMENT AND DESIGN ✦ CONTECT DEVELOPMENT AND DESIGN ✦ CONTECT DEVELOPMENT AND DESIGN ✦ CONTECT DEVELOPMENT AND DESIGN ✦ </p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer" data-scroll-section="">
+      <p>© Hyoeun Kim 2024.</p>
+      <p>Get in touch with <span>hyobee.dev@gmail.com</span></p>
+    </footer>
+  </main>
+</body>
+</html>
