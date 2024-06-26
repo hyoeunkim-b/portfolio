@@ -31,19 +31,19 @@
   opacity: 0;
 }
 .project-title.kit {
-  background: url('/public/imgs/work-kit/kit-title.png') no-repeat center center / cover;
+  background: url('../../imgs/work-kit/kit-title.png') no-repeat center center / cover;
 }
 .project-title.webvr {
-  background: url('/public/imgs/work-webvr/webvr-title.png') no-repeat center center / cover;
+  background: url('../../imgs/work-webvr/webvr-title.png') no-repeat center center / cover;
 }
 .project-title.koke {
-  background: url('/public/imgs/work-koke/koke-title.png') no-repeat center center / cover;
+  background: url('../../imgs/work-koke/koke-title.png') no-repeat center center / cover;
 }
 .project-title.plankorea {
-  background: url('/public/imgs/work-plankorea/plankorea-title.png') no-repeat center center / cover;
+  background: url('../../imgs/work-plankorea/plankorea-title.png') no-repeat center center / cover;
 }
 .project-title.bluedotlounge {
-  background: url('/public/imgs/work-bluedotlounge/bluedotlounge-title.png') no-repeat center center / cover;
+  background: url('../../imgs/work-bluedotlounge/bluedotlounge-title.png') no-repeat center center / cover;
 }
 .project-title-wrapper {
   transform: translateY(30px);
