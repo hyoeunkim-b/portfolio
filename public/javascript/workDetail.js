@@ -12,6 +12,10 @@ const Locoscroll = new LocomotiveScroll({
   tablet: {smooth: true}
 });
 
+window.addEventListener("load", function () {
+  Locoscroll.update();
+});
+
 // 프로젝트 타이틀 부분
 const projectTitles = document.querySelectorAll('#projectTitle');
 projectTitles.forEach( (projectTitle, index) => { 

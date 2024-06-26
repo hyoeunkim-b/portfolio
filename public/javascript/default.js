@@ -28,6 +28,10 @@ const Locoscroll = new LocomotiveScroll({
   tablet: {smooth: true}
 });
 
+window.addEventListener("load", function () {
+  Locoscroll.update();
+});
+
 // main visual
 const mainSlogans = document.querySelectorAll('#slogan');
 mainSlogans.forEach( (mainSlogan, index) => { 
@@ -92,8 +96,4 @@ anchors.forEach((anchor) => {
     const target = e.target.hash;
     Locoscroll.scrollTo(target);
   }); 
-});
-
-window.addEventListener("load", function () {
-  Locoscroll.update();
 });
