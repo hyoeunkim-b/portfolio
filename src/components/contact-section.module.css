@@ -1,0 +1,20 @@
+.contact{position:relative;z-index:4;display:grid;grid-template-rows:auto minmax(0,1fr);min-height:100vh;padding:5rem var(--page-gutter) 0;background:var(--color-bg)}
+.surface{background:#f3f0ef}
+.contactTop{display:grid;gap:4rem;padding:0 0 3.5rem}
+.contactMessage{display:grid;align-content:start;gap:2.5rem}
+.eyebrow{font-family:var(--font-en);font-size:.875rem;font-weight:700;letter-spacing:.015em;text-transform:uppercase}
+.contactCopy{font-size:clamp(1.125rem,1.597vw,1.4375rem);font-weight:400;line-height:1.55}
+.contactDetails{display:grid;align-self:start;align-items:stretch;gap:.75rem;width:100%;min-width:0;font-family:var(--font-en)}
+.contactIdentity{display:grid;align-content:start;gap:.3rem}
+.contactIdentity strong{font-family:var(--font-ko);font-size:1.25rem;font-weight:700;letter-spacing:.1em}
+.contactIdentity span{color:var(--color-muted);font-size:.875rem}
+.contactMethods{display:grid;grid-template-rows:repeat(2,minmax(0,1fr));height:100%;border-top:1px solid var(--color-fg)}
+.contactMethod{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;min-height:0;padding:.7rem 0;border-bottom:1px solid var(--color-fg);color:var(--color-accent);font-size:1rem;font-weight:600;line-height:1.4}
+.contactArrow{width:1rem;height:1rem;flex:0 0 auto}
+.contactMedia{position:relative;min-height:0;height:100%;margin:0 calc(var(--page-gutter) * -1);overflow:hidden;background:var(--color-surface)}
+.contactBackground{object-fit:cover;object-position:center}
+.footer{position:absolute;z-index:1;right:var(--page-gutter);bottom:2.5rem;left:var(--page-gutter);display:flex;align-items:end;justify-content:space-between;color:#fff;font-family:var(--font-en)}
+.footer small{font-size:.625rem;font-weight:400}.topLink{display:grid;grid-template-rows:auto auto;align-content:center;justify-items:center;gap:4px;width:3.5rem;aspect-ratio:1;border:1px solid #fff;color:#fff;font-size:.625rem;line-height:1;text-transform:uppercase}.topIcon{width:1rem;height:1rem;filter:invert(1)}
+@media(hover:hover) and (pointer:fine){.contactMethod[href]:hover,.contactMethod[href]:focus-visible{color:var(--color-fg)}.topLink:hover,.topLink:focus-visible{background:#fff;color:var(--color-fg)}.topLink:hover .topIcon,.topLink:focus-visible .topIcon{filter:none}}
+@media(min-width:48rem){.contactTop{grid-template-columns:repeat(8,minmax(0,1fr));gap:var(--grid-gap);row-gap:2.5rem}.contactMessage{grid-column:1/6}.contactDetails{grid-column:5/9;justify-self:end}}
+@media(min-width:75rem){.contactTop{grid-template-columns:repeat(12,minmax(0,1fr));min-height:0}.contactMessage{display:contents}.contactMessage>.eyebrow{grid-column:1/13;grid-row:1}.contactCopy{grid-column:1/8;grid-row:2}.contactDetails{grid-column:8/13;grid-template-columns:subgrid;column-gap:var(--grid-gap)}.contactIdentity{grid-column:1/span 2}.contactMethods{grid-column:3/span 3}}

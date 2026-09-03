@@ -1,0 +1,14 @@
+<svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+<ellipse cx="60" cy="5" rx="5.00002" ry="5" fill="white"/>
+<ellipse cx="60" cy="115" rx="5.00002" ry="5" fill="white"/>
+<circle cx="5.00001" cy="5.00001" r="5.00001" transform="matrix(0.707108 0.707105 -0.707108 0.707105 98.8926 14.0396)" fill="white"/>
+<circle cx="5.00001" cy="5.00001" r="5.00001" transform="matrix(0.707108 0.707105 -0.707108 0.707105 21.1113 91.8213)" fill="white"/>
+<ellipse cx="115" cy="59.9998" rx="5" ry="5.00002" transform="rotate(90 115 59.9998)" fill="white"/>
+<ellipse cx="4.99998" cy="59.9999" rx="5" ry="5.00002" transform="rotate(90 4.99998 59.9999)" fill="white"/>
+<circle cx="5.00001" cy="5.00001" r="5.00001" transform="matrix(-0.707108 0.707105 -0.707108 -0.707105 105.961 98.8914)" fill="white"/>
+<circle cx="5.00001" cy="5.00001" r="5.00001" transform="matrix(-0.707108 0.707105 -0.707108 -0.707105 28.1777 21.1095)" fill="white"/>
+<line x1="60.25" y1="10" x2="60.25" y2="110" stroke="white" stroke-width="0.5"/>
+<line y1="-0.25" x2="100" y2="-0.25" transform="matrix(-0.707108 0.707105 -0.707108 -0.707105 95.3535 24.649)" stroke="white" stroke-width="0.5"/>
+<line x1="109.996" y1="60.2561" x2="9.99569" y2="60.2561" stroke="white" stroke-width="0.5"/>
+<line y1="-0.25" x2="100" y2="-0.25" transform="matrix(-0.707108 -0.707105 0.707108 -0.707105 95.3477 95.3594)" stroke="white" stroke-width="0.5"/>
+</svg>

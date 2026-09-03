@@ -4,7 +4,7 @@
 
 ## 1. 프로젝트 목표
 
-- 슬로건 **“발견하고, 연결하여, 더 쓸모 있게.”**를 경험과 구조로 전달한다.
+- 슬로건 **“관찰하고, 연결하여, 쓸모 있게.”**를 경험과 구조로 전달한다.
 - 개인 브랜드의 사고 과정인 **관찰 → 연결 → 구조화 → 정제/실용화**를 보여준다.
 - 흔한 포트폴리오 템플릿이 아니라, 편집 디자인의 긴장감과 디지털 제품의 명료함이 공존하는 **Structured Editorial** 웹사이트를 만든다.
 - 결과뿐 아니라 관찰, 판단, 실험, 정제의 과정을 통해 “어떻게 생각하고 무엇을 쓸모 있게 만드는 사람인지”가 드러나게 한다.
@@ -89,3 +89,12 @@
 - 키보드, focus, semantic HTML, reduced motion이 고려되었는가?
 - 새로 확정된 디자인 결정이 토큰과 문서에 반영되었는가?
 
+<!-- BEGIN:nextjs-agent-rules -->
+
+# This is NOT the Next.js you know
+
+This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
+
+This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
+
+<!-- END:nextjs-agent-rules -->

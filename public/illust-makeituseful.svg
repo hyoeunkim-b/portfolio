@@ -1,0 +1,16 @@
+<svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="60" cy="5" r="5" fill="white"/>
+<circle cx="60" cy="115" r="5" fill="white"/>
+<circle cx="98.8926" cy="21.1111" r="5" transform="rotate(45 98.8926 21.1111)" fill="white"/>
+<circle cx="21.1133" cy="98.8928" r="5" transform="rotate(45 21.1133 98.8928)" fill="white"/>
+<circle cx="115" cy="59.9999" r="5" transform="rotate(90 115 59.9999)" fill="white"/>
+<circle cx="5" cy="59.9999" r="5" transform="rotate(90 5 59.9999)" fill="white"/>
+<circle cx="98.8938" cy="98.8911" r="5" transform="rotate(135 98.8938 98.8911)" fill="white"/>
+<circle cx="21.1086" cy="21.1094" r="5" transform="rotate(135 21.1086 21.1094)" fill="white"/>
+<line x1="60.25" y1="10" x2="60.25" y2="110" stroke="white" stroke-width="0.5"/>
+<line x1="95.5303" y1="24.8258" x2="24.8196" y2="95.5365" stroke="white" stroke-width="0.5"/>
+<line x1="109.996" y1="60.2561" x2="9.99609" y2="60.2561" stroke="white" stroke-width="0.5"/>
+<line x1="95.1709" y1="95.5362" x2="24.4602" y2="24.8255" stroke="white" stroke-width="0.5"/>
+<circle cx="60" cy="60" r="54.75" stroke="white" stroke-width="0.5"/>
+<path d="M60 5.25C63.0178 5.25 65.9164 6.74413 68.5781 9.49609C71.2406 12.2488 73.6501 16.2454 75.6787 21.2041C79.7353 31.1203 82.25 44.8366 82.25 60C82.25 75.1634 79.7353 88.8797 75.6787 98.7959C73.6501 103.755 71.2406 107.751 68.5781 110.504C65.9164 113.256 63.0178 114.75 60 114.75C56.9822 114.75 54.0836 113.256 51.4219 110.504C48.7594 107.751 46.3499 103.755 44.3213 98.7959C40.2647 88.8797 37.75 75.1634 37.75 60C37.75 44.8366 40.2647 31.1203 44.3213 21.2041C46.3499 16.2454 48.7594 12.2488 51.4219 9.49609C54.0836 6.74413 56.9822 5.25 60 5.25Z" stroke="white" stroke-width="0.5"/>
+</svg>

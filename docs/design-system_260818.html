@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Miu Lab — Design System / Initial</title>
+  <style>
+    :root {
+      --ink: #111111;
+      --paper: #f7f6f2;
+      --white: #ffffff;
+      --muted: #66645f;
+      --line: #cbc9c2;
+      --surface: #ebe9e2;
+      --accent: #1859ff;
+      --on-accent: #ffffff;
+      --space-1: .25rem;
+      --space-2: .5rem;
+      --space-3: .75rem;
+      --space-4: 1rem;
+      --space-6: 1.5rem;
+      --space-8: 2rem;
+      --space-12: 3rem;
+      --space-16: 4rem;
+      --section-space: clamp(5rem, 9vw, 9rem);
+      --page-gutter: clamp(1rem, 3vw, 3rem);
+      --grid-gap: clamp(.75rem, 1.3vw, 1.25rem);
+      --display: clamp(3.2rem, 9.5vw, 9rem);
+      --h2: clamp(2rem, 5vw, 4.6rem);
+      --h3: clamp(1.5rem, 2.4vw, 2.5rem);
+      --lead: clamp(1.12rem, 1.6vw, 1.5rem);
+      color-scheme: light;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      word-break: keep-all;
+    }
+    a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: .24em; }
+    a:hover { color: var(--accent); }
+    :focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
+    button { font: inherit; }
+    .skip { position: absolute; left: var(--space-4); top: -5rem; background: var(--ink); color: var(--white); padding: .75rem 1rem; z-index: 10; }
+    .skip:focus { top: var(--space-4); }
+    .shell { width: min(100%, 100rem); margin: 0 auto; padding-inline: var(--page-gutter); }
+    .grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--grid-gap); }
+    .rule { border-top: 1px solid var(--line); }
+    .kicker { margin: 0; color: var(--muted); font-size: .75rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; }
+    .status { color: var(--accent); }
+
+    header { padding-block: 1.25rem; border-bottom: 1px solid var(--line); }
+    .masthead { display: flex; justify-content: space-between; align-items: baseline; gap: 2rem; }
+    .brand { font-weight: 700; text-decoration: none; }
+    nav ul { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: .45rem 1.25rem; margin: 0; padding: 0; list-style: none; font-size: .875rem; }
+    nav a { text-decoration: none; }
+    nav a[aria-current="page"] { color: var(--accent); text-decoration: underline; text-underline-offset: .35em; }
+
+    .hero { padding-block: clamp(4rem, 10vw, 10rem) clamp(5rem, 12vw, 12rem); }
+    .hero h1 { grid-column: 1 / -1; margin: 0; font-size: var(--display); font-weight: 620; line-height: .95; letter-spacing: -.055em; }
+    .hero .visual-line { display: block; }
+    .hero .visual-word + .visual-word { margin-left: .16em; }
+    .hero .intro { grid-column: 2 / -1; margin: 3rem 0 0; max-width: 38rem; font-size: var(--lead); line-height: 1.45; }
+    .hero .note { grid-column: 1 / -1; margin-top: 2.5rem; display: flex; justify-content: space-between; color: var(--muted); font-size: .75rem; }
+
+    section { padding-block: var(--section-space); }
+    .section-head { grid-column: 1 / -1; display: grid; grid-template-columns: subgrid; align-items: start; margin-bottom: 3.5rem; }
+    .section-head .index { grid-column: 1; color: var(--accent); font-variant-numeric: tabular-nums; }
+    .section-head h2 { grid-column: 2 / -1; margin: -.15em 0 0; font-size: var(--h2); font-weight: 560; line-height: 1; letter-spacing: -.045em; }
+    .section-head p { grid-column: 2 / -1; max-width: 42rem; margin: 1.5rem 0 0; color: var(--muted); }
+
+    .swatches { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--grid-gap); }
+    .swatch { min-height: 9rem; padding: 1rem; display: flex; flex-direction: column; justify-content: space-between; border-top: 1px solid currentColor; }
+    .swatch strong, .swatch code { font-size: .75rem; }
+    .swatch code { opacity: .72; }
+    .bg-ink { background: var(--ink); color: var(--white); }
+    .bg-paper { background: var(--paper); }
+    .bg-muted { background: var(--muted); color: var(--white); }
+    .bg-line { background: var(--line); }
+    .bg-surface { background: var(--surface); }
+    .bg-accent { background: var(--accent); color: var(--on-accent); }
+
+    .type-list { grid-column: 1 / -1; }
+    .type-row { display: grid; grid-template-columns: 5.5rem 1fr; gap: var(--grid-gap); padding: 1.25rem 0 1.75rem; border-top: 1px solid var(--line); align-items: start; }
+    .type-label { color: var(--muted); font-size: .75rem; line-height: 1.3; }
+    .t-display { font-size: clamp(2.8rem, 7vw, 7rem); line-height: .95; letter-spacing: -.055em; font-weight: 620; }
+    .t-h2 { font-size: var(--h2); line-height: 1; letter-spacing: -.045em; font-weight: 560; }
+    .t-h3 { font-size: var(--h3); line-height: 1.15; letter-spacing: -.025em; font-weight: 560; }
+    .t-lead { max-width: 45rem; font-size: var(--lead); line-height: 1.45; }
+    .t-body { max-width: 62ch; }
+    .t-meta { color: var(--muted); font-size: .875rem; }
+
+    .space-scale { grid-column: 1 / -1; display: grid; gap: .75rem; }
+    .space-item { display: grid; grid-template-columns: 4rem 1fr 4rem; gap: 1rem; align-items: center; font-size: .75rem; }
+    .space-item i { display: block; height: 1rem; background: var(--accent); }
+    .space-item span:last-child { text-align: right; color: var(--muted); }
+
+    .grid-demo { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--grid-gap); min-height: 11rem; }
+    .grid-demo i { display: grid; place-items: end center; padding-bottom: .75rem; background: color-mix(in srgb, var(--accent) 13%, transparent); color: var(--accent); font-style: normal; font-size: .75rem; }
+
+    .process { grid-column: 1 / -1; counter-reset: step; }
+    .process article { display: grid; grid-template-columns: 3rem 1fr; gap: var(--grid-gap); padding: 1.5rem 0 2.5rem; border-top: 1px solid var(--line); }
+    .process article::before { counter-increment: step; content: "0" counter(step); color: var(--accent); font-size: .75rem; }
+    .process h3 { margin: 0; font-size: var(--h3); line-height: 1.1; font-weight: 560; }
+    .process p { margin: .8rem 0 0; max-width: 40rem; color: var(--muted); }
+
+    .project { grid-column: 1 / -1; display: grid; grid-template-columns: 3rem 1fr; gap: var(--grid-gap); padding-block: 1.5rem 3rem; border-top: 1px solid var(--ink); }
+    .project .number { color: var(--accent); font-size: .75rem; }
+    .project-main h3 { margin: 0; max-width: 12ch; font-size: var(--h2); line-height: .98; font-weight: 560; letter-spacing: -.04em; }
+    .project-main > p { max-width: 36rem; margin: 1.25rem 0 2rem; }
+    .project-figure { min-height: 14rem; padding: 1rem; display: flex; align-items: end; background: var(--surface); color: var(--muted); font-size: .75rem; }
+    dl { margin: 1.5rem 0 0; }
+    .meta-row { display: grid; grid-template-columns: 6rem 1fr; padding: .65rem 0; border-top: 1px solid var(--line); }
+    dt { color: var(--muted); }
+    dd { margin: 0; }
+
+    .states { grid-column: 1 / -1; display: grid; gap: 1rem; }
+    .state-row { display: flex; flex-wrap: wrap; align-items: center; gap: 1.25rem; padding-block: 1.25rem; border-top: 1px solid var(--line); }
+    .state-row > span { width: 6rem; color: var(--muted); font-size: .75rem; }
+    .text-link { font-weight: 650; }
+    .text-link::after { content: " ↗"; color: var(--accent); }
+    .current { color: var(--accent); text-decoration: underline; text-underline-offset: .3em; }
+    .focus-sample { outline: 3px solid var(--accent); outline-offset: 4px; }
+
+    .principles { grid-column: 1 / -1; }
+    .principle { display: grid; grid-template-columns: 3rem 1fr; gap: var(--grid-gap); padding: 1.25rem 0 2rem; border-top: 1px solid var(--line); }
+    .principle b { color: var(--accent); font-size: .75rem; }
+    .principle h3 { margin: 0; font-size: 1.1rem; }
+    .principle p { margin: .4rem 0 0; max-width: 45rem; color: var(--muted); }
+
+    footer { padding-block: 2rem 3rem; border-top: 1px solid var(--ink); }
+    footer .grid > *:first-child { grid-column: 1 / 3; }
+    footer .grid > *:last-child { grid-column: 3 / -1; text-align: right; }
+
+    @media (min-width: 48rem) {
+      .grid { grid-template-columns: repeat(8, minmax(0, 1fr)); }
+      .hero .intro { grid-column: 5 / -1; }
+      .section-head .index { grid-column: 1; }
+      .section-head h2, .section-head p { grid-column: 3 / 8; }
+      .swatches { grid-template-columns: repeat(3, 1fr); }
+      .type-row { grid-template-columns: 8rem 1fr; }
+      .grid-demo { grid-template-columns: repeat(8, 1fr); }
+      .process { grid-column: 3 / -1; }
+      .process article { grid-template-columns: 4rem 1fr; }
+      .project { grid-template-columns: 4rem repeat(7, 1fr); }
+      .project-main { grid-column: 2 / -1; display: grid; grid-template-columns: repeat(7, 1fr); gap: var(--grid-gap); }
+      .project-main h3 { grid-column: 1 / 5; }
+      .project-main > p { grid-column: 5 / -1; margin-top: 0; }
+      .project-figure { grid-column: 2 / 6; min-height: 22rem; }
+      .project dl { grid-column: 6 / -1; margin-top: 0; align-self: end; }
+      .states, .principles { grid-column: 3 / -1; }
+    }
+
+    @media (min-width: 75rem) {
+      .grid { grid-template-columns: repeat(12, minmax(0, 1fr)); }
+      .hero h1 .line-two { padding-left: calc((100% + var(--grid-gap)) / 12 * 2); }
+      .hero .intro { grid-column: 8 / 12; }
+      .section-head h2, .section-head p { grid-column: 4 / 11; }
+      .swatches { grid-template-columns: repeat(6, 1fr); }
+      .grid-demo { grid-template-columns: repeat(12, 1fr); }
+      .process { grid-column: 4 / 12; }
+      .project { grid-template-columns: 4rem repeat(11, 1fr); }
+      .project-main { grid-template-columns: repeat(11, 1fr); }
+      .project-main h3 { grid-column: 1 / 6; }
+      .project-main > p { grid-column: 7 / 11; }
+      .project-figure { grid-column: 2 / 8; }
+      .project dl { grid-column: 9 / 12; }
+      .states, .principles { grid-column: 4 / 12; }
+    }
+
+    @media (max-width: 34rem) {
+      .masthead { display: block; }
+      nav ul { justify-content: flex-start; margin-top: .85rem; }
+      .hero .intro { grid-column: 1 / -1; }
+      .hero .visual-word { display: block; }
+      .hero .visual-word + .visual-word { margin-left: 0; }
+      .hero .note { display: block; }
+      .hero .note span { display: block; }
+      .section-head h2, .section-head p { grid-column: 1 / -1; }
+      .section-head .index { margin-bottom: 1.25rem; }
+      .type-row { grid-template-columns: 1fr; }
+      .project { grid-template-columns: 1fr; }
+      .project-main h3 { max-width: none; }
+      footer .grid > * { grid-column: 1 / -1 !important; text-align: left !important; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">본문으로 건너뛰기</a>
+  <header>
+    <div class="shell masthead">
+      <a class="brand" href="#top">Miu Lab</a>
+      <nav aria-label="디자인 시스템 목차">
+        <ul>
+          <li><a aria-current="page" href="#foundation">Foundation</a></li>
+          <li><a href="#editorial">Editorial</a></li>
+          <li><a href="#patterns">Patterns</a></li>
+          <li><a href="#principles">Principles</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="shell hero" id="top">
+      <div class="grid">
+        <h1 aria-label="Observe. Connect. Make it useful."><span class="visual-line"><span class="visual-word">Observe.</span><span class="visual-word">Connect.</span></span><span class="visual-line line-two">Make it useful.</span></h1>
+        <div class="intro"><p>관찰하고, 연결하여,<br>쓸모 있게.</p><p class="t-meta">작은 불편을 살펴보고 흩어진 생각을 연결해, 이해하기 쉽고 실제로 도움이 되는 경험을 만듭니다.</p></div>
+        <p class="note"><span>DESIGN SYSTEM / INITIAL</span><span>Structured Editorial · 2026.08.18</span></p>
+      </div>
+    </div>
+
+    <section class="rule" id="foundation">
+      <div class="shell grid">
+        <header class="section-head">
+          <span class="index">01</span>
+          <h2>Foundation</h2>
+          <p>색, 활자, 공간과 그리드가 정체성을 담당한다. 모든 값은 브라우저 검수 전까지 초기값이며, 특히 Accent의 의미와 최종 색상은 <span class="status">TBD</span>다.</p>
+        </header>
+
+        <div class="swatches" aria-label="색상 토큰">
+          <div class="swatch bg-ink"><strong>Ink</strong><code>#111111</code></div>
+          <div class="swatch bg-paper"><strong>Paper</strong><code>#F7F6F2</code></div>
+          <div class="swatch bg-muted"><strong>Muted</strong><code>#66645F</code></div>
+          <div class="swatch bg-line"><strong>Line</strong><code>#CBC9C2</code></div>
+          <div class="swatch bg-surface"><strong>Surface</strong><code>#EBE9E2</code></div>
+          <div class="swatch bg-accent"><strong>Accent · TBD</strong><code>#1859FF</code></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="shell grid">
+        <header class="section-head">
+          <span class="index">02</span>
+          <h2>Typography</h2>
+          <p>Pretendard Variable을 기본으로 사용한다. 크기보다 역할을 먼저 구분하고, 큰 제목과 작은 정보 사이의 대비로 편집적 긴장을 만든다.</p>
+        </header>
+        <div class="type-list">
+          <div class="type-row"><span class="type-label">Visual Voice<br>Display</span><div class="t-display">Observe.<br>Connect.</div></div>
+          <div class="type-row"><span class="type-label">Heading 02</span><div class="t-h2">흩어진 단서를 하나의 질서로</div></div>
+          <div class="type-row"><span class="type-label">Heading 03</span><div class="t-h3">결과보다 판단의 흐름을 보여줍니다.</div></div>
+          <div class="type-row"><span class="type-label">Information Voice<br>Lead</span><div class="t-lead">익숙한 장면에서 놓치기 쉬운 신호를 발견하고, 서로 멀어 보이는 정보 사이의 관계를 찾습니다.</div></div>
+          <div class="type-row"><span class="type-label">Body · 55–65ch</span><div class="t-body">복잡한 내용을 이해 가능한 구조와 이야기로 바꾸고, 핵심을 남겨 실제로 사용할 수 있는 결과로 만듭니다. 한 문장은 가능하면 하나의 생각만 담습니다.</div></div>
+          <div class="type-row"><span class="type-label">Metadata</span><div class="t-meta">2026 · Product Design · Observation / Structure / Refinement</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="rule">
+      <div class="shell grid">
+        <header class="section-head">
+          <span class="index">03</span>
+          <h2>Space & Grid</h2>
+          <p>작은 간격은 정렬을 만들고 큰 간격은 장면을 전환한다. 화면이 좁아질 때는 축소가 아니라 4→8→12열로 재구성한다.</p>
+        </header>
+        <div class="space-scale" aria-label="간격 토큰">
+          <div class="space-item"><span>04</span><i style="width:4px"></i><span>4px</span></div>
+          <div class="space-item"><span>08</span><i style="width:8px"></i><span>8px</span></div>
+          <div class="space-item"><span>16</span><i style="width:16px"></i><span>16px</span></div>
+          <div class="space-item"><span>24</span><i style="width:24px"></i><span>24px</span></div>
+          <div class="space-item"><span>32</span><i style="width:32px"></i><span>32px</span></div>
+          <div class="space-item"><span>64</span><i style="width:64px"></i><span>64px</span></div>
+        </div>
+        <div class="grid-demo" aria-label="반응형 열 그리드">
+          <i>01</i><i>02</i><i>03</i><i>04</i><i>05</i><i>06</i><i>07</i><i>08</i><i>09</i><i>10</i><i>11</i><i>12</i>
+        </div>
+      </div>
+    </section>
+
+    <section class="rule" id="editorial">
+      <div class="shell grid">
+        <header class="section-head">
+          <span class="index">04</span>
+          <h2>Editorial primitives</h2>
+          <p>박스보다 여백, 정렬, 활자 위계와 얇은 선으로 관계를 만든다. 같은 모양이 아니라 같은 의미가 반복될 때 재사용한다.</p>
+        </header>
+        <div class="process">
+          <article><div><h3>관찰 · Observe</h3><p>익숙한 것에서 놓치기 쉬운 신호와 맥락을 찾는다.</p></div></article>
+          <article><div><h3>연결 · Connect</h3><p>흩어진 정보와 사람, 관점 사이에 실제로 존재하는 관계를 드러낸다.</p></div></article>
+          <article><div><h3>구조화 · Structure</h3><p>복잡성을 읽을 수 있는 질서와 이야기, 시스템으로 편집한다.</p></div></article>
+          <article><div><h3>정제 · Make useful</h3><p>핵심을 남기고 누군가 실제로 사용할 수 있는 결과로 완성한다.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="rule" id="patterns">
+      <div class="shell grid">
+        <header class="section-head">
+          <span class="index">05</span>
+          <h2>Content pattern</h2>
+          <p>Project Index Item은 카드가 아니라 페이지 전체의 그리드를 공유하는 한 행이다. 모바일에서는 정보 순서가 자연스럽게 다시 편집된다.</p>
+        </header>
+        <article class="project">
+          <span class="number">01</span>
+          <div class="project-main">
+            <h3>프로젝트 제목은 판단의 시작점을 말합니다.</h3>
+            <p>흩어진 인터뷰 기록에서 반복되는 불편을 발견하고 세 가지 사용 맥락을 하나의 탐색 구조로 연결했습니다.</p>
+            <figure class="project-figure"><figcaption>Representative image · 증거 / 맥락 / 과정 / 결과</figcaption></figure>
+            <dl>
+              <div class="meta-row"><dt>Year</dt><dd>2026</dd></div>
+              <div class="meta-row"><dt>Role</dt><dd>Strategy, Design</dd></div>
+              <div class="meta-row"><dt>Domain</dt><dd>Digital product</dd></div>
+              <div class="meta-row"><dt>Status</dt><dd>Ongoing</dd></div>
+            </dl>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="rule">
+      <div class="shell grid">
+        <header class="section-head">
+          <span class="index">06</span>
+          <h2>Interaction states</h2>
+          <p>상태는 색 하나에 의존하지 않는다. 키보드 포커스는 숨기지 않고, 모션이 없어도 관계가 이해되어야 한다.</p>
+        </header>
+        <div class="states">
+          <div class="state-row"><span>Default</span><a class="text-link" href="#patterns">프로젝트 과정 보기</a></div>
+          <div class="state-row"><span>Current</span><a class="current" href="#patterns">Work</a></div>
+          <div class="state-row"><span>Focus</span><a class="focus-sample" href="#principles">관찰 기록 읽기</a></div>
+          <div class="state-row"><span>Motion</span><span>Fast 150ms · Base 300ms · reduced motion 지원</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="rule" id="principles">
+      <div class="shell grid">
+        <header class="section-head">
+          <span class="index">07</span>
+          <h2>System rules</h2>
+        </header>
+        <div class="principles">
+          <div class="principle"><b>01</b><div><h3>Typography carries the identity</h3><p>장식보다 크기, 행 길이, 굵기, 정렬과 줄바꿈으로 목소리를 만든다.</p></div></div>
+          <div class="principle"><b>02</b><div><h3>Grid creates order; exceptions create energy</h3><p>기본은 엄격하게 정렬하고 핵심 요소만 의도적으로 열을 넘긴다.</p></div></div>
+          <div class="principle"><b>03</b><div><h3>Rules before boxes</h3><p>카드, radius, shadow보다 공간과 얇은 rule을 먼저 사용한다.</p></div></div>
+          <div class="principle"><b>04</b><div><h3>Responsive means recomposition</h3><p>모바일은 데스크톱의 축소판이 아니라 읽는 순서와 밀도를 다시 편집한 화면이다.</p></div></div>
+          <div class="principle"><b>05</b><div><h3>Accessibility is a visual state</h3><p>명료한 구조, 대비, focus, 의미론과 reduced motion을 기본 품질로 다룬다.</p></div></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="shell grid">
+      <span>Miu Lab Design System</span>
+      <span>Initial values · Browser review required</span>
+    </div>
+  </footer>
+</body>
+</html>

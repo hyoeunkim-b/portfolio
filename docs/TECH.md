@@ -141,6 +141,7 @@ CSS custom properties를 사용한다.
 
 - 아이콘: 소수라면 직접 관리하는 접근 가능한 SVG 우선
 - 애니메이션: CSS 우선; 복잡한 상태 기반 모션이 확정될 때만 라이브러리 검토
+- 전역 휠 스크롤: Lenis 1.3.11을 사용한다. `duration: 1.05`, `wheelMultiplier: 0.9`로 제한하며 `prefers-reduced-motion: reduce`에서는 생성하지 않는다.
 - 상태 관리: React 기본 기능으로 해결할 수 없는 공유 상태가 확인될 때만 검토
 - UI kit: Structured Editorial 방향과 충돌하므로 기본적으로 사용하지 않음
 - CSS framework: 프로젝트 요구와 팀 선호가 명확해지기 전 도입하지 않음
@@ -168,6 +169,7 @@ CSS custom properties를 사용한다.
 - 폰트 파일의 weight/subset/format을 최소화하고 layout shift를 확인한다.
 - 각 페이지에 고유한 title, description, canonical 정책을 둔다.
 - Open Graph 이미지와 structured data는 실제 콘텐츠와 공유 요구가 준비된 후 추가한다.
+- 기본 공유 이미지는 `public/meta-img.png`(1200×630)를 사용한다. 배포 환경에서는 `NEXT_PUBLIC_SITE_URL`에 공식 사이트 주소를 설정해 Open Graph 이미지의 절대 URL을 생성한다.
 - third-party script는 명확한 가치가 있을 때만 로드한다.
 - 성능 수치는 대표 페이지와 실제 배포 환경에서 측정한다.
 
@@ -186,17 +188,15 @@ format → lint → typecheck → build → browser review → accessibility rev
 
 정확한 명령은 프로젝트의 `package.json`이 생긴 뒤 기록한다.
 
-## 11. Deployment — TBD
+## 11. Deployment
 
-목표 배포처는 GitHub Pages로 고려하지만 다음은 저장소 정보가 생긴 후 확정한다.
-
-- custom domain 여부
-- user/organization page인지 project page인지
-- Next.js static export 설정과 base path
-- image optimization 방식
-- CI workflow와 배포 브랜치
-
-배포 설정을 추정해 미리 복잡하게 만들지 않는다.
+- 배포처: GitHub Pages
+- 공식 주소: `https://hyoeunkim-b.github.io/portfolio/`
+- 배포 방식: `main` 브랜치 push 시 GitHub Actions 자동 배포
+- Next.js는 `output: "export"`, `trailingSlash: true`, 이미지 최적화 비활성화로 정적 출력한다.
+- 배포 빌드에서만 `NEXT_PUBLIC_BASE_PATH=/portfolio`를 주입한다.
+- `public/` 자산은 `assetPath()`를 통해 로컬과 `/portfolio` 하위 경로에서 모두 접근 가능하게 한다.
+- 공유 메타데이터의 기준 주소는 `NEXT_PUBLIC_SITE_URL=https://hyoeunkim-b.github.io/portfolio`로 설정한다.
 
 ## 12. Decision Log Principle
 

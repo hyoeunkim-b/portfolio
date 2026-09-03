@@ -1,0 +1,1124 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="AI 기반 비파괴검사 소프트웨어 DEEP-NDT 포트폴리오 콘텐츠 구성 참조 문서"
+    />
+    <title>DEEP-NDT — 포트폴리오 콘텐츠 구성안</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f3f0ef;
+        --paper: #fff;
+        --ink: #101010;
+        --muted: #62605e;
+        --line: #c9c5c2;
+        --soft-line: #e7e3e0;
+        --accent: #ed1c1e;
+        --max: 100rem;
+        --gutter: clamp(1rem, 3vw, 2.5rem);
+        --section: clamp(5rem, 9vw, 9rem);
+        --display: clamp(3rem, 9vw, 8.5rem);
+        --title: clamp(2.1rem, 5vw, 5rem);
+        --heading: clamp(1.6rem, 2.8vw, 3rem);
+        --lead: clamp(1.1rem, 1rem + 0.6vw, 1.55rem);
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        background: var(--paper);
+        color: var(--ink);
+        font-family:
+          "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont,
+          "Segoe UI", sans-serif;
+        font-size: 1rem;
+        line-height: 1.65;
+        word-break: keep-all;
+      }
+
+      a {
+        color: inherit;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 0.25em;
+      }
+
+      a:hover {
+        color: var(--accent);
+      }
+
+      a:focus-visible {
+        outline: 3px solid var(--accent);
+        outline-offset: 4px;
+      }
+
+      h1,
+      h2,
+      h3,
+      p,
+      figure,
+      blockquote,
+      ul,
+      ol,
+      dl,
+      dd {
+        margin-top: 0;
+      }
+
+      h1,
+      h2,
+      h3 {
+        line-height: 1.08;
+        letter-spacing: -0.035em;
+      }
+
+      p,
+      li {
+        max-width: 70ch;
+      }
+
+      .skip-link {
+        position: fixed;
+        left: 1rem;
+        top: 1rem;
+        z-index: 10;
+        padding: 0.65rem 0.9rem;
+        background: var(--ink);
+        color: var(--paper);
+        transform: translateY(-180%);
+      }
+
+      .skip-link:focus {
+        transform: translateY(0);
+      }
+
+      .page {
+        width: min(100%, var(--max));
+        margin-inline: auto;
+        padding-inline: var(--gutter);
+      }
+
+      .eyebrow {
+        margin-bottom: 1.25rem;
+        color: var(--accent);
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.09em;
+        text-transform: uppercase;
+      }
+
+      .utility-header {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        padding-block: 1rem;
+        border-bottom: 1px solid var(--line);
+        font-size: 0.8rem;
+      }
+
+      .utility-header p {
+        margin: 0;
+      }
+
+      .utility-header strong {
+        font-weight: 650;
+      }
+
+      .hero {
+        display: grid;
+        min-height: min(54rem, 90vh);
+        align-content: space-between;
+        padding-block: clamp(3rem, 7vw, 7rem) 2rem;
+      }
+
+      .hero h1 {
+        max-width: 11ch;
+        margin-bottom: 2rem;
+        font-size: var(--display);
+        font-weight: 760;
+        line-height: 0.9;
+      }
+
+      .hero h1 span {
+        display: block;
+        color: var(--accent);
+      }
+
+      .hero-bottom {
+        display: grid;
+        gap: 2rem;
+        align-items: end;
+      }
+
+      .hero-summary {
+        margin-bottom: 0;
+        font-size: var(--lead);
+        font-weight: 520;
+        line-height: 1.5;
+      }
+
+      .meta {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1.25rem 1rem;
+        margin: 0;
+      }
+
+      .meta div {
+        border-top: 1px solid var(--ink);
+        padding-top: 0.55rem;
+      }
+
+      .meta dt {
+        margin-bottom: 0.25rem;
+        color: var(--muted);
+        font-size: 0.72rem;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      .meta dd {
+        margin-bottom: 0;
+        font-size: 0.9rem;
+        line-height: 1.4;
+      }
+
+      .contents {
+        padding-block: 2rem;
+        border-block: 1px solid var(--line);
+      }
+
+      .contents ol {
+        display: grid;
+        gap: 0;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        counter-reset: item;
+      }
+
+      .contents li {
+        max-width: none;
+        counter-increment: item;
+        border-top: 1px solid var(--soft-line);
+      }
+
+      .contents li:first-child {
+        border-top: 0;
+      }
+
+      .contents a {
+        display: grid;
+        grid-template-columns: 2.5rem 1fr;
+        padding-block: 0.7rem;
+        text-decoration: none;
+      }
+
+      .contents a::before {
+        content: counter(item, decimal-leading-zero);
+        color: var(--muted);
+        font-size: 0.72rem;
+        letter-spacing: 0.05em;
+      }
+
+      section {
+        scroll-margin-top: 2rem;
+        padding-block: var(--section);
+        border-bottom: 1px solid var(--line);
+      }
+
+      .section-head {
+        display: grid;
+        gap: 1.5rem;
+        margin-bottom: clamp(3rem, 6vw, 6rem);
+      }
+
+      .section-number {
+        color: var(--accent);
+        font-size: 0.8rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+      }
+
+      .section-head h2 {
+        max-width: 15ch;
+        margin-bottom: 0;
+        font-size: var(--title);
+      }
+
+      .section-intro {
+        margin-bottom: 0;
+        font-size: var(--lead);
+      }
+
+      .content-grid {
+        display: grid;
+        gap: 3rem;
+      }
+
+      .content-grid h3 {
+        margin-bottom: 1rem;
+        font-size: var(--heading);
+      }
+
+      .content-grid ul,
+      .content-grid ol {
+        padding-left: 1.2rem;
+      }
+
+      .content-grid li + li {
+        margin-top: 0.55rem;
+      }
+
+      .statement {
+        margin-block: 0;
+        padding: clamp(2rem, 5vw, 5rem) 0;
+        border-block: 1px solid var(--ink);
+        font-size: clamp(1.7rem, 4vw, 4rem);
+        font-weight: 650;
+        line-height: 1.24;
+        letter-spacing: -0.035em;
+      }
+
+      .transition-map {
+        display: grid;
+        margin-top: 4rem;
+        border-top: 1px solid var(--ink);
+      }
+
+      .transition-map article {
+        display: grid;
+        gap: 1rem;
+        padding-block: 1.5rem;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .transition-map .label {
+        color: var(--accent);
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      .transition-map h3 {
+        margin-bottom: 0;
+        font-size: clamp(1.25rem, 2vw, 2rem);
+      }
+
+      .transition-map p {
+        margin-bottom: 0;
+      }
+
+      .evidence-placeholder {
+        min-height: 16rem;
+        display: grid;
+        place-items: center;
+        padding: 2rem;
+        border: 1px dashed var(--muted);
+        background: #faf9f8;
+        color: var(--muted);
+        text-align: center;
+      }
+
+      .evidence-placeholder strong {
+        display: block;
+        margin-bottom: 0.5rem;
+        color: var(--ink);
+      }
+
+      .comparison {
+        display: grid;
+        gap: 1px;
+        margin-top: 3rem;
+        background: var(--line);
+        border: 1px solid var(--line);
+      }
+
+      .comparison article {
+        padding: clamp(1.25rem, 3vw, 2.5rem);
+        background: var(--paper);
+      }
+
+      .comparison .after {
+        background: var(--bg);
+      }
+
+      .comparison h3 {
+        margin-bottom: 1.5rem;
+        font-size: 1rem;
+        letter-spacing: 0;
+      }
+
+      .comparison ol {
+        margin-bottom: 0;
+        padding-left: 1.2rem;
+      }
+
+      .comparison li + li {
+        margin-top: 0.45rem;
+      }
+
+      .decision {
+        margin-block: 3rem;
+        padding-left: 1.25rem;
+        border-left: 4px solid var(--accent);
+        font-size: var(--lead);
+        font-weight: 620;
+      }
+
+      .matrix {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 2rem;
+        font-size: 0.92rem;
+      }
+
+      .matrix th,
+      .matrix td {
+        padding: 0.9rem 0.75rem;
+        border-bottom: 1px solid var(--line);
+        text-align: left;
+        vertical-align: top;
+      }
+
+      .matrix th {
+        width: 28%;
+        font-weight: 650;
+      }
+
+      .result-list {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1px;
+        padding: 1px;
+        background: var(--line);
+        list-style: none;
+      }
+
+      .result-list li {
+        max-width: none;
+        margin: 0;
+        padding: 1.25rem;
+        background: var(--paper);
+      }
+
+      .note {
+        margin-top: 3rem;
+        padding: 1.25rem;
+        background: var(--bg);
+        color: var(--muted);
+        font-size: 0.88rem;
+      }
+
+      .asset-index {
+        display: grid;
+        border-top: 1px solid var(--ink);
+      }
+
+      .asset-index div {
+        display: grid;
+        grid-template-columns: 2.5rem 1fr;
+        gap: 1rem;
+        padding-block: 0.9rem;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .asset-index span {
+        color: var(--muted);
+        font-size: 0.75rem;
+      }
+
+      .asset-index p {
+        margin: 0;
+      }
+
+      .footer {
+        padding-block: 2rem 4rem;
+        color: var(--muted);
+        font-size: 0.8rem;
+      }
+
+      .footer p {
+        margin-bottom: 0;
+      }
+
+      @media (min-width: 48rem) {
+        .hero-bottom {
+          grid-template-columns: 1.2fr 1fr;
+        }
+
+        .contents ol {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          column-gap: 3rem;
+        }
+
+        .section-head {
+          grid-template-columns: 4rem minmax(0, 1.4fr) minmax(16rem, 0.8fr);
+          align-items: start;
+        }
+
+        .content-grid.two {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .transition-map article {
+          grid-template-columns: 7rem minmax(14rem, 0.8fr) minmax(0, 1.2fr);
+          align-items: baseline;
+        }
+
+        .comparison {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (min-width: 75rem) {
+        .meta {
+          grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+
+        .content-grid.three {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        .result-list {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+      }
+
+      @media print {
+        :root {
+          --gutter: 0;
+          --section: 3rem;
+        }
+
+        body {
+          font-size: 10pt;
+        }
+
+        .skip-link,
+        .contents {
+          display: none;
+        }
+
+        .hero {
+          min-height: auto;
+        }
+
+        section {
+          break-inside: avoid;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">본문으로 이동</a>
+
+    <header class="page utility-header">
+      <p><strong>DEEP-NDT</strong> · Content Reference</p>
+      <p>Draft · 2026.09</p>
+    </header>
+
+    <main id="main">
+      <div class="page hero">
+        <div>
+          <p class="eyebrow">Portfolio narrative reference</p>
+          <h1>PoC에서 <span>검사 현장까지.</span></h1>
+        </div>
+
+        <div class="hero-bottom">
+          <p class="hero-summary">
+            AI 기반 비파괴검사 소프트웨어 DEEP-NDT를 기술 검증용 MVP에서
+            실제 현장 업무에 도입하고 판매할 수 있는 제품으로 발전시킨 2년간의
+            제품화 과정.
+          </p>
+
+          <dl class="meta">
+            <div>
+              <dt>Period</dt>
+              <dd>2024.08–2026.08</dd>
+            </div>
+            <div>
+              <dt>Role</dt>
+              <dd>Product Designer</dd>
+            </div>
+            <div>
+              <dt>Team</dt>
+              <dd>사업총괄 2 · 개발 6 · AI 10</dd>
+            </div>
+            <div>
+              <dt>Status</dt>
+              <dd>검사 용역 활용 · 소프트웨어 판매</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+
+      <nav class="page contents" aria-label="문서 목차">
+        <p class="eyebrow">Contents</p>
+        <ol>
+          <li><a href="#premise">프로젝트의 중심 주장</a></li>
+          <li><a href="#starting-point">출발점</a></li>
+          <li><a href="#observation">현장 관찰과 검증</a></li>
+          <li><a href="#viewer">판독 뷰어 재구성</a></li>
+          <li><a href="#roles">역할별 제품 구조</a></li>
+          <li><a href="#report">보고서 기능의 상품화</a></li>
+          <li><a href="#system">반복 개선 체계</a></li>
+          <li><a href="#adoption">도입과 시장 접점</a></li>
+          <li><a href="#outcome">공개 가능한 결과</a></li>
+          <li><a href="#materials">필요 자료와 편집 원칙</a></li>
+        </ol>
+      </nav>
+
+      <section id="premise" class="page">
+        <div class="section-head">
+          <span class="section-number">01</span>
+          <h2>프로젝트의 중심 주장</h2>
+          <p class="section-intro">
+            여러 결과물을 나열하기보다 제품의 상태를 바꾼 전환을 중심으로
+            설명한다.
+          </p>
+        </div>
+
+        <blockquote class="statement">
+          경쟁 환경과 실제 검사 업무를 관찰하고, 제품·운영·판매에 흩어진
+          접점을 연결해 DEEP-NDT를 현장에서 사용할 수 있는 하나의 제품 경험으로
+          구조화했다.
+        </blockquote>
+
+        <div class="transition-map" aria-label="제품화의 세 가지 전환">
+          <article>
+            <span class="label">Transition 01</span>
+            <h3>기술 → 검사 업무</h3>
+            <p>
+              판독 영역을 중심으로 뷰어를 재구성하고, 실제 검사자의 판단과 기록
+              흐름 안에서 기능이 작동하도록 개선했다.
+            </p>
+          </article>
+          <article>
+            <span class="label">Transition 02</span>
+            <h3>공통 화면 → 역할별 제품</h3>
+            <p>
+              플랜트 운영자와 검사자의 목적을 구분하고, 역할·권한·진입 흐름과
+              관리 기능을 다시 설계했다.
+            </p>
+          </article>
+          <article>
+            <span class="label">Transition 03</span>
+            <h3>판독 결과 → 판매 가능한 보고서</h3>
+            <p>
+              제품 밖 Excel에서 이어지던 보고 업무를 소프트웨어 안으로 연결했고,
+              이 기능은 별도 상품으로 확장됐다.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="starting-point" class="page">
+        <div class="section-head">
+          <span class="section-number">02</span>
+          <h2>기술은 작동했지만 제품은 준비되지 않았다</h2>
+          <p class="section-intro">
+            합류 당시에는 기술 검증을 위한 최소 기능만 존재했다. 실제 조직과
+            현장에서 사용하려면 제품의 범위부터 다시 정의해야 했다.
+          </p>
+        </div>
+
+        <div class="content-grid two">
+          <article>
+            <p class="eyebrow">Implemented</p>
+            <h3>초기 MVP에 있던 것</h3>
+            <ul>
+              <li>회원가입과 로그인</li>
+              <li>검사 데이터 업로드</li>
+              <li>AI 판독 뷰어</li>
+              <li>결과 리포트 내보내기</li>
+            </ul>
+          </article>
+          <article>
+            <p class="eyebrow">Missing</p>
+            <h3>제품화를 위해 필요했던 것</h3>
+            <ul>
+              <li>운영자와 검사자의 역할 및 접근 권한</li>
+              <li>탈퇴를 포함한 계정 수명주기</li>
+              <li>검사 프로젝트, 설비, 결과와 데이터 관리</li>
+              <li>제품 내 보고서 작성과 편집</li>
+              <li>일관된 UI 패턴과 QA 기준</li>
+              <li>교육, 가이드와 자격 인증 경험</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="evidence-placeholder" role="img" aria-label="초기 제품 화면 캡처 자리">
+          <p>
+            <strong>Evidence placeholder · 초기 제품 캡처</strong>
+            실제 화면에 번호를 붙여 기능 중심 구조, 역할 미구분, 좁은 판독 영역을
+            설명한다. 시각 완성도보다 PoC와 운영 제품의 구조적 차이를 보여준다.
+          </p>
+        </div>
+      </section>
+
+      <section id="observation" class="page">
+        <div class="section-head">
+          <span class="section-number">03</span>
+          <h2>실제 검사 업무를 비교하고 기록하다</h2>
+          <p class="section-intro">
+            추측보다 실제 작업을 기준으로 삼았다. 검사자 6명이 동일한 환경에서
+            DEEP-NDT와 경쟁 제품으로 판독부터 보고서 작성까지 수행했다.
+          </p>
+        </div>
+
+        <div class="content-grid three">
+          <article>
+            <p class="eyebrow">Method</p>
+            <h3>관찰</h3>
+            <p>
+              작업 전 과정을 촬영하고, 단계별 정지·반복·화면 이동과 오류가
+              발생하는 지점을 기록했다.
+            </p>
+          </article>
+          <article>
+            <p class="eyebrow">Quantitative</p>
+            <h3>시간 비교</h3>
+            <p>
+              경쟁 제품 대비 판독 및 결과 보고서 작성 시간이 어디에서 줄거나
+              늘어나는지 확인했다.
+            </p>
+          </article>
+          <article>
+            <p class="eyebrow">Qualitative</p>
+            <h3>인터뷰</h3>
+            <p>
+              불편과 비효율뿐 아니라 AI 자동 판독을 어떤 조건에서 신뢰하거나 다시
+              확인하는지 들었다.
+            </p>
+          </article>
+        </div>
+
+        <p class="decision">
+          피드백의 우선순위는 단순한 사용 불편보다 판독 정확성과 설비 상태 판단에
+          미치는 영향을 먼저 고려했다.
+        </p>
+
+        <table class="matrix">
+          <thead>
+            <tr>
+              <th scope="col">판단 기준</th>
+              <th scope="col">검토 질문</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">검사 정확성</th>
+              <td>결함을 놓치거나 잘못 판단하게 할 가능성이 있는가?</td>
+            </tr>
+            <tr>
+              <th scope="row">설비 상태 판단</th>
+              <td>설비 상태를 파악하는 데 치명적인 영향을 줄 수 있는가?</td>
+            </tr>
+            <tr>
+              <th scope="row">작업 효율</th>
+              <td>불필요한 이동이나 반복 작업을 만드는가?</td>
+            </tr>
+            <tr>
+              <th scope="row">사용 이해</th>
+              <td>기능이나 결과의 의미를 오해하게 하는가?</td>
+            </tr>
+            <tr>
+              <th scope="row">빈도와 구현 조건</th>
+              <td>여러 사용자에게 반복되는가? 필요한 기술과 리소스는 무엇인가?</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p class="note">
+          편집 메모: 수백 건의 원본 피드백을 모두 노출하지 않는다. 익명 처리한
+          피드백 보드 일부와 ‘관찰 → 영향도 판단 → 제품팀 결정 → 구현 → QA’의
+          흐름을 대표 사례로 보여준다.
+        </p>
+      </section>
+
+      <section id="viewer" class="page">
+        <div class="section-head">
+          <span class="section-number">04</span>
+          <h2>판독에 집중할 수 있는 뷰어</h2>
+          <p class="section-intro">
+            모든 기능을 항상 보여주기보다 검사자가 데이터를 보고 판단하는 핵심
+            영역과 작업의 연속성을 우선했다.
+          </p>
+        </div>
+
+        <div class="content-grid two">
+          <article>
+            <p class="eyebrow">Problem 01</p>
+            <h3>판독 영역을 잠식한 메뉴</h3>
+            <p>
+              상단 메뉴줄과 아이콘이 포함된 서브 메뉴가 세로 공간을 길게 차지해
+              가장 중요한 판독 섹션이 상대적으로 좁았다.
+            </p>
+            <ul>
+              <li>상단 메뉴를 드롭다운 구조로 정리</li>
+              <li>기능 중요도에 따른 정보 위계 조정</li>
+              <li>메뉴 표시·숨김 토글 추가</li>
+              <li>부가 정보를 작은 영역에서도 식별 가능하게 재배치</li>
+            </ul>
+          </article>
+          <article>
+            <p class="eyebrow">Problem 02</p>
+            <h3>결과 편집을 위한 맥락 이탈</h3>
+            <p>
+              뷰어에서 자동 작성된 결과를 수정하려면 매니지먼트로 이동해야 했다.
+              판단과 기록이 같은 작업인데도 화면이 분리되어 있었다.
+            </p>
+            <ul>
+              <li>뷰어 안에서 자동 생성 결과 확인</li>
+              <li>같은 맥락에서 결과 편집</li>
+              <li>수정한 내용을 보고서 데이터와 연결</li>
+              <li>불필요한 화면 이동 제거</li>
+            </ul>
+          </article>
+        </div>
+
+        <p class="decision">
+          검사자가 판독의 맥락을 벗어나지 않고 판단과 기록을 완료할 수 있게 했다.
+        </p>
+
+        <div class="comparison">
+          <article>
+            <h3>Before · 기능 노출 중심</h3>
+            <div class="evidence-placeholder">
+              <p><strong>초기 뷰어 캡처</strong>메뉴 구조와 좁은 판독 영역 표시</p>
+            </div>
+          </article>
+          <article class="after">
+            <h3>After · 판독 업무 중심</h3>
+            <div class="evidence-placeholder">
+              <p><strong>개선 뷰어 캡처</strong>확장된 판독 영역과 인라인 편집 표시</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="roles" class="page">
+        <div class="section-head">
+          <span class="section-number">05</span>
+          <h2>하나의 공통 흐름을 역할별 제품으로</h2>
+          <p class="section-intro">
+            같은 제품을 사용해도 운영자와 검사자가 원하는 정보와 완료해야 할
+            과업은 달랐다.
+          </p>
+        </div>
+
+        <div class="comparison">
+          <article>
+            <p class="eyebrow">Plant operator</p>
+            <h3>플랜트 운영자</h3>
+            <ul>
+              <li>프로젝트와 설비 상태 파악</li>
+              <li>검사 진행 상황 관리</li>
+              <li>결과와 보고서 확인</li>
+              <li>조직과 데이터 관리</li>
+            </ul>
+          </article>
+          <article class="after">
+            <p class="eyebrow">Inspector</p>
+            <h3>검사자</h3>
+            <ul>
+              <li>할당된 검사 확인</li>
+              <li>데이터 업로드와 판독</li>
+              <li>판독 결과 기록과 수정</li>
+              <li>작업에 필요한 기능으로 빠르게 이동</li>
+            </ul>
+          </article>
+        </div>
+
+        <p class="decision">
+          사용자 역할에 따라 첫 화면, 우선 정보, 접근 가능한 기능과 핵심 과업을
+          다르게 구성했다.
+        </p>
+
+        <div class="content-grid two">
+          <article>
+            <h3>구조화한 것</h3>
+            <ul>
+              <li>타깃 사용자와 역할</li>
+              <li>역할별 핵심 과업</li>
+              <li>접근 권한 정책</li>
+              <li>로그인 이후 진입 흐름</li>
+            </ul>
+          </article>
+          <article>
+            <h3>추가한 관리 영역</h3>
+            <ul>
+              <li>검사 프로젝트 관리</li>
+              <li>설비 관리</li>
+              <li>검사 결과 확인</li>
+              <li>데이터 관리</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="evidence-placeholder">
+          <p>
+            <strong>Evidence placeholder · 역할과 권한</strong>
+            역할·권한 매트릭스, 운영자와 검사자의 분기 플로우, 변경된 매니지먼트
+            정보 구조를 순서대로 배치한다.
+          </p>
+        </div>
+      </section>
+
+      <section id="report" class="page">
+        <div class="section-head">
+          <span class="section-number">06</span>
+          <h2>판독 결과를 판매 가능한 보고서로</h2>
+          <p class="section-intro">
+            제품에서 끝난 판독과 Excel에서 다시 시작되는 보고 업무를 하나의
+            데이터 흐름으로 연결했다.
+          </p>
+        </div>
+
+        <div class="comparison">
+          <article>
+            <p class="eyebrow">Before</p>
+            <h3>분리된 보고 업무</h3>
+            <ol>
+              <li>DEEP-NDT에서 판독</li>
+              <li>결과 내보내기</li>
+              <li>별도로 Excel 실행</li>
+              <li>고객사별 템플릿에서 다시 작성</li>
+              <li>수정과 검토</li>
+              <li>PDF 변환 후 전달</li>
+            </ol>
+          </article>
+          <article class="after">
+            <p class="eyebrow">After</p>
+            <h3>연결된 제품 흐름</h3>
+            <ol>
+              <li>DEEP-NDT에서 판독</li>
+              <li>결과 데이터를 템플릿에 자동 연결</li>
+              <li>제품 안에서 보고서 확인과 수정</li>
+              <li>PDF로 내보내기</li>
+            </ol>
+          </article>
+        </div>
+
+        <div class="content-grid two" style="margin-top: 4rem">
+          <article>
+            <h3>관찰한 문제</h3>
+            <ul>
+              <li>판독과 보고서 작성 프로그램의 단절</li>
+              <li>별도 Excel 라이선스 필요</li>
+              <li>비정상적인 프로그램 설치 사례</li>
+              <li>고객사별 템플릿 제작과 관리의 반복</li>
+              <li>이미 생성된 데이터를 다시 다뤄야 하는 비효율</li>
+            </ul>
+          </article>
+          <article>
+            <h3>제품에 남은 변화</h3>
+            <ul>
+              <li>Excel 없이 제품 안에서 보고서 작성</li>
+              <li>판독 데이터와 결과 보고서 연결</li>
+              <li>템플릿 대응 구조 마련</li>
+              <li>반복적인 제작 및 관리 부담 감소</li>
+              <li>보고서 기능의 별도 상품화</li>
+            </ul>
+          </article>
+        </div>
+
+        <p class="note">
+          확인 필요: ‘별도 상품’이 독립 제품, 별도 요금제, 또는 다른 검사
+          소프트웨어와 함께 사용하는 도구 중 어느 형태인지 확정한 뒤 최종 문구를
+          선택한다.
+        </p>
+      </section>
+
+      <section id="system" class="page">
+        <div class="section-head">
+          <span class="section-number">07</span>
+          <h2>반복 개선을 제품의 체계로 남기다</h2>
+          <p class="section-intro">
+            수백 건의 피드백을 개별 수정으로 끝내지 않고, 다음 기능과 QA에도
+            적용할 수 있는 공통 기준으로 정리했다.
+          </p>
+        </div>
+
+        <div class="transition-map" aria-label="반복 개선 과정">
+          <article>
+            <span class="label">01</span>
+            <h3>관찰과 기록</h3>
+            <p>테스트, 인터뷰와 제품 사용 중 발견한 피드백을 수집했다.</p>
+          </article>
+          <article>
+            <span class="label">02</span>
+            <h3>영향도 판단</h3>
+            <p>판독 정확성, 설비 판단, 작업 효율과 발생 빈도를 검토했다.</p>
+          </article>
+          <article>
+            <span class="label">03</span>
+            <h3>공동 결정</h3>
+            <p>개선안을 제안하고 사업·개발·AI팀과 범위와 우선순위를 정했다.</p>
+          </article>
+          <article>
+            <span class="label">04</span>
+            <h3>설계와 구현</h3>
+            <p>화면과 흐름을 설계하고 반복되는 UI 패턴과 상태를 정리했다.</p>
+          </article>
+          <article>
+            <span class="label">05</span>
+            <h3>제품·디자인 QA</h3>
+            <p>의도한 기능과 표현이 구현됐는지 확인하고 다음 개선으로 연결했다.</p>
+          </article>
+        </div>
+
+        <p class="decision">
+          반복 개발에 필요한 핵심 UI 패턴과 상태를 정리해 일관된 구현과 QA의
+          기준으로 사용했다.
+        </p>
+      </section>
+
+      <section id="adoption" class="page">
+        <div class="section-head">
+          <span class="section-number">08</span>
+          <h2>제품 밖까지 이어지는 도입 경험</h2>
+          <p class="section-intro">
+            산업용 소프트웨어의 도입은 구매로 끝나지 않는다. 배우고, 자격을
+            증명하고, 실제 현장에서 참고하는 과정까지 제품 경험으로 보았다.
+          </p>
+        </div>
+
+        <div class="content-grid two">
+          <article>
+            <p class="eyebrow">Adoption</p>
+            <h3>교육과 지속 사용</h3>
+            <ul>
+              <li>사용자 매뉴얼 템플릿과 문서 작성</li>
+              <li>Notion 기반 온라인 사용자 가이드 제안 및 운영</li>
+              <li>사용자 교육 문서</li>
+              <li>교육 수료증과 자격인증서</li>
+              <li>실물 자격증 제작 및 발송</li>
+            </ul>
+          </article>
+          <article>
+            <p class="eyebrow">Go-to-market</p>
+            <h3>시장에 설명되는 제품</h3>
+            <ul>
+              <li>공식 홈페이지 1·2차 리뉴얼</li>
+              <li>회사·상품·제품소개서</li>
+              <li>고객 및 조달 제안서</li>
+              <li>전시회 커뮤니케이션</li>
+              <li>광고, 홍보물과 브랜드 에셋 관리</li>
+            </ul>
+          </article>
+        </div>
+
+        <p class="decision">
+          제품 UI부터 교육, 홈페이지와 제안서까지 기술의 가치가 일관되게 설명될
+          수 있도록 주요 접점을 연결했다.
+        </p>
+
+        <p class="note">
+          편집 메모: 본문에는 온라인 가이드, 공식 홈페이지, 제품소개서와 전시회
+          등 대표 접점 3–4개만 사용한다. 명함, 스티커, 개별 광고와 반복 문서는
+          작은 아카이브로 압축한다.
+        </p>
+      </section>
+
+      <section id="outcome" class="page">
+        <div class="section-head">
+          <span class="section-number">09</span>
+          <h2>공개 가능한 결과</h2>
+          <p class="section-intro">
+            NDA로 매출과 계약 규모를 밝힐 수 없어도 제품의 상태와 업무 구조가
+            어떻게 달라졌는지는 구체적으로 설명할 수 있다.
+          </p>
+        </div>
+
+        <ul class="result-list">
+          <li>PoC 기능 구조에서 역할 기반 제품 구조로 확장</li>
+          <li>플랜트 운영자와 검사자의 흐름 및 권한 분리</li>
+          <li>프로젝트·설비·결과·데이터 관리 기능 구축</li>
+          <li>판독과 보고서 편집 사이의 화면 단절 제거</li>
+          <li>Excel 의존 보고서를 제품 내 작성 흐름으로 전환</li>
+          <li>보고서 기능의 별도 상품화</li>
+          <li>사용자 가이드와 교육·인증 경험 구축</li>
+          <li>검사 용역에서 실제 제품 활용</li>
+          <li>소프트웨어 단독 판매 단계 진입</li>
+        </ul>
+
+        <p class="note">
+          계약 규모, 매출, 도입 기업과 사용자 수는 비밀유지 의무에 따라 공개하지
+          않는다. 제품의 판매 여부와 공개 가능한 기능·프로세스 변화만 기술한다.
+        </p>
+      </section>
+
+      <section id="materials" class="page">
+        <div class="section-head">
+          <span class="section-number">10</span>
+          <h2>필요 자료와 편집 원칙</h2>
+          <p class="section-intro">
+            수백 개의 개선을 전부 보여주지 않는다. 제품의 상태를 바꾼 세 가지
+            판단을 깊게 설명하고 나머지는 범위를 증명하는 자료로 사용한다.
+          </p>
+        </div>
+
+        <div class="content-grid two">
+          <article>
+            <h3>본문에 필요한 증거</h3>
+            <div class="asset-index">
+              <div><span>01</span><p>PoC 단계의 초기 제품 캡처</p></div>
+              <div><span>02</span><p>사용자 테스트 환경과 익명 처리한 관찰 기록</p></div>
+              <div><span>03</span><p>피드백 분류 및 우선순위 자료 일부</p></div>
+              <div><span>04</span><p>판독 뷰어 전후 화면</p></div>
+              <div><span>05</span><p>역할·권한 매트릭스와 사용자 플로우</p></div>
+              <div><span>06</span><p>매니지먼트 정보 구조와 주요 화면</p></div>
+              <div><span>07</span><p>기존 Excel 보고서와 제품 내 보고서 비교</p></div>
+              <div><span>08</span><p>온라인 가이드와 대표 시장 접점</p></div>
+            </div>
+          </article>
+          <article>
+            <h3>최종 작성 전 확인</h3>
+            <div class="asset-index">
+              <div><span>01</span><p>테스트 시간과 비교 수치의 공개 가능 여부</p></div>
+              <div><span>02</span><p>보고서 기능의 정확한 판매 형태</p></div>
+              <div><span>03</span><p>EPRI AAPDD 및 한수원 BOPH의 공식 명칭</p></div>
+              <div><span>04</span><p>각 인증에서 공개 가능한 역할과 범위</p></div>
+              <div><span>05</span><p>개별 개선안의 직접 기여와 공동 결정 구분</p></div>
+              <div><span>06</span><p>화면과 자료에 포함된 고객·설비 데이터 비식별화</p></div>
+            </div>
+          </article>
+        </div>
+
+        <blockquote class="statement" style="margin-top: var(--section)">
+          여러 화면을 디자인한 기록이 아니라, 복잡한 기술을 현장에서 이해하고
+          구매하고 사용할 수 있는 제품으로 만들어간 기록.
+        </blockquote>
+      </section>
+    </main>
+
+    <footer class="page footer">
+      <p>
+        이 파일은 포트폴리오 상세 페이지의 콘텐츠 순서와 증거 자료를 검토하기
+        위한 참조 문서다. 실제 게시본에서는 미확인 표현과 placeholder를 제거한다.
+      </p>
+    </footer>
+  </body>
+</html>
