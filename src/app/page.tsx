@@ -32,7 +32,7 @@ export default function Home() {
     <>
       <a className="skipLink" href="#main">본문으로 건너뛰기</a>
       <div id="top" />
-      <SiteHeader />
+      <SiteHeader transparentOverHero />
 
       <main id="main">
         <div className={styles.heroStage}>

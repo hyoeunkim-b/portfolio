@@ -3,18 +3,24 @@
 import Image from "next/image";
 import Link from "next/link";
 import { assetPath } from "@/lib/asset-path";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import styles from "./site-header.module.css";
 
-export default function SiteHeader() {
+type SiteHeaderProps = {
+  transparentOverHero?: boolean;
+};
+
+export default function SiteHeader({ transparentOverHero = false }: SiteHeaderProps) {
   const [hidden, setHidden] = useState(false);
   const [inverted, setInverted] = useState(false);
+  const [overHero, setOverHero] = useState(transparentOverHero);
   const [menuOpen, setMenuOpen] = useState(false);
   const lastScrollY = useRef(0);
   const ticking = useRef(false);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const menuPanelRef = useRef<HTMLDivElement>(null);
+  const headerRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     lastScrollY.current = window.scrollY;
@@ -22,6 +28,10 @@ export default function SiteHeader() {
     const updateHeader = () => {
       const currentScrollY = window.scrollY;
       const difference = currentScrollY - lastScrollY.current;
+      const firstContentSection = transparentOverHero
+        ? document.getElementById("selected-projects-title")?.closest("section")
+        : null;
+      setOverHero(Boolean(firstContentSection && firstContentSection.getBoundingClientRect().top > 0));
       const howSection = document.getElementById("how-i-work");
       if (howSection) {
         const sectionRect = howSection.getBoundingClientRect();
@@ -46,7 +56,26 @@ export default function SiteHeader() {
     window.addEventListener("scroll", onScroll, { passive: true });
     updateHeader();
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [transparentOverHero]);
+
+  useLayoutEffect(() => {
+    const root = document.documentElement;
+    const header = headerRef.current;
+
+    const syncHeaderOffset = () => {
+      const height = header?.getBoundingClientRect().height ?? 0;
+      root.style.setProperty("--site-header-offset", hidden && !menuOpen ? "0px" : `${height}px`);
+    };
+
+    syncHeaderOffset();
+    const observer = header ? new ResizeObserver(syncHeaderOffset) : null;
+    if (header) observer?.observe(header);
+
+    return () => {
+      observer?.disconnect();
+      root.style.removeProperty("--site-header-offset");
+    };
+  }, [hidden, menuOpen]);
 
   useEffect(() => {
     if (!menuOpen) return;
@@ -94,7 +123,7 @@ export default function SiteHeader() {
   };
 
   return (
-    <header className={`${styles.header} ${hidden && !menuOpen ? styles.hidden : ""} ${inverted && !menuOpen ? styles.inverted : ""}`}>
+    <header ref={headerRef} className={`${styles.header} ${hidden && !menuOpen ? styles.hidden : ""} ${inverted && !menuOpen ? styles.inverted : ""} ${overHero && !menuOpen ? styles.transparent : ""}`}>
       <Link className={styles.identity} href="/" aria-label="홈으로 이동">
         <Image className={styles.logo} src={assetPath("/images/brand/logo.svg")} alt="" width={28} height={28} priority />
         <span>Designer <strong>HYOEUN KIM</strong></span>

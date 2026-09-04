@@ -1,9 +1,9 @@
 .detail{position:relative;z-index:3;background:var(--color-bg)}
 .cover{position:relative;display:grid;place-items:center;min-height:clamp(22rem,33.333vw,30rem);padding:6rem var(--page-gutter) 3rem;overflow:hidden;background:#aaa}
 .coverImage{object-fit:cover}.cover h1{position:relative;z-index:1;max-width:50rem;color:#fff;font-size:clamp(1.75rem,2.778vw,2.5rem);font-weight:700;line-height:1.25;text-align:center;word-break:keep-all;animation:detail-enter 2s cubic-bezier(.2,.75,.2,1) both}
-.overview{display:grid;gap:4rem;padding:6rem var(--page-gutter) 7rem;background:var(--color-bg)}
-.summaryBlock{display:grid;align-content:start;justify-items:start;gap:1.5rem;animation:detail-enter 2s 120ms cubic-bezier(.2,.75,.2,1) both}.summary{max-width:34rem;font-size:clamp(1rem,1.389vw,1.25rem);line-height:1.55;word-break:keep-all}.summaryLink{font-family:var(--font-ko);font-size:.9375rem;font-weight:700;text-decoration:underline;text-underline-offset:.3em}
-.metadata{display:grid;align-self:start;gap:2rem;font-family:var(--font-en);animation:detail-enter 2s 240ms cubic-bezier(.2,.75,.2,1) both}
+.overview{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4rem var(--grid-gap);padding:6rem var(--page-gutter) 7rem;background:var(--color-bg)}
+.summaryBlock{display:grid;grid-column:1/-1;align-content:start;justify-items:start;gap:1.5rem;animation:detail-enter 2s 120ms cubic-bezier(.2,.75,.2,1) both}.summary{max-width:34rem;font-size:clamp(1rem,1.389vw,1.25rem);line-height:1.55;word-break:keep-all}.summaryLink{font-family:var(--font-ko);font-size:.9375rem;font-weight:700;text-decoration:underline;text-underline-offset:.3em}
+.metadata{display:grid;grid-column:2/5;align-self:start;gap:2rem;font-family:var(--font-en);animation:detail-enter 2s 240ms cubic-bezier(.2,.75,.2,1) both}
 .metadata div{display:grid;align-content:start;gap:.5rem}.metadata dt{font-family:var(--font-ko);font-size:.8125rem;font-weight:700}.metadata dd{font-size:.9375rem;line-height:1.6}.metadata dd span{display:block}.website a{font-family:var(--font-ko);font-weight:700}
 .content{min-height:clamp(28rem,46vw,42rem);background:var(--color-bg)}
 .projectNavigation{display:grid;grid-template-columns:1fr 1fr;font-family:var(--font-ko)}

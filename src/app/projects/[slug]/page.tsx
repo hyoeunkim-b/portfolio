@@ -34,8 +34,10 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
   if (currentIndex === -1) notFound();
 
   const project = projects[currentIndex];
-  const previous = projects[(currentIndex - 1 + projects.length) % projects.length];
-  const next = projects[(currentIndex + 1) % projects.length];
+  const navigationProjects = projects.filter((item) => item.id !== "deep-ai");
+  const navigationIndex = navigationProjects.findIndex((item) => item.id === project.id);
+  const previous = navigationProjects[(navigationIndex - 1 + navigationProjects.length) % navigationProjects.length];
+  const next = navigationProjects[(navigationIndex + 1) % navigationProjects.length];
 
   return (
     <>
@@ -77,7 +79,7 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
             </Link>
           </nav>
         </article>
-        <ContactSection />
+        <ContactSection surface />
       </main>
     </>
   );
