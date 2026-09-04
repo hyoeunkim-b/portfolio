@@ -13,7 +13,7 @@ export default function ContactSection({ surface = false }: ContactSectionProps)
         <div className={styles.contactMessage}>
           <p id="contact-title" className={styles.eyebrow}>Contact</p>
           <div className={styles.contactCopy}>
-            <p>소통과 협업으로 더 나은 경험을 만들어 나가고 싶습니다.</p>
+            <p>소통과 협업으로 <span className={styles.mobileLine}>더 나은 경험을 만들어 나가고 싶습니다.</span></p>
             <p>함께 문제를 풀 동료가 필요하시다면</p>
             <p>언제든지 편하게 연락주세요.</p>
           </div>

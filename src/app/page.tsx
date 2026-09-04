@@ -22,9 +22,9 @@ const practices = [
 ];
 
 const process = [
-  { no: "01", title: "관찰하기.", subtitle: "Observe", description: "사용자 행동과 현재 상황을 살펴 문제의 단서와 질문을 발견합니다.", tags: ["인터뷰", "사용 흐름 관찰", "자료 조사"], image: assetPath("/illust-observe.svg") },
-  { no: "02", title: "연결하기.", subtitle: "Connect", description: "흩어진 정보와 의견 사이의 관계를 찾고 중요한 것부터 정리합니다.", tags: ["인사이트 분류", "정보 구조", "우선순위"], image: assetPath("/illust-connect.svg") },
-  { no: "03", title: "쓸모있게 만들기.", subtitle: "Make it useful", description: "정리된 생각을 화면과 프로토타입, 실제 결과물로 구체화합니다.", tags: ["콘셉트", "UI 디자인", "프로토타이핑"], image: assetPath("/illust-makeituseful.svg") },
+  { no: "01", title: "관찰하기.", subtitle: "Observe", description: <>사용자 행동과 현재 상황을 살펴 <br className={styles.mobileBreak} />문제의 단서와 질문을 발견합니다.</>, tags: ["인터뷰", "사용 흐름 관찰", "자료 조사"], image: assetPath("/illust-observe.svg") },
+  { no: "02", title: "연결하기.", subtitle: "Connect", description: <>흩어진 정보와 의견 사이의 관계를 찾고 <br className={styles.mobileBreak} />중요한 것부터 정리합니다.</>, tags: ["인사이트 분류", "정보 구조", "우선순위"], image: assetPath("/illust-connect.svg") },
+  { no: "03", title: "쓸모있게 만들기.", subtitle: "Make it useful", description: <>정리된 생각을 화면과 프로토타입, <br className={styles.mobileBreak} />실제 결과물로 구체화합니다.</>, tags: ["콘셉트", "UI 디자인", "프로토타이핑"], image: assetPath("/illust-makeituseful.svg") },
 ];
 
 export default function Home() {
