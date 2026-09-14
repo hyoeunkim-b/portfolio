@@ -149,12 +149,12 @@ Make it useful.
 --page-gutter: 1rem;        /* mobile initial */
 --grid-gap: 0.75rem;        /* mobile initial */
 --section-space: clamp(5rem, 9vw, 10rem);
---content-max: 100rem;       /* initial, 화면 검수 후 결정 */
+--content-max: 87.5rem;      /* 1400px, desktop 최대 콘텐츠 너비 */
 ```
 
 예상 breakpoint는 약 `48rem`과 `75rem`에서 시작할 수 있으나 콘텐츠가 깨지는 지점에 따라 확정한다. 기기 이름보다 레이아웃 필요를 기준으로 한다.
 
-1440px 데스크톱 기준 그리드는 12열, 좌우 마진 40px, 열 간격 40px을 사용한다. 데스크톱 진입 구간에서는 마진과 간격이 각각 최대 `2.5rem`까지 유동적으로 확장된다.
+1440px 데스크톱 기준 그리드는 12열, 좌우 마진 40px, 열 간격 40px을 사용한다. 데스크톱의 좌우 마진은 최소 40px을 유지하고, 뷰포트가 1480px을 넘으면 콘텐츠 너비가 1400px을 초과하지 않도록 양쪽 여백을 확장한다. 섹션 배경과 전체 폭 미디어는 뷰포트 너비를 유지한다.
 
 ### Responsive = recomposition, not scaling
 
