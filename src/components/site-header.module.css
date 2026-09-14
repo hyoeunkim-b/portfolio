@@ -43,8 +43,8 @@
 }
 .menuButton img { width: 32px; height: 32px; transition: filter var(--duration-fast) var(--ease-standard); }
 .inverted .menuButton img { filter: none; }
-.mobileMenu { position: fixed; z-index: -1; inset: 0; visibility: hidden; pointer-events: none; }
-.mobileMenuOpen { z-index: 60; visibility: visible; pointer-events: auto; }
+.mobileMenu { position: fixed; z-index: 60; inset: 0; visibility: hidden; pointer-events: none; transition: visibility 0s linear 320ms; }
+.mobileMenuOpen { visibility: visible; pointer-events: auto; transition-delay: 0s; }
 .menuBackdrop { position: absolute; inset: 0; border: 0; background: rgba(16, 16, 16, .35); opacity: 0; transition: opacity 320ms var(--ease-standard); }
 .mobileMenuOpen .menuBackdrop { opacity: 1; }
 .menuPanel {
@@ -63,10 +63,10 @@
   transition: transform 320ms var(--ease-standard);
 }
 .mobileMenuOpen .menuPanel { transform: translateX(0); }
-.menuTop { display: flex; align-items: center; justify-content: space-between; min-height: 44px; }
+.menuTop { display: flex; align-items: center; justify-content: space-between; min-height: 36px; }
 .menuIdentity { display: flex; align-items: center; gap: .45rem; font-size: .875rem; letter-spacing: .045em; }
 .menuIdentity strong { font-weight: 700; }
-.closeButton { position: relative; width: 44px; height: 44px; margin-right: -4px; border: 0; background: transparent; cursor: pointer; }
+.closeButton { position: relative; width: 44px; height: 44px; margin: -4px -4px -4px 0; border: 0; background: transparent; cursor: pointer; }
 .closeButton::before, .closeButton::after { position: absolute; top: 21px; left: 8px; width: 28px; height: 2px; background: currentColor; content: ""; }
 .closeButton::before { transform: rotate(45deg); }
 .closeButton::after { transform: rotate(-45deg); }
@@ -93,5 +93,5 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .header, .menuButton img, .menuBackdrop, .menuPanel { transition: none; }
+  .header, .menuButton img, .mobileMenu, .menuBackdrop, .menuPanel { transition: none; }
 }
