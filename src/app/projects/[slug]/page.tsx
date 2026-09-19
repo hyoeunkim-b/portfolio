@@ -9,7 +9,7 @@ import BluedotContent from "@/content/projects/bluedot";
 import ValrosContent from "@/content/projects/valros";
 import KitContent from "@/content/projects/kit";
 import PaiaContent from "@/content/projects/paia";
-import NdtContent from "@/content/projects/ndt";
+import NdtContent, { NdtOverview } from "@/content/projects/ndt";
 import styles from "./project-detail.module.css";
 
 type ProjectDetailPageProps = {
@@ -49,7 +49,7 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
             {project.cover ? <Image className={styles.coverImage} src={project.cover} alt="" fill priority sizes="100vw" /> : null}
             <h1>{project.title}</h1>
           </header>
-          <section className={styles.overview} aria-label="프로젝트 개요">
+          {project.id === "ndt" ? <NdtOverview /> : <section className={styles.overview} aria-label="프로젝트 개요">
             <div className={styles.summaryBlock}>
               <p className={styles.summary}>{project.summary}</p>
               {project.website ? <a className={styles.summaryLink} href={project.website}>사이트 바로가기 ↗</a> : null}
@@ -60,7 +60,7 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
               <div><dt>역할/기여</dt><dd>{project.roles.map((role) => <span key={role}>{role}</span>)}</dd></div>
               {project.team ? <div><dt>협업 인원</dt><dd>{project.team.map((member) => <span key={member}>{member}</span>)}</dd></div> : null}
             </dl>
-          </section>
+          </section>}
           <section className={styles.content} aria-label="프로젝트 상세 콘텐츠">
             {project.id === "bluedot" ? <BluedotContent /> : null}
             {project.id === "valros" ? <ValrosContent /> : null}
