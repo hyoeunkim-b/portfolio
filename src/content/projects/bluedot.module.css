@@ -1,6 +1,6 @@
 .content{padding:0 var(--page-gutter) 8rem;background:var(--color-bg)}
 .introduction,.sectionHeading{display:grid;gap:2rem;padding:7rem 0}
-.label{color:var(--color-accent);font-family:var(--font-en);font-size:.75rem;font-weight:600;text-transform:uppercase}
+.label{color:var(--project-accent-text);font-family:var(--font-en);font-size:.75rem;font-weight:600;text-transform:uppercase}
 .copy,.sectionHeading>div{display:grid;gap:1.25rem;max-width:47rem}
 .copy h2,.sectionHeading h2{font-size:clamp(1.3125rem,2.5vw,2.25rem);font-weight:600;line-height:1.25;letter-spacing:-.025em;word-break:keep-all}
 .copy p,.sectionHeading>div>p{font-size:clamp(1rem,1.389vw,1.25rem);line-height:1.7;word-break:keep-all}

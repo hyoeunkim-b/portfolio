@@ -1,3 +1,5 @@
+import { ProjectOverview } from "@/components/project-detail/elements";
+import { projectThemeStyle } from "@/lib/project-theme";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -44,23 +46,20 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
       <a className="skipLink" href="#main">본문으로 건너뛰기</a><div id="top" />
       <SiteHeader />
       <main id="main">
-        <article className={styles.detail}>
+        <article className={styles.detail} style={projectThemeStyle(project.theme)}>
           <header className={styles.cover}>
             {project.cover ? <Image className={styles.coverImage} src={project.cover} alt="" fill priority sizes="100vw" /> : null}
             <h1>{project.title}</h1>
           </header>
-          {project.id === "ndt" ? <NdtOverview /> : <section className={styles.overview} aria-label="프로젝트 개요">
-            <div className={styles.summaryBlock}>
-              <p className={styles.summary}>{project.summary}</p>
-              {project.website ? <a className={styles.summaryLink} href={project.website}>사이트 바로가기 ↗</a> : null}
-            </div>
-            <dl className={styles.metadata}>
-              <div><dt>기업/클라이언트</dt><dd>{project.client}</dd></div>
-              <div><dt>진행 기간</dt><dd>{project.period}</dd></div>
-              <div><dt>역할/기여</dt><dd>{project.roles.map((role) => <span key={role}>{role}</span>)}</dd></div>
-              {project.team ? <div><dt>협업 인원</dt><dd>{project.team.map((member) => <span key={member}>{member}</span>)}</dd></div> : null}
-            </dl>
-          </section>}
+          {project.id === "ndt" ? <NdtOverview /> : <ProjectOverview metadata={[
+            { label: "기업/클라이언트", value: project.client },
+            { label: "진행 기간", value: project.period },
+            { label: "역할/기여", value: project.roles.map((role) => <span key={role}>{role}</span>) },
+            ...(project.team ? [{ label: "협업 인원", value: project.team.map((member) => <span key={member}>{member}</span>) }] : []),
+          ]}>
+            <p>{project.summary}</p>
+            {project.website ? <a href={project.website}>사이트 바로가기 ↗</a> : null}
+          </ProjectOverview>}
           <section className={styles.content} aria-label="프로젝트 상세 콘텐츠">
             {project.id === "bluedot" ? <BluedotContent /> : null}
             {project.id === "valros" ? <ValrosContent /> : null}

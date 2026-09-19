@@ -1,3 +1,4 @@
+import type { ProjectTheme } from "@/lib/project-theme";
 import { assetPath } from "@/lib/asset-path";
 
 export type Project = {
@@ -13,10 +14,11 @@ export type Project = {
   cover?: string;
   listingCover?: string;
   website?: string;
+  theme?: ProjectTheme;
 };
 
 export const projects: Project[] = [
-  { id: "ndt", title: "AI 기반 비파괴검사 소프트웨어 DEEP-NDT", categories: ["digital-products", "ai-workflow"], keywords: "Digital Products · AI-Enhanced Workflow", summary: "기술 검증용 MVP에서 시작한 AI 기반 비파괴검사 소프트웨어를 실제 현장에서 도입하고 판매할 수 있는 제품 경험으로 확장했습니다.", client: "DEEP-AI", period: "2024. 8. – 2026. 8.", roles: ["Product Designer"], team: ["사업총괄 2", "Product Designer 1 (본인)", "개발팀 6", "AI팀 10"], cover: assetPath("/images/projects/ndt/cover-v2.png"), listingCover: assetPath("/images/projects/ndt/cover-v2.png") },
+  { id: "ndt", theme: { accent: "#2566ff", accentText: "#215edc", accentSurface: "#e8f0ff", onAccent: "#ffffff" }, title: "AI 기반 비파괴검사 소프트웨어 DEEP-NDT", categories: ["digital-products", "ai-workflow"], keywords: "Digital Products · AI-Enhanced Workflow", summary: "기술 검증용 MVP에서 시작한 AI 기반 비파괴검사 소프트웨어를 실제 현장에서 도입하고 판매할 수 있는 제품 경험으로 확장했습니다.", client: "DEEP-AI", period: "2024. 8. – 2026. 8.", roles: ["Product Designer"], team: ["사업총괄 2", "Product Designer 1 (본인)", "개발팀 6", "AI팀 10"], cover: assetPath("/images/projects/ndt/cover-v2.png"), listingCover: assetPath("/images/projects/ndt/cover-v2.png") },
   { id: "paia", title: "비파괴검사 솔루션 기업 DEEP-AI 웹사이트", categories: ["websites", "ai-workflow"], keywords: "Websites · AI-Enhanced Workflow", summary: "회사와 제품을 소개하는 웹사이트를 비즈니스 문의와 채용 지원 데이터를 확보하는 리드 중심의 서비스로 전환했습니다.", client: "DEEP-AI", period: "2026. 6. – 2026. 7.", roles: ["Project Manager", "UX/UI 기획 및 디자인", "콘텐츠 기획 및 제작", "웹 퍼블리싱"], team: ["외부 기획자 1", "Designer & PM 1 (본인)", "개발팀 2"], cover: assetPath("/images/projects/paia/cover2.jpg"), listingCover: assetPath("/images/projects/paia/cover2.jpg"), website: "https://deep-ai.kr/ko" },
   { id: "deep-ai", title: "비파괴검사 솔루션 기업 DEEP-AI 브랜드 에셋", categories: ["brand-identities", "editorials"], keywords: "Brand Identities · Editorials", summary: "기술 기업의 전문성과 방향을 일관된 인상으로 전달할 수 있도록 브랜드의 시각 언어와 활용 체계를 만들었습니다.", client: "DEEP-AI", period: "2024", roles: ["Brand Designer"], cover: assetPath("/images/projects/paia/cover.png") },
   { id: "valros", title: "VR 콘텐츠 제작 소프트웨어 VALROS Web VR Editor", categories: ["digital-products", "websites"], keywords: "Digital Products · Websites", summary: "웹에서 VR 시나리오를 만들고 HMD에서 실행할 수 있는 에디터의 사용 흐름을 개선하고, 고도화 단계의 UX/UI를 설계했습니다.", client: "국립과학수사연구원 본원", period: "2023. 8. – 2024. 4.", roles: ["UX/UI 기획 및 디자인 100%", "웹 퍼블리싱 100%"], cover: assetPath("/images/projects/valros/cover.png"), listingCover: assetPath("/images/projects/valros/cover2.png") },

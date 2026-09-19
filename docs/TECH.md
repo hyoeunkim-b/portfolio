@@ -219,3 +219,13 @@ format → lint → typecheck → build → browser review → accessibility rev
 - 참조 이미지와 실제 서비스 자산을 구분하고, 제공·추출한 로컬 자산의 경로와 용도를 프로젝트 문서에 기록한다. 만료되는 Figma URL을 서비스 코드에 남기지 않는다.
 - 정리 후 변경 범위에 맞는 린트·타입 검사·빌드와 모바일·태블릿·데스크톱 검수를 수행한다. 줄바꿈, 이미지 비율, 가로 넘침, 슬라이드 시작·끝 여백 및 키보드 동작을 확인한다.
 - 문서에는 최종 규칙과 검수 상태를 기록한다. 계획된 코드 정리를 이미 완료한 작업처럼 기록하지 않는다.
+
+## 프로젝트 상세 공통화 — 2026-09-19
+
+- `src/components/project-detail/elements.tsx`에 서버 컴포넌트 `ProjectOverview`, `ProjectSectionHeading`, `ProjectFigure`, `ProjectReflections`를 둔다.
+- `src/components/project-detail/elements.module.css`의 `band`, `section`은 프로젝트 CSS에서 `composes`로 재사용한다. 모바일을 기본으로 48rem·75rem 확장 규칙을 둔다.
+- 프로젝트별 색상은 `src/data/projects.ts`의 `theme`에 지정한다. `src/lib/project-theme.ts`가 상세 article에 `--project-accent`, `--project-accent-text`, `--project-accent-surface`, `--project-on-accent`를 적용한다. 전역 브랜드 토큰은 덮어쓰지 않는다.
+- `ProjectFigure.src`에는 `/images/...`처럼 base path를 붙이지 않은 경로를 전달한다. 내부에서 `assetPath()`를 적용한다. 크기와 alt는 필수이며, 캡션·그림자·모바일 캡션 정렬은 선택 사항이다.
+- `ProjectOverview.metadata`는 `{ label, value, wide? }` 배열이다. 본문과 value는 ReactNode로 받아 프로젝트별 문단·줄바꿈을 보존한다.
+- DEEP-NDT 공통 요소와 프로젝트 전용 CSS의 중복 정의를 정리했다. 모바일 기본값과 48rem·75rem 확장 규칙으로 묶고, 사용하지 않는 스타일과 불필요한 !important를 제거했다.
+- 다음 프로젝트 작성 예시와 적용 범위는 `docs/projects/shared-elements.md`를 참고한다.

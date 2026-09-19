@@ -1,0 +1,61 @@
+/* Shared case-study elements. Project colors are inherited from the article. */
+.overview {
+  display: grid;
+  gap: 5rem;
+  padding: 5rem var(--page-gutter);
+  color: var(--color-fg);
+  font-family: var(--font-ko);
+  font-size: 1rem;
+  line-height: 1.6;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+.overviewCopy p + p { margin-top: .5rem; }
+.overviewCopy a { display: inline-block; margin-top: 1.5rem; font-size: .9375rem; font-weight: 700; text-decoration: underline; text-underline-offset: .3em; }
+.overviewCopy a:hover { color: var(--project-accent-text); }
+.metadata { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem 1rem; font-size: .9375rem; }
+.metadata dt { font-weight: 700; margin-bottom: .5rem; }
+.metadata dd span { display: block; }
+.wideMetadata { grid-column: 1 / -1; }
+
+.heading { display: grid; gap: 1.5rem; }
+.label { color: var(--project-accent-text); font-size: .8125rem; font-weight: 600; }
+.copy { display: grid; gap: 1.5rem; min-width: 0; }
+.copy h2 { font-size: clamp(1.5rem, 2.153vw, 1.9375rem); font-weight: 600; line-height: 1.35; letter-spacing: -.04em; }
+.resultLabel { justify-self: start; align-self: start; border: 1px solid #101010; border-radius: 2rem; padding: .25rem 1rem; font-size: 1rem; }
+
+.figure { min-width: 0; margin: 0; }
+.figure img { width: 100%; height: auto; }
+.figure figcaption { margin-top: .75rem; color: var(--project-muted, #657080); font-size: .9375rem; line-height: 1.4; }
+.shadow img { box-shadow: 0 .25rem 1.25rem rgb(0 0 0 / 16%); }
+.halfCaption figcaption { margin-left: calc(50% + .625rem); }
+
+.reflections { display: grid; gap: 1.5rem; margin-left: calc(25% + .9375rem); }
+.reflections > div { display: grid; gap: .75rem; border-top: 1px solid #d9dee5; padding-top: 1.5rem; }
+.reflections > div:last-child { border-bottom: 1px solid #d9dee5; padding-bottom: 1.5rem; }
+.reflections dt { font-size: 1.3125rem; font-weight: 700; color: var(--project-accent-text); }
+
+/* Section rhythm; compose these classes in project-specific CSS Modules. */
+.band { display: grid; gap: 10rem; padding: 5rem var(--page-gutter); }
+.section { display: grid; gap: 2.5rem; min-width: 0; }
+.section > .heading + * { margin-top: 2.5rem; }
+
+@media (min-width: 48rem) {
+  .overview { grid-template-columns: 1fr 1fr; gap: 2.5rem; padding-block: 7.5rem; }
+  .halfCaption figcaption { margin-left: 0; }
+  .reflections { margin-left: 0; }
+  .reflections > div { grid-template-columns: 1fr 2fr; gap: 2.5rem; }
+  .band { gap: 8rem; padding-block: 7.5rem; }
+  .section { gap: 4rem; }
+  .section > .heading + * { margin-top: 0; }
+}
+@media (min-width: 75rem) {
+  .overview { font-size: 1.0625rem; letter-spacing: -.025em; }
+  .metadata { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 4rem 2.5rem; }
+  .wideMetadata { grid-column: span 2; }
+  .heading { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 2.5rem; }
+  .copy { grid-column: 2 / -1; }
+  .reflections > div { grid-template-columns: 310fr 660fr; }
+  .band { gap: 12.5rem; padding-top: 10rem; }
+  .section { gap: 5rem; }
+}
