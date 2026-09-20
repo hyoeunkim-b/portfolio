@@ -48,7 +48,7 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
       <main id="main">
         <article className={styles.detail} style={projectThemeStyle(project.theme)}>
           <header className={styles.cover}>
-            {project.cover && project.id !== "paia" ? <Image className={styles.coverImage} src={project.cover} alt="" fill priority sizes="100vw" /> : null}
+            {project.cover ? <Image className={styles.coverImage} src={project.cover} alt="" fill priority sizes="100vw" /> : null}
             <h1>{project.title}</h1>
           </header>
           {project.id === "ndt" ? <NdtOverview /> : project.id === "paia" ? <PaiaOverview /> : <ProjectOverview metadata={[
