@@ -56,6 +56,6 @@ import styles from "./project.module.css";
 - 위 예시의 콘텐츠·이미지 경로는 사용법 설명용이며 실제 프로젝트 자료로 교체한다.
 - `ProjectSectionHeading`의 `result` 옵션은 기존 결과 태그의 테두리 스타일이다.
 - `ProjectFigure`는 기본적으로 그림자가 없다. 검수된 화면에만 `shadow` 옵션을 사용한다.
-- `ProjectReflections`의 제목·설명·구분선은 모바일 우측 3열에 함께 정렬된다. 큰 화면의 추가 들여쓰기는 프로젝트에서 `className`으로 지정한다.
+- `ProjectReflections`의 제목·설명·구분선은 모바일 우측 3열에 함께 정렬된다. 75rem 이상에서는 상단 제목·설명과 같은 열에서 시작하도록 목록 전체를 들여쓴다.
 - 요약은 공통 route에서 `ProjectOverview`로 표시한다. 긴 소개 문단 등 별도 콘텐츠가 필요한 경우에도 같은 컴포넌트를 사용한다.
 - GIF 목업, 도식, 수치 카드, 슬라이드는 본문의 필요에 맞춰 개별 구성한다.

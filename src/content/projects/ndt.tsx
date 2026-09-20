@@ -98,7 +98,7 @@ export default function NdtContent() {
       </section>
       <section className={styles.part}>
         <Heading className={styles.heading} label="회고" title="도메인과 사용자 이해를 설계의 판단 기준으로"><p>비파괴검사에 대한 이해가 깊어질수록 사용자가 겪는 어려움과 필요한 기능을 더 구체적으로 판단할 수 있었습니다.</p><p>사용자의 요구를 이해하는 데서 나아가, 어떤 기능이 실제 도입과 구매로 이어질 수 있는지 살펴보는 시각도 얻었습니다.</p><p>앞으로도 도메인과 사용자에 대한 이해를 설계의 출발점으로 삼겠습니다.</p></Heading>
-        <ProjectReflections className={styles.inset} items={[
+        <ProjectReflections items={[
           { title: "데이터로 판단하고, 검증 근거 남기기", description: "데이터를 바탕으로 개선 방향을 정하면서 불필요한 논의를 줄였고, 사용자 설득에 활용했습니다." },
           { title: "파일럿부터 판매까지 경험 넓히기", description: "제품 라이프 사이클을 경험하며, 화면을 넘어 도입과 운영까지 살피는 관점을 키웠습니다." },
           { title: "역할의 경계보다 문제 해결에 집중하기", description: "문제 해결에 필요한 일이라면 역할에 한계를 두지 않고 적극적으로 제안하고 실행했습니다." }

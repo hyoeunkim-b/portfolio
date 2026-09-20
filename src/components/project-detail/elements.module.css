@@ -55,6 +55,7 @@
   .wideMetadata { grid-column: span 2; }
   .heading { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 2.5rem; }
   .copy { grid-column: 2 / -1; }
+  .reflections { margin-left: calc((100% - 7.5rem) / 4 + 2.5rem); }
   .reflections > div { grid-template-columns: 310fr 660fr; }
   .band { gap: 12.5rem; padding-top: 10rem; }
   .section { gap: 5rem; }
