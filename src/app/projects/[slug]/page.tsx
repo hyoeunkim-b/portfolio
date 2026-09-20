@@ -10,7 +10,7 @@ import { projects } from "@/data/projects";
 import BluedotContent from "@/content/projects/bluedot";
 import ValrosContent from "@/content/projects/valros";
 import KitContent from "@/content/projects/kit";
-import PaiaContent from "@/content/projects/paia";
+import PaiaContent, { PaiaOverview } from "@/content/projects/paia";
 import NdtContent, { NdtOverview } from "@/content/projects/ndt";
 import styles from "./project-detail.module.css";
 
@@ -48,10 +48,10 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
       <main id="main">
         <article className={styles.detail} style={projectThemeStyle(project.theme)}>
           <header className={styles.cover}>
-            {project.cover ? <Image className={styles.coverImage} src={project.cover} alt="" fill priority sizes="100vw" /> : null}
+            {project.cover && project.id !== "paia" ? <Image className={styles.coverImage} src={project.cover} alt="" fill priority sizes="100vw" /> : null}
             <h1>{project.title}</h1>
           </header>
-          {project.id === "ndt" ? <NdtOverview /> : <ProjectOverview metadata={[
+          {project.id === "ndt" ? <NdtOverview /> : project.id === "paia" ? <PaiaOverview /> : <ProjectOverview metadata={[
             { label: "기업/클라이언트", value: project.client },
             { label: "진행 기간", value: project.period },
             { label: "역할/기여", value: project.roles.map((role) => <span key={role}>{role}</span>) },
