@@ -22,7 +22,7 @@
 .comparison { display: grid; gap: 4rem; }
 .mobileMockup { display: none; }
 .newMockups { min-width: 0; }
-.chart { max-width: 40rem; }
+.chart { max-width: 40rem; padding: 1.5rem; background: #fff; border-radius: .5rem; }
 .chart figcaption { margin-bottom: 1.75rem; font-size: 1.125rem; font-weight: 700; }
 .chart dl { display: grid; gap: 1.25rem; }
 .chart dl > div { display: grid; grid-template-columns: 4.5rem minmax(0, 1fr); gap: 1rem; align-items: center; }
@@ -58,6 +58,7 @@
 .results h3::after { content: ''; display: block; width: 1.5rem; height: 1px; margin: 1rem auto; background: #d9dee5; }
 .results p { max-width: 15rem; margin-inline: auto; }
 @media (min-width: 48rem) {
+  .chart { padding: 2.5rem; }
   .laptop > img { display: block; aspect-ratio: 1653 / 1005.47; }
   .laptop .screenVideo { position: absolute; left: 11.494253%; top: 13.02521%; width: 77.011494%; height: 75.14%; aspect-ratio: auto; }
   .content { font-size: 1.0625rem; }
@@ -71,7 +72,8 @@
   .results { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2.5rem; }
   .oldMockup { margin-left: 20.6%; }
   .newMockups { display: grid; grid-template-columns: 18.3fr 79.4fr; gap: 2.3%; align-items: end; }
-  .mobileMockup { display: block; padding-bottom: 3.7rem; }
+  /* Keep the PC aligned with the old site while the mobile video is pending. */
+  .newMockups > .videoFigure { grid-column: 2; }
   .comparison { gap: 5rem; }
 }
 @media (min-width: 75rem) {
