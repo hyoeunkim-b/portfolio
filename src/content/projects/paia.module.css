@@ -2,7 +2,7 @@
 .band { composes: band from "../../components/project-detail/elements.module.css"; }
 .section { composes: section from "../../components/project-detail/elements.module.css"; }
 .gray { background: #f5f5f5; }
-.inset { min-width: 0; margin-left: 0; }
+.section > .inset { min-width: 0; margin-left: 0; }
 .accent { color: var(--project-accent-text); }
 .preview { display: grid; justify-items: center; gap: 2rem; padding: 0 var(--page-gutter) 5rem; }
 .siteLink { border: 1px solid currentColor; padding: .5rem 1rem; font-size: .9375rem; font-weight: 700; }
@@ -77,9 +77,8 @@
   .comparison { gap: 5rem; }
 }
 @media (min-width: 75rem) {
-  .heading { grid-template-columns: repeat(6, minmax(0, 1fr)); }
-  .heading > div { grid-column: 2 / -1; }
-  .inset { margin-left: calc((100% - 12.5rem) / 6 + 2.5rem); }
+  /* Match the shared heading: one of four columns plus its 2.5rem gutter. */
+  .section > .inset { margin-left: calc(25% + .625rem); }
   .band { padding-bottom: 10rem; }
   .goal > div { padding-block: 3.5rem; }
   .goal p { font-size: 1.3125rem; }
