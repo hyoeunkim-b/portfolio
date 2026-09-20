@@ -15,8 +15,8 @@
 .monitor > img, .laptop > img { display: block; width: 100%; height: auto; }
 .screenVideo, .oldScreen { position: absolute; left: 1.288%; top: 5.9369%; width: 97.424%; height: 91.558%; background: #fff; }
 .screenVideo { object-fit: contain; object-position: top; }
-.laptop .screenVideo { left: 11.494253%; top: 13.02521%; width: 77.011494%; height: 75.14%; }
-.laptop > img { aspect-ratio: 1653 / 1005.47; }
+.laptop .screenVideo { position: static; display: block; width: 100%; height: auto; aspect-ratio: 1280 / 692; }
+.laptop > img { display: none; }
 .oldScreen { overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; }
 .oldScreen > img { display: block; width: 100%; height: auto; }
 .comparison { display: grid; gap: 4rem; }
@@ -58,6 +58,8 @@
 .results h3::after { content: ''; display: block; width: 1.5rem; height: 1px; margin: 1rem auto; background: #d9dee5; }
 .results p { max-width: 15rem; margin-inline: auto; }
 @media (min-width: 48rem) {
+  .laptop > img { display: block; aspect-ratio: 1653 / 1005.47; }
+  .laptop .screenVideo { position: absolute; left: 11.494253%; top: 13.02521%; width: 77.011494%; height: 75.14%; aspect-ratio: auto; }
   .content { font-size: 1.0625rem; }
   .preview { padding-bottom: 10rem; }
   .preview > figure { max-width: 80rem; }
