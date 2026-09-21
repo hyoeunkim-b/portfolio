@@ -11,6 +11,7 @@ import BluedotContent from "@/content/projects/bluedot";
 import ValrosContent from "@/content/projects/valros";
 import KitContent from "@/content/projects/kit";
 import PaiaContent, { PaiaOverview } from "@/content/projects/paia";
+import DabrandContent, { DabrandOverview } from "@/content/projects/dabrand";
 import NdtContent, { NdtOverview } from "@/content/projects/ndt";
 import styles from "./project-detail.module.css";
 
@@ -36,7 +37,7 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
   if (currentIndex === -1) notFound();
 
   const project = projects[currentIndex];
-  const navigationProjects = projects.filter((item) => item.id !== "deep-ai");
+  const navigationProjects = projects;
   const navigationIndex = navigationProjects.findIndex((item) => item.id === project.id);
   const previous = navigationProjects[(navigationIndex - 1 + navigationProjects.length) % navigationProjects.length];
   const next = navigationProjects[(navigationIndex + 1) % navigationProjects.length];
@@ -47,11 +48,11 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
       <SiteHeader />
       <main id="main">
         <article className={styles.detail} style={projectThemeStyle(project.theme)}>
-          <header className={styles.cover}>
+          <header className={`${styles.cover} ${project.id === "deep-ai" ? styles.brandCover : ""}`}>
             {project.cover ? <Image className={styles.coverImage} src={project.cover} alt="" fill priority sizes="100vw" /> : null}
             <h1>{project.title}</h1>
           </header>
-          {project.id === "ndt" ? <NdtOverview /> : project.id === "paia" ? <PaiaOverview /> : <ProjectOverview metadata={[
+          {project.id === "ndt" ? <NdtOverview /> : project.id === "paia" ? <PaiaOverview /> : project.id === "deep-ai" ? <DabrandOverview /> : <ProjectOverview metadata={[
             { label: "기업/클라이언트", value: project.client },
             { label: "진행 기간", value: project.period },
             { label: "역할/기여", value: project.roles.map((role) => <span key={role}>{role}</span>) },
@@ -66,6 +67,7 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
             {project.id === "kit" ? <KitContent /> : null}
             {project.id === "paia" ? <PaiaContent /> : null}
             {project.id === "ndt" ? <NdtContent /> : null}
+            {project.id === "deep-ai" ? <DabrandContent /> : null}
           </section>
           <nav className={styles.projectNavigation} aria-label="이전 및 다음 프로젝트">
             <Link href={`/projects/${previous.id}`}>

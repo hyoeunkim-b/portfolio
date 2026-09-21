@@ -7,7 +7,7 @@ import { projects as projectData } from "@/data/projects";
 import { assetPath } from "@/lib/asset-path";
 import styles from "./page.module.css";
 
-const projects = projectData.filter((project) => project.id !== "deep-ai").map((project, index) => ({
+const projects = projectData.map((project, index) => ({
   ...project,
   no: String(index + 1).padStart(2, "0"),
   category: project.keywords,

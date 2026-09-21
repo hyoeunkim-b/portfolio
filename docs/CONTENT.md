@@ -35,7 +35,7 @@ Hero의 영문 문구는 화면 폭과 조형 의도에 따라 `Observe. Connect
 
 ### Home section decisions — 2026-08-31
 
-- Selected Projects는 대표 작업 5개를 비대칭으로 큐레이션하고, 각 이미지 전환은 결과의 다른 맥락이나 판단을 보여준다.
+- Selected Projects는 대표 작업 6개를 비대칭으로 큐레이션하고, 각 이미지 전환은 결과의 다른 맥락이나 판단을 보여준다.
 - About의 작업 영역은 `Digital Products`, `Websites`, `Brand Identities`, `Editorials`, `AI-Enhanced Workflow` 다섯 가지 역량 키워드로 표현한다. 세부 역량은 보조 문구로 두고, 관련 프로젝트 아카이브의 상위 분야 필터로 연결한다.
 - How I Work는 `관찰하기 → 연결하고 구조화하기 → 쓸 수 있게 만들기`의 세 단계로 구성한다. 각 단계는 행동, 방법, 상대가 얻게 되는 구체적인 변화를 함께 제공한다.
 - Contact는 공개 연락용 이메일 `hello.hyobee@gmail.com`과 카카오톡 경로, 실제 작업 장면, 페이지 상단으로 돌아가는 링크를 제공한다. 카카오톡 공개 링크는 `TBD`다.
@@ -70,7 +70,7 @@ Work는 대표 프로젝트와 깊이 있는 사례를 담는다. 각 항목은 
 - 상단 필터는 `Digital Products`, `Websites`, `Brand Identities`, `Editorials`, `AI-Enhanced Workflow`를 사용하고 각 숫자는 실제 연결된 프로젝트 수에서 계산한다.
 - 모바일의 상단 필터는 한 줄로 유지하고 좌우 스크롤로 전체 카테고리를 탐색한다. 모바일과 데스크톱 모두 페이지를 내리면 필터가 화면 상단에 고정되며, 헤더가 나타날 때는 실제 헤더 높이만큼 함께 내려가 두 영역이 겹치지 않는다. 반투명 흰 배경과 제한적인 배경 흐림으로 아래 콘텐츠와 구분한다.
 - 실제 정보가 확인된 프로젝트만 노출하며, 아직 없는 항목을 와이어프레임의 개수에 맞추기 위해 임의로 생성하지 않는다.
-- 비공개 상태인 `DEEP-AI 브랜드 에셋`은 프로젝트 인덱스뿐 아니라 상세 페이지의 이전·다음 프로젝트 탐색에서도 제외한다.
+- 2026-09-21: `DEEP-AI 편집 & 브랜드 디자인`을 공개하고 Home, All 목록의 세 번째 항목과 이전·다음 탐색에 포함한다. 대표 이미지는 `dabrand/proj_list_dabrand.webp`를 사용한다. 상세 기준은 [DEEP-AI 편집·브랜드 디자인](projects/deep-ai-brand.md)을 따른다.
 - Home, 프로젝트 인덱스와 상세 페이지는 같은 Header와 Contact 컴포넌트를 사용한다.
 
 ### Detail structure

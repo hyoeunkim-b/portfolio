@@ -15,7 +15,7 @@ const filters = [
   { id: "ai-workflow", label: "AI-Enhanced Workflow" },
 ];
 
-const visibleProjects = projects.filter((project) => project.id !== "deep-ai");
+const visibleProjects = projects;
 
 export default function ProjectArchive() {
   const params = useSearchParams();
