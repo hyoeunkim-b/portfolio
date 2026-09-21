@@ -174,7 +174,7 @@ export default function SiteHeader({ transparentOverHero = false }: SiteHeaderPr
             </div>
             <div className={styles.menuContactMethods}>
               <a href="mailto:hello.hyobee@gmail.com" tabIndex={menuOpen ? 0 : -1}>hello.hyobee@gmail.com</a>
-              <span aria-label="카카오톡 링크 준비 중">KakaoTalk</span>
+              <a href="https://pf.kakao.com/_xjxdxdxaX/chat" target="_blank" rel="noopener noreferrer" tabIndex={menuOpen ? 0 : -1} onClick={() => closeMenu()}>KakaoTalk</a>
             </div>
           </div>
         </div>
