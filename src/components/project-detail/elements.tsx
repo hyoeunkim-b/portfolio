@@ -63,3 +63,7 @@ export function ProjectReflections({ items, className = "" }: {
     {items.map(({ title, description }) => <div key={title}><dt>{title}</dt><dd>{description}</dd></div>)}
   </dl>;
 }
+
+export function ProjectProductLink({ href, children }: { href: string; children: ReactNode }) {
+  return <a href={href} target="_blank" rel="noreferrer" className={styles.productLink}>{children} <span aria-hidden="true">↗</span><span className={styles.srOnly}> (새 창)</span></a>;
+}

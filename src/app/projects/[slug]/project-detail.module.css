@@ -11,3 +11,7 @@
 @media(max-width:39.999rem){.projectNavigation{grid-template-columns:1fr}.projectNavigation a{min-height:10rem}}
 @media(hover:hover) and (pointer:fine){.projectNavigation a{transition:filter var(--duration-fast)}.projectNavigation a:hover,.projectNavigation a:focus-visible{filter:brightness(.9)}}
 @media(prefers-reduced-motion:reduce){.cover h1{animation:none}.projectNavigation a{transition:none}}
+
+.cover.valrosCover{min-height:30rem;padding-block:12.5rem 7.5rem}.valrosCover .coverImage{object-position:center}.cover.valrosCover h1{font-size:clamp(1.75rem,2.43vw,2.1875rem);line-height:1.4;letter-spacing:-.04em}.valrosCover::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.35)}
+
+@media(max-width:47.999rem){.valrosCover .coverImage{object-position:right center}}

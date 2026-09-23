@@ -8,7 +8,7 @@ import ContactSection from "@/components/contact-section";
 import SiteHeader from "@/components/site-header";
 import { projects } from "@/data/projects";
 import BluedotContent from "@/content/projects/bluedot";
-import ValrosContent from "@/content/projects/valros";
+import ValrosContent, { ValrosOverview } from "@/content/projects/valros";
 import KitContent from "@/content/projects/kit";
 import PaiaContent, { PaiaOverview } from "@/content/projects/paia";
 import DabrandContent, { DabrandOverview } from "@/content/projects/dabrand";
@@ -48,11 +48,11 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
       <SiteHeader />
       <main id="main">
         <article className={styles.detail} style={projectThemeStyle(project.theme)}>
-          <header className={`${styles.cover} ${project.id === "deep-ai" ? styles.brandCover : ""}`}>
+          <header className={`${styles.cover} ${project.id === "deep-ai" ? styles.brandCover : project.id === "valros" ? styles.valrosCover : ""}`}>
             {project.cover ? <Image className={styles.coverImage} src={project.cover} alt="" fill priority sizes="100vw" /> : null}
-            <h1>{project.title}</h1>
+            <h1>{project.id === "valros" ? <>VR 콘텐츠 제작 소프트웨어<br />VARLOS Web VR Editor</> : project.title}</h1>
           </header>
-          {project.id === "ndt" ? <NdtOverview /> : project.id === "paia" ? <PaiaOverview /> : project.id === "deep-ai" ? <DabrandOverview /> : <ProjectOverview metadata={[
+          {project.id === "ndt" ? <NdtOverview /> : project.id === "paia" ? <PaiaOverview /> : project.id === "deep-ai" ? <DabrandOverview /> : project.id === "valros" ? <ValrosOverview /> : <ProjectOverview metadata={[
             { label: "기업/클라이언트", value: project.client },
             { label: "진행 기간", value: project.period },
             { label: "역할/기여", value: project.roles.map((role) => <span key={role}>{role}</span>) },

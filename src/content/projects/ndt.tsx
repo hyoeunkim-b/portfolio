@@ -1,4 +1,4 @@
-import { ProjectOverview, ProjectSectionHeading as Heading, ProjectFigure, ProjectReflections } from "@/components/project-detail/elements";
+import { ProjectProductLink, ProjectOverview, ProjectSectionHeading as Heading, ProjectFigure, ProjectReflections } from "@/components/project-detail/elements";
 import type { ReactNode } from "react";
 import styles from "./ndt.module.css";
 import NdtAiMobile from "./ndt-ai-mobile";
@@ -30,7 +30,7 @@ export function NdtOverview() {
 
 export default function NdtContent() {
   return <div className={styles.content}>
-    <div className={styles.preview}><a href="https://deep-ndt.kr" target="_blank" rel="noreferrer" className={styles.productLink}>DEEP-NDT 바로가기 <span aria-hidden="true">↗</span><span className={styles.srOnly}> (새 창)</span></a><NdtProductPreview /></div>
+    <div className={styles.preview}><ProjectProductLink href="https://deep-ndt.kr">DEEP-NDT 바로가기</ProjectProductLink><NdtProductPreview /></div>
 
     <div className={`${styles.band} ${styles.gray}`}>
       <section className={styles.part}>
