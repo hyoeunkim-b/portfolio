@@ -71,11 +71,11 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
           </section>
           <nav className={styles.projectNavigation} aria-label="이전 및 다음 프로젝트">
             <Link href={`/projects/${previous.id}`}>
-              {previous.cover ? <Image className={styles.navigationImage} src={previous.listingCover ?? previous.cover} alt="" fill sizes="(min-width: 640px) 50vw, 100vw" /> : null}
+              {previous.cover ? <Image className={styles.navigationImage} src={previous.cover} alt="" fill sizes="(min-width: 640px) 50vw, 100vw" /> : null}
               <span>이전 프로젝트</span><strong>{previous.title}</strong>
             </Link>
             <Link href={`/projects/${next.id}`}>
-              {next.cover ? <Image className={styles.navigationImage} src={next.listingCover ?? next.cover} alt="" fill sizes="(min-width: 640px) 50vw, 100vw" /> : null}
+              {next.cover ? <Image className={styles.navigationImage} src={next.cover} alt="" fill sizes="(min-width: 640px) 50vw, 100vw" /> : null}
               <span>다음 프로젝트</span><strong>{next.title}</strong>
             </Link>
           </nav>
