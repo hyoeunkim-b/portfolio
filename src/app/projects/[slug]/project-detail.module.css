@@ -15,3 +15,9 @@
 .cover.valrosCover{min-height:30rem;padding-block:12.5rem 7.5rem}.valrosCover .coverImage{object-position:center}.cover.valrosCover h1{font-size:clamp(1.75rem,2.43vw,2.1875rem);line-height:1.4;letter-spacing:-.04em}.valrosCover::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.35)}
 
 @media(max-width:47.999rem){.valrosCover .coverImage{object-position:right center}}
+
+.cover.bluedotCover{min-height:30rem;padding-block:12.5rem 7.5rem;background:#b9ad9b}
+.cover.bluedotCover h1{font-size:clamp(1.625rem,2.43vw,2.1875rem);line-height:1.4;letter-spacing:-.04em;text-transform:uppercase}
+.bluedotCover .coverImage{object-position:50% center;max-width:none}
+@media(max-width:47.999rem){.bluedotCover::after{content:"";position:absolute;inset:0;background:rgb(0 0 0 / 30%)}}
+@media(min-width:48rem){.bluedotCover .coverImage{inset:auto 0 auto auto!important;top:-19.583%!important;width:150.833%!important;height:150.833%!important}}

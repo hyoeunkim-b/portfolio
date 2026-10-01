@@ -1,0 +1,146 @@
+{
+  "hero": {
+    "width": 2170,
+    "height": 725
+  },
+  "purchase": {
+    "width": 750,
+    "height": 1334
+  },
+  "qr": {
+    "width": 750,
+    "height": 1334
+  },
+  "seats": {
+    "width": 750,
+    "height": 1334
+  },
+  "kiosk-login": {
+    "width": 800,
+    "height": 1280
+  },
+  "kiosk-seats": {
+    "width": 798,
+    "height": 1278
+  },
+  "kiosk-payment": {
+    "width": 798,
+    "height": 1278
+  },
+  "kiosk-door": {
+    "width": 800,
+    "height": 1285
+  },
+  "home": {
+    "width": 750,
+    "height": 1334
+  },
+  "renewal": {
+    "width": 750,
+    "height": 1334
+  },
+  "seat-info": {
+    "width": 750,
+    "height": 1334
+  },
+  "community": {
+    "width": 750,
+    "height": 1334
+  },
+  "logo-old-symbol": {
+    "width": 478,
+    "height": 434
+  },
+  "logo-old-wordmark": {
+    "width": 702,
+    "height": 176
+  },
+  "logo-renewal": {
+    "width": 2000,
+    "height": 1351
+  },
+  "character": {
+    "width": 504,
+    "height": 566
+  },
+  "bear-1": {
+    "width": 113,
+    "height": 113
+  },
+  "bear-2": {
+    "width": 113,
+    "height": 113
+  },
+  "bear-3": {
+    "width": 113,
+    "height": 113
+  },
+  "bear-4": {
+    "width": 113,
+    "height": 113
+  },
+  "bear-5": {
+    "width": 113,
+    "height": 113
+  },
+  "bear-6": {
+    "width": 113,
+    "height": 113
+  },
+  "bear-study": {
+    "width": 200,
+    "height": 200
+  },
+  "store-sign": {
+    "width": 1536,
+    "height": 1024
+  },
+  "store-stairs": {
+    "width": 1536,
+    "height": 1024
+  },
+  "store-entrance": {
+    "width": 1536,
+    "height": 1024
+  },
+  "store-interior": {
+    "width": 1536,
+    "height": 1024
+  },
+  "proposal-cover": {
+    "width": 2000,
+    "height": 1126
+  },
+  "proposal-growth": {
+    "width": 2000,
+    "height": 1124
+  },
+  "proposal-space": {
+    "width": 2000,
+    "height": 1125
+  },
+  "proposal-system": {
+    "width": 2000,
+    "height": 1123
+  },
+  "proposal-partners": {
+    "width": 2000,
+    "height": 1125
+  },
+  "brochure": {
+    "width": 1536,
+    "height": 1024
+  },
+  "blog-skin": {
+    "width": 2000,
+    "height": 2815
+  },
+  "sns": {
+    "width": 1536,
+    "height": 1024
+  },
+  "listing": {
+    "width": 1448,
+    "height": 1086
+  }
+}

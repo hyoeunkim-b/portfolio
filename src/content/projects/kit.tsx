@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { assetPath } from "@/lib/asset-path";
-import styles from "./bluedot.module.css";
+import styles from "./kit.module.css";
 
 const adminScreens = [
   ["admin-class.png", 2209, "강의 관리 화면"],
