@@ -11,7 +11,6 @@
 .goals dt{color:var(--project-accent);font-size:1.3125rem;font-weight:700}
 .goals dt::after{display:block;content:"";width:1rem;height:1px;margin:1rem auto 0;background:#aeb8ce}
 .picture{min-width:0;margin:0}
-.imageButton{display:block;width:100%;border:0;padding:0;background:transparent;cursor:zoom-in}
 .picture img{display:block;width:100%;height:auto}
 .screenTrack{position:relative;display:grid;grid-auto-flow:column;grid-auto-columns:min(82%,20rem);gap:1.5rem;align-items:start;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:thin;padding-bottom:1rem}
 .proposal .screenTrack{grid-auto-columns:100%}
@@ -55,11 +54,6 @@
 .reflections{margin-left:0}
 .reflections dt{white-space:pre-line}
 .reflectionBand{padding-bottom:8rem}
-.dialog{position:fixed;inset:0;width:calc(100% - 2rem);max-width:100rem;max-height:calc(100dvh - 2rem);margin:auto;border:0;padding:3.5rem 1rem 1rem;background:#fff;color:#101010;overscroll-behavior:contain}
-.dialog::backdrop{background:rgb(0 0 0 / 75%)}
-.close{position:sticky;top:0;z-index:1;display:block;margin:-2.75rem 0 1rem auto;padding:.5rem .75rem;background:#101010;color:#fff;border:0;cursor:pointer}
-.zoomCanvas{overflow:auto;max-height:calc(100dvh - 7rem)}
-.zoomCanvas img{width:auto;min-width:100%;max-width:none;height:auto;object-fit:contain}
 @media(min-width:48rem){
  .band{gap:8rem;padding-block:7.5rem}.section{gap:4rem}
  .situation>div{grid-template-columns:1fr 2fr;gap:2.5rem;align-items:center}

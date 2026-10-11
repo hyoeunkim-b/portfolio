@@ -5,6 +5,7 @@ import { useRef, useState } from "react";
 import { assetPath } from "@/lib/asset-path";
 import assets from "./bluedot-assets.json";
 import styles from "./bluedot.module.css";
+import { ProjectImageZoom } from "@/components/project-detail/image-zoom";
 
 export type BluedotAsset = keyof typeof assets;
 const characterAnimations: Partial<Record<BluedotAsset, string>> = {
@@ -18,8 +19,6 @@ const characterAnimations: Partial<Record<BluedotAsset, string>> = {
 };
 
 export function BluedotImage({ name, alt, className = "" }: { name: BluedotAsset; alt: string; className?: string }) {
-  const dialog = useRef<HTMLDialogElement>(null);
-  const [opened, setOpened] = useState(false);
   const { width, height } = assets[name];
   const src = assetPath(`/images/projects/bluedot/${name}.webp`);
   const animation = characterAnimations[name];
@@ -30,15 +29,7 @@ export function BluedotImage({ name, alt, className = "" }: { name: BluedotAsset
     </picture>
   </figure>;
   if (width < 710) return <figure className={`${styles.picture} ${className}`}><Image src={src} alt={alt} width={width} height={height} sizes="(min-width: 1200px) 25vw, 70vw" /></figure>;
-  return <figure className={`${styles.picture} ${className}`}>
-    <button type="button" className={styles.imageButton} aria-label={`${alt} 확대 보기`} onClick={() => { setOpened(true); dialog.current?.showModal(); }}>
-      <Image src={src} alt={alt} width={width} height={height} sizes="(min-width: 1200px) 70vw, 100vw" />
-    </button>
-    <dialog ref={dialog} className={styles.dialog} aria-label={`${alt} 확대`} data-lenis-prevent onClick={event => { if (event.target === event.currentTarget) dialog.current?.close(); }}>
-      <button className={styles.close} type="button" onClick={() => dialog.current?.close()}>닫기 ×</button>
-      {opened && <div className={styles.zoomCanvas}><Image src={src} alt={alt} width={width} height={height} sizes="100vw" /></div>}
-    </dialog>
-  </figure>;
+  return <ProjectImageZoom src={`/images/projects/bluedot/${name}.webp`} alt={alt} width={width} height={height} sizes="(min-width: 1200px) 70vw, 100vw" className={`${styles.picture} ${className}`} />;
 }
 
 export function BluedotScreenGallery({ items, flow = false, compact = false, proposal = false, label }: {

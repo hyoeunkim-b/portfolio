@@ -1,25 +1,21 @@
 "use client";
 
 import Image from "next/image";
-import { useRef, useState, useSyncExternalStore } from "react";
+import { useRef, useState } from "react";
 import { assetPath } from "@/lib/asset-path";
+import { useReducedMotion } from "@/lib/use-reduced-motion";
 import styles from "./valros.module.css";
 
 const media = (name: string) => assetPath(`/images/projects/valros/${name}`);
 const motionQuery = "(prefers-reduced-motion: reduce)";
-function subscribeMotion(onChange: () => void) {
-  const query = window.matchMedia(motionQuery);
-  query.addEventListener("change", onChange);
-  return () => query.removeEventListener("change", onChange);
-}
 
 export function ValrosPreview() {
-  const reduced = useSyncExternalStore(subscribeMotion, () => window.matchMedia(motionQuery).matches, () => true);
+  const reduced = useReducedMotion();
   const [override, setOverride] = useState<boolean | null>(null);
   const playing = override ?? !reduced;
   return <figure className={styles.preview}>
     <div className={styles.laptop}>
-      <Image className={styles.frame} src={media("laptop-16-9.webp")} width={1653} height={952} alt="" sizes="(min-width: 1440px) 1280px, 100vw" />
+      <Image className={styles.frame} src={assetPath("/images/shared/laptop-16-9.webp")} width={1653} height={952} alt="" sizes="(min-width: 1440px) 1280px, 100vw" />
       <div className={styles.screen}><Image src={media(playing ? "product-preview.gif" : "product-preview-poster.webp")} width={1440} height={708} unoptimized alt="VARLOS의 시나리오 목록, 튜토리얼, 장면 편집과 VR 미리보기 화면" /></div>
     </div>
     <figcaption><button type="button" onClick={() => setOverride(!playing)}>{playing ? "자동 재생 끄기" : "자동 재생 켜기"}</button></figcaption>

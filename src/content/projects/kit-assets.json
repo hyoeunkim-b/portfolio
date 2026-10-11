@@ -1,0 +1,164 @@
+{
+  "hero": {
+    "src": "/images/projects/kit/v2/hero.webp",
+    "width": 3344,
+    "height": 1882,
+    "nodeId": "7:1047"
+  },
+  "listing": {
+    "src": "/images/projects/kit/v2/listing.webp",
+    "width": 2896,
+    "height": 2172,
+    "nodeId": "7:1048"
+  },
+  "user-web-pc": {
+    "src": "/images/projects/kit/v2/user-web-pc.webp",
+    "width": 3536,
+    "height": 8192,
+    "nodeId": "7:938"
+  },
+  "user-web-mobile": {
+    "src": "/images/projects/kit/v2/user-web-mobile.webp",
+    "width": 716,
+    "height": 5870,
+    "nodeId": "7:939"
+  },
+  "program-login": {
+    "src": "/images/projects/kit/v2/program-login.webp",
+    "width": 970,
+    "height": 546,
+    "nodeId": "7:846"
+  },
+  "program-character": {
+    "src": "/images/projects/kit/v2/program-character.webp",
+    "width": 970,
+    "height": 546,
+    "nodeId": "7:847"
+  },
+  "program-place": {
+    "src": "/images/projects/kit/v2/program-place.webp",
+    "width": 970,
+    "height": 546,
+    "nodeId": "7:848"
+  },
+  "program-class": {
+    "src": "/images/projects/kit/v2/program-class.webp",
+    "width": 970,
+    "height": 546,
+    "nodeId": "7:849"
+  },
+  "program-interaction": {
+    "src": "/images/projects/kit/v2/program-interaction.webp",
+    "width": 970,
+    "height": 546,
+    "nodeId": "7:857"
+  },
+  "program-guide-1": {
+    "src": "/images/projects/kit/v2/program-guide-1.webp",
+    "width": 970,
+    "height": 546,
+    "nodeId": "7:858"
+  },
+  "program-guide-2": {
+    "src": "/images/projects/kit/v2/program-guide-2.webp",
+    "width": 970,
+    "height": 546,
+    "nodeId": "7:859"
+  },
+  "program-seat": {
+    "src": "/images/projects/kit/v2/program-seat.webp",
+    "width": 970,
+    "height": 546,
+    "nodeId": "7:860"
+  },
+  "admin-list": {
+    "src": "/images/projects/kit/v2/admin-list.webp",
+    "width": 620,
+    "height": 356,
+    "nodeId": "7:890"
+  },
+  "admin-edit": {
+    "src": "/images/projects/kit/v2/admin-edit.webp",
+    "width": 620,
+    "height": 356,
+    "nodeId": "7:891"
+  },
+  "admin-content": {
+    "src": "/images/projects/kit/v2/admin-content.webp",
+    "width": 620,
+    "height": 356,
+    "nodeId": "7:892"
+  },
+  "admin-material": {
+    "src": "/images/projects/kit/v2/admin-material.webp",
+    "width": 620,
+    "height": 356,
+    "nodeId": "7:893"
+  },
+  "admin-new": {
+    "src": "/images/projects/kit/v2/admin-new.webp",
+    "width": 1320,
+    "height": 1911,
+    "nodeId": "7:895"
+  },
+  "admin-major": {
+    "src": "/images/projects/kit/v2/admin-major.webp",
+    "width": 970,
+    "height": 557,
+    "nodeId": "7:903"
+  },
+  "admin-faculty": {
+    "src": "/images/projects/kit/v2/admin-faculty.webp",
+    "width": 970,
+    "height": 557,
+    "nodeId": "7:904"
+  },
+  "admin-account": {
+    "src": "/images/projects/kit/v2/admin-account.webp",
+    "width": 970,
+    "height": 557,
+    "nodeId": "7:905"
+  },
+  "admin-request": {
+    "src": "/images/projects/kit/v2/admin-request.webp",
+    "width": 970,
+    "height": 557,
+    "nodeId": "7:906"
+  },
+  "admin-user": {
+    "src": "/images/projects/kit/v2/admin-user.webp",
+    "width": 970,
+    "height": 557,
+    "nodeId": "7:914"
+  },
+  "admin-class": {
+    "src": "/images/projects/kit/v2/admin-class.webp",
+    "width": 970,
+    "height": 557,
+    "nodeId": "7:915"
+  },
+  "admin-date": {
+    "src": "/images/projects/kit/v2/admin-date.webp",
+    "width": 2020,
+    "height": 1159,
+    "nodeId": "7:916"
+  },
+  "desktop-device": {
+    "src": "/images/projects/kit/v2/desktop-device.webp",
+    "width": 1565,
+    "height": 961,
+    "nodeId": "7:871"
+  },
+  "mobile-device": {
+    "src": "/images/projects/kit/v2/mobile-device.webp",
+    "width": 396,
+    "height": 726,
+    "nodeId": "7:873"
+  },
+  "preview-web-landing": {
+    "src": "/images/projects/kit/v2/preview-web-landing.webp",
+    "width": 2560,
+    "height": 6166,
+    "nodeId": "8:174"
+  }
+}

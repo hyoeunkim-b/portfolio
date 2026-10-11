@@ -59,3 +59,12 @@ import styles from "./project.module.css";
 - `ProjectReflections`의 제목·설명·구분선은 모바일 우측 3열에 함께 정렬된다. 75rem 이상에서는 상단 제목·설명과 같은 열에서 시작하도록 목록 전체를 들여쓴다.
 - 요약은 공통 route에서 `ProjectOverview`로 표시한다. 긴 소개 문단 등 별도 콘텐츠가 필요한 경우에도 같은 컴포넌트를 사용한다.
 - GIF 목업, 도식, 수치 카드, 슬라이드는 본문의 필요에 맞춰 개별 구성한다.
+
+## 이미지 확대
+
+`ProjectImageZoom` (`image-zoom.tsx`)은 KIT와 Bluedot이 공유한다. 공개 자산 경로·크기·대체 텍스트를 전달하면 native dialog로 확대한다. 닫기·Escape·배경 클릭과 트리거로의 초점 복귀를 제공한다. 버튼 및 dialog 스타일은 `image-zoom.module.css`에서 한 번만 관리한다.
+
+## 반복 미리보기 자산과 모션 설정
+
+- NDT·VARLOS·KIT의 동일한 노트북 목업은 `public/images/shared/laptop-16-9.webp` 한 파일을 사용한다. 기존 두 프로젝트의 동일 파일 사본을 통합했다. 각 프로젝트의 검수된 화면 비율·반응형 배치는 유지한다.
+- `src/lib/use-reduced-motion.ts`를 사용해 모션 감소 설정을 구독한다. 서버 기본값은 정지이며, 사용자 설정 확인 후 자동 재생 여부를 결정한다.

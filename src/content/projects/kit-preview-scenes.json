@@ -1,0 +1,57 @@
+[
+  {
+    "image": "preview-web-landing",
+    "duration": 14,
+    "title": "웹에서 캠퍼스 소개 확인"
+  },
+  {
+    "image": "admin-list",
+    "duration": 3,
+    "title": "관리자 웹 · 강의 목록"
+  },
+  {
+    "image": "admin-new",
+    "duration": 10,
+    "title": "관리자 웹 · 강의 등록"
+  },
+  {
+    "image": "admin-date",
+    "duration": 3,
+    "title": "관리자 웹 · 이용 통계"
+  },
+  {
+    "image": "program-login",
+    "duration": 2.5,
+    "title": "메타버스 프로그램 로그인"
+  },
+  {
+    "image": "program-character",
+    "duration": 2.5,
+    "title": "캐릭터 선택"
+  },
+  {
+    "videoStart": 3,
+    "duration": 4.5,
+    "title": "캠퍼스 입장과 탐색"
+  },
+  {
+    "videoStart": 340,
+    "duration": 4.5,
+    "title": "캐릭터 인터랙션"
+  },
+  {
+    "videoStart": 288,
+    "duration": 4.5,
+    "title": "강의실 이용"
+  },
+  {
+    "image": "program-interaction",
+    "duration": 4,
+    "title": "메타버스 UI · 캠퍼스 인터랙션"
+  },
+  {
+    "image": "program-guide-2",
+    "duration": 4,
+    "title": "메타버스 UI · 조작 방법 가이드"
+  }
+]
