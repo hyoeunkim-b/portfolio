@@ -1,0 +1,380 @@
+[
+  {
+    "name": "01-1",
+    "nodeId": "7:543",
+    "width": 2020,
+    "height": 1137,
+    "bytes": 374394
+  },
+  {
+    "name": "01-2",
+    "nodeId": "7:537",
+    "width": 970,
+    "height": 546,
+    "bytes": 71368
+  },
+  {
+    "name": "01-3",
+    "nodeId": "7:538",
+    "width": 970,
+    "height": 546,
+    "bytes": 51680
+  },
+  {
+    "name": "01-4",
+    "nodeId": "7:540",
+    "width": 970,
+    "height": 546,
+    "bytes": 69528
+  },
+  {
+    "name": "01-5",
+    "nodeId": "7:541",
+    "width": 970,
+    "height": 546,
+    "bytes": 58462
+  },
+  {
+    "name": "02-1",
+    "nodeId": "8:779",
+    "width": 2020,
+    "height": 1137,
+    "bytes": 187554
+  },
+  {
+    "name": "02-2",
+    "nodeId": "8:840",
+    "width": 970,
+    "height": 546,
+    "bytes": 78402
+  },
+  {
+    "name": "02-3",
+    "nodeId": "8:841",
+    "width": 970,
+    "height": 546,
+    "bytes": 106628
+  },
+  {
+    "name": "02-4",
+    "nodeId": "8:835",
+    "width": 970,
+    "height": 546,
+    "bytes": 84470
+  },
+  {
+    "name": "02-5",
+    "nodeId": "8:836",
+    "width": 970,
+    "height": 546,
+    "bytes": 86376
+  },
+  {
+    "name": "02-6",
+    "nodeId": "8:837",
+    "width": 970,
+    "height": 546,
+    "bytes": 82666
+  },
+  {
+    "name": "02-7",
+    "nodeId": "8:838",
+    "width": 970,
+    "height": 545,
+    "bytes": 79600
+  },
+  {
+    "name": "03-1",
+    "nodeId": "8:873",
+    "width": 2020,
+    "height": 1426,
+    "bytes": 389334
+  },
+  {
+    "name": "03-2",
+    "nodeId": "8:875",
+    "width": 970,
+    "height": 687,
+    "bytes": 122608
+  },
+  {
+    "name": "03-3",
+    "nodeId": "8:876",
+    "width": 970,
+    "height": 684,
+    "bytes": 119154
+  },
+  {
+    "name": "04-1",
+    "nodeId": "8:951",
+    "width": 2020,
+    "height": 1515,
+    "bytes": 295106
+  },
+  {
+    "name": "04-2",
+    "nodeId": "8:953",
+    "width": 970,
+    "height": 728,
+    "bytes": 138754
+  },
+  {
+    "name": "04-3",
+    "nodeId": "8:954",
+    "width": 970,
+    "height": 728,
+    "bytes": 97932
+  },
+  {
+    "name": "05-1",
+    "nodeId": "8:753",
+    "width": 2020,
+    "height": 1137,
+    "bytes": 173178
+  },
+  {
+    "name": "05-2",
+    "nodeId": "8:755",
+    "width": 970,
+    "height": 546,
+    "bytes": 34310
+  },
+  {
+    "name": "05-3",
+    "nodeId": "8:756",
+    "width": 970,
+    "height": 546,
+    "bytes": 49318
+  },
+  {
+    "name": "05-4",
+    "nodeId": "8:757",
+    "width": 970,
+    "height": 546,
+    "bytes": 24080
+  },
+  {
+    "name": "05-5",
+    "nodeId": "8:758",
+    "width": 970,
+    "height": 545,
+    "bytes": 37760
+  },
+  {
+    "name": "06-1",
+    "nodeId": "5:469",
+    "width": 970,
+    "height": 546,
+    "bytes": 22236
+  },
+  {
+    "name": "06-2",
+    "nodeId": "5:470",
+    "width": 970,
+    "height": 544,
+    "bytes": 87512
+  },
+  {
+    "name": "06-3",
+    "nodeId": "5:471",
+    "width": 970,
+    "height": 546,
+    "bytes": 57118
+  },
+  {
+    "name": "06-4",
+    "nodeId": "5:472",
+    "width": 970,
+    "height": 546,
+    "bytes": 62476
+  },
+  {
+    "name": "06-5",
+    "nodeId": "5:473",
+    "width": 970,
+    "height": 546,
+    "bytes": 58702
+  },
+  {
+    "name": "06-6",
+    "nodeId": "5:474",
+    "width": 970,
+    "height": 547,
+    "bytes": 73318
+  },
+  {
+    "name": "07-1",
+    "nodeId": "5:511",
+    "width": 2020,
+    "height": 1137,
+    "bytes": 598666
+  },
+  {
+    "name": "07-2",
+    "nodeId": "5:514",
+    "width": 970,
+    "height": 546,
+    "bytes": 82516
+  },
+  {
+    "name": "07-3",
+    "nodeId": "5:515",
+    "width": 970,
+    "height": 546,
+    "bytes": 90362
+  },
+  {
+    "name": "07-4",
+    "nodeId": "5:517",
+    "width": 970,
+    "height": 546,
+    "bytes": 77346
+  },
+  {
+    "name": "07-5",
+    "nodeId": "5:518",
+    "width": 970,
+    "height": 546,
+    "bytes": 115060
+  },
+  {
+    "name": "08-1",
+    "nodeId": "9:1015",
+    "width": 970,
+    "height": 728,
+    "bytes": 29500
+  },
+  {
+    "name": "08-2",
+    "nodeId": "9:1010",
+    "width": 970,
+    "height": 728,
+    "bytes": 71008
+  },
+  {
+    "name": "08-3",
+    "nodeId": "9:1011",
+    "width": 970,
+    "height": 728,
+    "bytes": 84300
+  },
+  {
+    "name": "08-4",
+    "nodeId": "9:1012",
+    "width": 970,
+    "height": 728,
+    "bytes": 66004
+  },
+  {
+    "name": "08-5",
+    "nodeId": "9:1013",
+    "width": 970,
+    "height": 728,
+    "bytes": 104780
+  },
+  {
+    "name": "08-6",
+    "nodeId": "9:1014",
+    "width": 970,
+    "height": 728,
+    "bytes": 120664
+  },
+  {
+    "name": "09-1",
+    "nodeId": "8:900",
+    "width": 970,
+    "height": 546,
+    "bytes": 20780
+  },
+  {
+    "name": "09-2",
+    "nodeId": "8:901",
+    "width": 970,
+    "height": 546,
+    "bytes": 34302
+  },
+  {
+    "name": "09-3",
+    "nodeId": "8:905",
+    "width": 970,
+    "height": 546,
+    "bytes": 109426
+  },
+  {
+    "name": "09-4",
+    "nodeId": "8:906",
+    "width": 970,
+    "height": 546,
+    "bytes": 55270
+  },
+  {
+    "name": "09-5",
+    "nodeId": "8:902",
+    "width": 970,
+    "height": 546,
+    "bytes": 44468
+  },
+  {
+    "name": "09-6",
+    "nodeId": "8:903",
+    "width": 970,
+    "height": 545,
+    "bytes": 39942
+  },
+  {
+    "name": "10-1",
+    "nodeId": "8:581",
+    "width": 970,
+    "height": 546,
+    "bytes": 126712
+  },
+  {
+    "name": "10-2",
+    "nodeId": "8:583",
+    "width": 970,
+    "height": 544,
+    "bytes": 81718
+  },
+  {
+    "name": "10-3",
+    "nodeId": "8:584",
+    "width": 970,
+    "height": 546,
+    "bytes": 77832
+  },
+  {
+    "name": "10-4",
+    "nodeId": "8:582",
+    "width": 970,
+    "height": 546,
+    "bytes": 104790
+  },
+  {
+    "name": "11-1",
+    "nodeId": "8:637",
+    "width": 970,
+    "height": 546,
+    "bytes": 41064
+  },
+  {
+    "name": "11-2",
+    "nodeId": "8:638",
+    "width": 970,
+    "height": 545,
+    "bytes": 34238
+  },
+  {
+    "name": "11-3",
+    "nodeId": "8:639",
+    "width": 970,
+    "height": 546,
+    "bytes": 45600
+  },
+  {
+    "name": "11-4",
+    "nodeId": "8:640",
+    "width": 970,
+    "height": 546,
+    "bytes": 89596
+  }
+]

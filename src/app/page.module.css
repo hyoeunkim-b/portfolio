@@ -122,11 +122,13 @@
 }
 @media(min-width:75rem){
   .project01,.project02{grid-row:1}
+  .project03,.project04{grid-row:2}
+  .project05,.project06{grid-row:3}
   .project02{grid-column:8/13;margin-top:0}
-  .project03,.project04{grid-column:4/13;grid-row:2;width:calc((100% - var(--grid-gap))/2)}
+  .project03,.project04{grid-column:4/13;width:calc((100% - var(--grid-gap))/2)}
   .project03{justify-self:start}
   .project04{justify-self:end}
-  .project05,.project06{grid-column:1/13;grid-row:3;width:calc((100% - (var(--grid-gap) * 4))/2)}
+  .project05,.project06{grid-column:1/13;width:calc((100% - (var(--grid-gap) * 4))/2)}
   .project05{justify-self:start}
   .project06{justify-self:end}
   .project01 .projectVisual{aspect-ratio:26/15}
@@ -180,3 +182,8 @@
   .contactIdentity{grid-column:1/span 2}
   .contactMethods{grid-column:3/span 3}
 }
+
+/* Each six-project group owns its three rows, so later groups cannot overlap. */
+.projectGroups{display:grid;gap:3.75rem}
+@media(min-width:48rem){.projectGroups{gap:5rem}}
+@media(min-width:75rem){.projectGroups{gap:7.5rem}}

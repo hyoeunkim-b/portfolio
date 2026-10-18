@@ -9,9 +9,11 @@ import styles from "./page.module.css";
 
 const projects = projectData.map((project, index) => ({
   ...project,
-  no: String(index + 1).padStart(2, "0"),
+  layoutSlot: String(index % 6 + 1).padStart(2, "0"),
   category: project.keywords,
 }));
+
+const projectGroups = Array.from({ length: Math.ceil(projects.length / 6) }, (_, index) => projects.slice(index * 6, index * 6 + 6));
 
 const practices = [
   { no: "01", title: "Digital Products", detail: "UX 리서치 · 정보구조 설계 · UX/UI 디자인 · 프로토타이핑 · 디자인 시스템 제작", filter: "digital-products" },
@@ -48,15 +50,17 @@ export default function Home() {
 
         <section className={styles.projects} aria-labelledby="selected-projects-title">
           <div className={styles.sectionTop}><p id="selected-projects-title" className={styles.eyebrow}>Selected Projects</p></div>
-          <div className={styles.projectGrid}>
-            {projects.map((project) => (
-              <Link className={`${styles.project} ${styles[`project${project.no}`]}`} href={`/projects/${project.id}`} key={project.id}>
+          <div className={styles.projectGroups}>
+            {projectGroups.map(group => <div className={styles.projectGrid} key={group[0].id}>
+            {group.map((project) => (
+              <Link className={`${styles.project} ${styles[`project${project.layoutSlot}`]}`} href={`/projects/${project.id}`} key={project.id}>
                 <div className={styles.projectVisual}>
-                  {project.cover ? <Image className={styles.projectCover} src={project.listingCover ?? project.cover} alt="" fill sizes="(min-width: 1200px) 50vw, (min-width: 768px) 50vw, 100vw" /> : null}
+                  {project.cover ? <Image className={styles.projectCover} src={project.homeCover ?? project.listingCover ?? project.cover} alt="" fill sizes="(min-width: 1200px) 50vw, (min-width: 768px) 50vw, 100vw" /> : null}
                 </div>
                 <p className={styles.projectCategory}>{project.category}</p><h3>{project.title}</h3>
               </Link>
             ))}
+            </div>)}
           </div>
           <div className={styles.allProjectsGrid}><Link className={styles.allProjects} href="/projects"><span>모든 프로젝트 보기</span><Image className={styles.arrowImage} src={assetPath("/images/arrow-right.svg")} alt="" width={32} height={32} /></Link></div>
         </section>

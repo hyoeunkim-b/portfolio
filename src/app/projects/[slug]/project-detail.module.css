@@ -1,5 +1,9 @@
 .detail{position:relative;z-index:3;background:var(--color-bg)}
 .cover.brandCover h1{font-size:clamp(1.75rem,2.43vw,2.1875rem)}
+.cover.pptCover { background: #161a22; }
+.cover.pptCover h1 { font-size: clamp(1.75rem, 2.43vw, 2.1875rem); letter-spacing: -.04em; }
+.pptCover::after { content: ""; position: absolute; inset: 0; background: rgb(0 0 0 / 35%); }
+.pptCover .coverImage { object-position: center 35%; }
 .cover{position:relative;display:grid;place-items:center;min-height:clamp(22rem,33.333vw,30rem);padding:6rem var(--page-gutter) 3rem;overflow:hidden;background:#aaa}
 .coverImage{object-fit:cover}.cover h1{position:relative;z-index:1;max-width:50rem;color:#fff;font-size:clamp(1.75rem,2.778vw,2.5rem);font-weight:700;line-height:1.25;text-align:center;word-break:keep-all;animation:detail-enter 2s cubic-bezier(.2,.75,.2,1) both}
 .content{min-height:clamp(28rem,46vw,42rem);background:var(--color-bg)}

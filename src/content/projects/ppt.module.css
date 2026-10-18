@@ -1,0 +1,43 @@
+.content {
+  --ppt-work-gap: 7.5rem;
+  --ppt-image-gap: 2.5rem;
+  --ppt-muted: #737c8b;
+  color: var(--color-fg);
+  font-family: var(--font-ko);
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+.band {
+  composes: band from "../../components/project-detail/elements.module.css";
+  gap: 5rem;
+}
+.category { display: grid; gap: 5rem; min-width: 0; }
+.work { display: grid; gap: 1.5rem; min-width: 0; }
+.categoryTitle { color: var(--project-accent-text); font-size: .8125rem; font-weight: 600; }
+.workBody { display: grid; gap: 2.5rem; min-width: 0; }
+.workHeader { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 2.5rem; min-width: 0; }
+.workTitle { max-width: 100%; padding: .25rem 1rem; border-radius: 1.875rem; background: #101010; color: #fff; font-size: 1rem; font-weight: 500; line-height: 1.4; letter-spacing: -.04em; }
+.workMeta { display: flex; flex-wrap: wrap; gap: .75rem 1rem; color: var(--ppt-muted); font-size: .875rem; line-height: 1.4; }
+.workMeta div { display: flex; flex-wrap: wrap; gap: .5rem; }
+.workMeta div:not(:last-child) { border-right: 1px solid rgb(115 124 139 / 30%); padding-right: 1rem; }
+.workMeta dt { font-weight: 500; }
+.workMeta dd { font-weight: 700; }
+.slide { min-width: 0; margin: 0; }
+.slide img { border: 1px solid #ccd4de; }
+.overview { padding-bottom: 5rem; line-height: 1.5; }
+.overview dl { line-height: 1.4; }
+.overview dl > :last-child { grid-column: 1 / -1; }
+@media (min-width: 48rem) {
+  .category { gap: var(--ppt-work-gap); }
+  .work { gap: 2.5rem; }
+  .band { gap: var(--ppt-work-gap); }
+  .workMeta { gap: 1.5rem; font-size: 1rem; letter-spacing: -.04em; }
+  .workMeta div { gap: .75rem; }
+  .workMeta div:not(:last-child) { padding-right: 1.5rem; }
+}
+@media (min-width: 75rem) {
+  .band { padding-block: 10rem; }
+  .work { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .workBody { grid-column: 2 / -1; gap: var(--ppt-image-gap); }
+  .overview { padding-bottom: 12.5rem; }
+}

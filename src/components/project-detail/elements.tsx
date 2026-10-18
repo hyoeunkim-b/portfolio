@@ -9,12 +9,13 @@ export type ProjectMetadata = {
   wide?: boolean;
 };
 
-export function ProjectOverview({ children, metadata, label = "프로젝트 개요" }: {
+export function ProjectOverview({ children, metadata, label = "프로젝트 개요", className = "" }: {
   children: ReactNode;
   metadata: ProjectMetadata[];
   label?: string;
+  className?: string;
 }) {
-  return <section className={styles.overview} aria-label={label}>
+  return <section className={`${styles.overview} ${className}`} aria-label={label}>
     <div className={styles.overviewCopy}>{children}</div>
     <dl className={styles.metadata}>
       {metadata.map(({ label, value, wide }) => <div key={label} className={wide ? styles.wideMetadata : undefined}>

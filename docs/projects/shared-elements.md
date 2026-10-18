@@ -62,6 +62,8 @@ import styles from "./project.module.css";
 
 ## 이미지 확대
 
+- `ProjectGallery` (`gallery.tsx`, `gallery.module.css`)는 DEEP-AI 편집·브랜드와 PPT 상세가 공유한다. 모바일 스와이프·페이지 버튼·화살표 키·reduced motion과 태블릿 이상의 열 배치를 함께 관리한다.
+
 `ProjectImageZoom` (`image-zoom.tsx`)은 KIT와 Bluedot이 공유한다. 공개 자산 경로·크기·대체 텍스트를 전달하면 native dialog로 확대한다. 닫기·Escape·배경 클릭과 트리거로의 초점 복귀를 제공한다. 버튼 및 dialog 스타일은 `image-zoom.module.css`에서 한 번만 관리한다.
 
 ## 반복 미리보기 자산과 모션 설정

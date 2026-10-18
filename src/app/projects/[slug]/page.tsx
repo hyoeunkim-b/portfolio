@@ -12,6 +12,7 @@ import ValrosContent, { ValrosOverview } from "@/content/projects/valros";
 import KitContent, { KitOverview } from "@/content/projects/kit";
 import PaiaContent, { PaiaOverview } from "@/content/projects/paia";
 import DabrandContent, { DabrandOverview } from "@/content/projects/dabrand";
+import PptContent, { PptOverview } from "@/content/projects/ppt";
 import NdtContent, { NdtOverview } from "@/content/projects/ndt";
 import styles from "./project-detail.module.css";
 
@@ -48,11 +49,11 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
       <SiteHeader />
       <main id="main">
         <article className={styles.detail} style={projectThemeStyle(project.theme)}>
-          <header className={`${styles.cover} ${project.id === "deep-ai" ? styles.brandCover : project.id === "valros" ? styles.valrosCover : project.id === "bluedot" ? styles.bluedotCover : project.id === "kit" ? styles.kitCover : ""}`}>
+          <header className={`${styles.cover} ${project.id === "ppt" ? styles.pptCover : project.id === "deep-ai" ? styles.brandCover : project.id === "valros" ? styles.valrosCover : project.id === "bluedot" ? styles.bluedotCover : project.id === "kit" ? styles.kitCover : ""}`}>
             {project.cover ? <Image className={styles.coverImage} src={project.cover} alt="" fill priority sizes="100vw" /> : null}
             <h1>{project.id === "valros" ? <>VR 콘텐츠 제작 소프트웨어<br />VARLOS Web VR Editor</> : project.id === "bluedot" ? <>스터디카페 Bluedot Lounge<br />웹&앱과 브랜드 디자인</> : project.title}</h1>
           </header>
-          {project.id === "bluedot" ? <BluedotOverview /> : project.id === "ndt" ? <NdtOverview /> : project.id === "paia" ? <PaiaOverview /> : project.id === "deep-ai" ? <DabrandOverview /> : project.id === "valros" ? <ValrosOverview /> : project.id === "kit" ? <KitOverview /> : <ProjectOverview metadata={[
+          {project.id === "ppt" ? <PptOverview /> : project.id === "bluedot" ? <BluedotOverview /> : project.id === "ndt" ? <NdtOverview /> : project.id === "paia" ? <PaiaOverview /> : project.id === "deep-ai" ? <DabrandOverview /> : project.id === "valros" ? <ValrosOverview /> : project.id === "kit" ? <KitOverview /> : <ProjectOverview metadata={[
             { label: "기업/클라이언트", value: project.client },
             { label: "진행 기간", value: project.period },
             { label: "역할/기여", value: project.roles.map((role) => <span key={role}>{role}</span>) },
@@ -68,6 +69,7 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
             {project.id === "paia" ? <PaiaContent /> : null}
             {project.id === "ndt" ? <NdtContent /> : null}
             {project.id === "deep-ai" ? <DabrandContent /> : null}
+            {project.id === "ppt" ? <PptContent /> : null}
           </section>
           <nav className={styles.projectNavigation} aria-label="이전 및 다음 프로젝트">
             <Link href={`/projects/${previous.id}`}>

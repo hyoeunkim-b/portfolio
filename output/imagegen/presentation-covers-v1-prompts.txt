@@ -1,0 +1,5 @@
+Tool: built-in image_gen
+Edit source: public/images/projects/presentation/hero-concept-v4.png
+Shared prompt: Edit the supplied photograph for a portfolio thumbnail. Preserve the same corporate presentation room, restrained dim but visible architectural lighting, blue projected battery/AI slide with deliberately blurred unreadable text and softly blurred graphics, realistic presenter on right and approximately 8 seated audience members seen from behind along bottom. Recompose so projection screen is CENTERED horizontally, no empty wall reserved for title. Screen is primary focal point, full rectangular screen visible, presenter just right of screen not overlapping, people secondary. Preserve photorealism and original mood; no added title, no watermarks.
+Home: landscape 4:3, centered screen around 70 percent width, audience low, tight balanced framing.
+Listing: near-square portrait 19:20, full screen centered upper-middle, presenter right, audience bottom 30 percent.
