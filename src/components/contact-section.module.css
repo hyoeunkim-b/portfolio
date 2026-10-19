@@ -2,7 +2,7 @@
 .surface{background:#f3f0ef}
 .contactTop{display:grid;gap:4rem;padding:0 0 3.5rem}
 .contactMessage{display:grid;align-content:start;gap:2.5rem}
-.eyebrow{font-family:var(--font-en);font-size:.875rem;font-weight:700;letter-spacing:.015em;text-transform:uppercase}
+.eyebrow{font-family:var(--font-en);font-size:var(--text-section-title);font-weight:700;letter-spacing:.015em;text-transform:uppercase}
 .contactCopy{font-size:clamp(1.125rem,1.597vw,1.4375rem);font-weight:400;line-height:1.55}
 .mobileLine{display:inline}
 .contactDetails{display:grid;align-self:start;align-items:stretch;gap:.75rem;width:100%;min-width:0;font-family:var(--font-en)}

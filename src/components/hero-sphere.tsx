@@ -3,31 +3,22 @@
 import { useEffect, useRef, useState } from "react";
 import styles from "./hero-sphere.module.css";
 
-type SphereItem = { id: string; label: string; type?: "image"; related: string[] };
+type SphereItem = { id: string; label: string; primary?: boolean; related: string[] };
 
 const items: SphereItem[] = [
-  { id: "observe", label: "Observe", related: ["research", "user-flow", "connect"] },
-  { id: "research", label: "UX Research", related: ["observe", "ai-workflow", "ndt"] },
-  { id: "ndt", label: "NDT 01", type: "image", related: ["research", "uxui", "ai-workflow"] },
-  { id: "connect", label: "Connect", related: ["observe", "information", "editorial", "make-useful"] },
-  { id: "information", label: "Information Architecture", related: ["connect", "user-flow", "web"] },
-  { id: "paia", label: "WEB 02", type: "image", related: ["web", "responsive", "publishing"] },
-  { id: "web", label: "Web Design", related: ["information", "responsive", "interaction", "paia"] },
-  { id: "responsive", label: "Responsive", related: ["web", "publishing", "paia"] },
-  { id: "make-useful", label: "Make it useful", related: ["connect", "prototype", "design-system"] },
-  { id: "deep-ai", label: "BRAND 03", type: "image", related: ["brand", "editorial"] },
-  { id: "brand", label: "Brand Identity", related: ["editorial", "deep-ai"] },
-  { id: "editorial", label: "Editorial", related: ["brand", "connect"] },
-  { id: "uxui", label: "UX/UI Design", related: ["user-flow", "prototype", "ndt", "valros", "bluedot"] },
-  { id: "valros", label: "VR 04", type: "image", related: ["uxui", "interaction", "prototype"] },
-  { id: "interaction", label: "Interaction", related: ["web", "uxui", "valros"] },
-  { id: "prototype", label: "Prototyping", related: ["uxui", "make-useful", "ai-workflow"] },
-  { id: "design-system", label: "Design System", related: ["make-useful", "uxui", "bluedot"] },
-  { id: "kit", label: "KIT 05", type: "image", related: ["web", "responsive", "publishing"] },
-  { id: "publishing", label: "Publishing", related: ["responsive", "paia", "kit"] },
-  { id: "ai-workflow", label: "AI Workflow", related: ["research", "prototype", "ndt"] },
-  { id: "user-flow", label: "User Flow", related: ["observe", "uxui", "information"] },
-  { id: "bluedot", label: "BLUEDOT 06", type: "image", related: ["uxui", "design-system", "prototype"] },
+  { id: "observe", label: "Observe", related: ["user-flow", "connect", "ai-workflow"] },
+  { id: "uxui", label: "UX/UI Design", primary: true, related: ["user-flow", "prototype", "design-system"] },
+  { id: "user-flow", label: "User Flow", related: ["observe", "uxui", "web"] },
+  { id: "web", label: "Web Design", primary: true, related: ["user-flow", "prototype", "publishing"] },
+  { id: "connect", label: "Connect", related: ["observe", "brand", "editorial", "make-useful"] },
+  { id: "brand", label: "Brand Design", primary: true, related: ["connect", "editorial", "design-system"] },
+  { id: "design-system", label: "Design System", related: ["uxui", "brand", "make-useful"] },
+  { id: "editorial", label: "Editorial Design", primary: true, related: ["connect", "brand", "presentation", "ai-workflow"] },
+  { id: "prototype", label: "Prototyping", related: ["uxui", "web", "make-useful"] },
+  { id: "presentation", label: "Presentation Design", primary: true, related: ["editorial", "connect", "ai-workflow"] },
+  { id: "publishing", label: "Publishing", related: ["web", "make-useful"] },
+  { id: "ai-workflow", label: "AI Workflow", related: ["observe", "editorial", "presentation", "make-useful"] },
+  { id: "make-useful", label: "Make it useful", related: ["connect", "prototype", "design-system", "publishing"] },
 ];
 
 const points = items.map((_, index) => {
@@ -139,7 +130,7 @@ export default function HeroSphere() {
       onPointerUp={onPointerUp}
       onPointerCancel={onPointerUp}
       onClick={(event) => { if (event.target === event.currentTarget && !pointer.current.moved) setSelected(null); }}
-      aria-label="키워드와 프로젝트의 관계를 탐색하는 인터랙티브 구체"
+      aria-label="디자인 분야, 역량과 사고 방식의 관계를 탐색하는 인터랙티브 구체"
     >
       <div className={styles.surface} aria-hidden="true" />
       <svg className={styles.connections} aria-hidden="true">
@@ -153,7 +144,7 @@ export default function HeroSphere() {
           ref={(element) => { itemRefs.current[index] = element; }}
           type="button"
           key={item.id}
-          className={`${styles.item} ${item.type === "image" ? styles.imageItem : ""} ${related?.has(item.id) && selected !== item.id ? styles.related : ""} ${related && !related.has(item.id) ? styles.muted : ""} ${selected === item.id ? styles.selected : ""}`}
+          className={`${styles.item} ${item.primary ? styles.primaryItem : ""} ${related?.has(item.id) && selected !== item.id ? styles.related : ""} ${related && !related.has(item.id) ? styles.muted : ""} ${selected === item.id ? styles.selected : ""}`}
           onClick={(event) => { event.stopPropagation(); setSelected((current) => current === item.id ? null : item.id); }}
           aria-pressed={selected === item.id}
           aria-label={`${item.label} 관계 보기`}

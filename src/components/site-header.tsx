@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { assetPath } from "@/lib/asset-path";
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { type MouseEvent, useEffect, useLayoutEffect, useRef, useState } from "react";
 import styles from "./site-header.module.css";
 
 type SiteHeaderProps = {
@@ -29,7 +29,7 @@ export default function SiteHeader({ transparentOverHero = false }: SiteHeaderPr
       const currentScrollY = window.scrollY;
       const difference = currentScrollY - lastScrollY.current;
       const firstContentSection = transparentOverHero
-        ? document.getElementById("selected-projects-title")?.closest("section")
+        ? document.getElementById("projects")
         : null;
       setOverHero(Boolean(firstContentSection && firstContentSection.getBoundingClientRect().top > 0));
       const howSection = document.getElementById("how-i-work");
@@ -122,6 +122,24 @@ export default function SiteHeader({ transparentOverHero = false }: SiteHeaderPr
     if (restoreFocus) window.requestAnimationFrame(() => menuButtonRef.current?.focus());
   };
 
+  const navigateToSection = (event: MouseEvent<HTMLAnchorElement>, sectionId: string) => {
+    if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    closeMenu();
+    const section = document.getElementById(sectionId);
+    if (!section) return; // Let Next.js navigate from a detail page to Home.
+
+    // Handle same-page anchors once, including repeat clicks on the current hash.
+    event.preventDefault();
+    const href = event.currentTarget.href;
+    if (window.location.href !== href) window.history.pushState(null, "", href);
+    window.requestAnimationFrame(() => {
+      section.scrollIntoView({
+        behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth",
+        block: "start",
+      });
+    });
+  };
+
   return (
     <header ref={headerRef} className={`${styles.header} ${hidden && !menuOpen ? styles.hidden : ""} ${inverted && !menuOpen ? styles.inverted : ""} ${overHero && !menuOpen ? styles.transparent : ""}`}>
       <Link className={styles.identity} href="/" aria-label="홈으로 이동">
@@ -129,8 +147,9 @@ export default function SiteHeader({ transparentOverHero = false }: SiteHeaderPr
         <span>Designer <strong>HYOEUN KIM</strong></span>
       </Link>
       <nav className={styles.nav} aria-label="주요 메뉴">
-        <Link href="/projects">Projects</Link>
-        <a href="#contact">Contact</a>
+        <Link href="/#projects" onClick={(event) => navigateToSection(event, "projects")}>Projects</Link>
+        <Link href="/#about" onClick={(event) => navigateToSection(event, "about")}>About</Link>
+        <Link href="/#contact" onClick={(event) => navigateToSection(event, "contact")}>Contact</Link>
       </nav>
       <button
         ref={menuButtonRef}
@@ -163,14 +182,14 @@ export default function SiteHeader({ transparentOverHero = false }: SiteHeaderPr
             </button>
           </div>
           <nav className={styles.mobileNav} aria-label="모바일 주요 메뉴">
-            <Link href="/" tabIndex={menuOpen ? 0 : -1} onClick={() => closeMenu()}>Home</Link>
-            <Link href="/projects" tabIndex={menuOpen ? 0 : -1} onClick={() => closeMenu()}>Projects</Link>
-            <Link href="/#contact" tabIndex={menuOpen ? 0 : -1} onClick={() => closeMenu()}>Contact</Link>
+            <Link href="/#projects" tabIndex={menuOpen ? 0 : -1} onClick={(event) => navigateToSection(event, "projects")}>Projects</Link>
+            <Link href="/#about" tabIndex={menuOpen ? 0 : -1} onClick={(event) => navigateToSection(event, "about")}>About</Link>
+            <Link href="/#contact" tabIndex={menuOpen ? 0 : -1} onClick={(event) => navigateToSection(event, "contact")}>Contact</Link>
           </nav>
           <div className={styles.menuContact}>
             <div className={styles.menuContactIdentity}>
               <strong>김효은</strong>
-              <span>Product Designer</span>
+              <span>Designer</span>
             </div>
             <div className={styles.menuContactMethods}>
               <a href="mailto:hello.hyobee@gmail.com" tabIndex={menuOpen ? 0 : -1}>hello.hyobee@gmail.com</a>

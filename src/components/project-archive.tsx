@@ -7,20 +7,20 @@ import { projects } from "@/data/projects";
 import styles from "./project-archive.module.css";
 
 const filters = [
-  { id: "all", label: "All" },
-  { id: "digital-products", label: "Digital Products" },
-  { id: "websites", label: "Websites" },
-  { id: "brand-identities", label: "Brand Identities" },
-  { id: "editorials", label: "Editorials" },
-  { id: "ai-workflow", label: "AI-Enhanced Workflow" },
+  { id: "all", label: "전체" },
+  { id: "digital-products", label: "UX/UI" },
+  { id: "websites", label: "웹 디자인" },
+  { id: "brand-identities", label: "브랜드 디자인" },
+  { id: "editorials", label: "편집·제안서" },
 ];
 
 const visibleProjects = projects;
 
-export default function ProjectArchive() {
+export default function ProjectArchive({ home = false }: { home?: boolean }) {
+  const ProjectHeading = home ? "h3" : "h2";
   const params = useSearchParams();
   const requested = params.get("practice") ?? "all";
-  const active = filters.some((filter) => filter.id === requested) ? requested : "all";
+  const active = (requested === "ai-workflow" || filters.some((filter) => filter.id === requested)) ? requested : "all";
   const filteredProjects = active === "all" ? visibleProjects : visibleProjects.filter((project) => project.categories.includes(active));
   const countFor = (filterId: string) => filterId === "all" ? visibleProjects.length : visibleProjects.filter((project) => project.categories.includes(filterId)).length;
 
@@ -28,11 +28,12 @@ export default function ProjectArchive() {
     <div className={styles.archive}>
       <nav className={styles.filters} aria-label="프로젝트 분야 필터">
         {filters.map((filter) => (
-          <Link key={filter.id} href={filter.id === "all" ? "/projects" : `/projects?practice=${filter.id}`} aria-current={active === filter.id ? "page" : undefined} scroll={false}>
+          <Link key={filter.id} href={`${home ? "/" : "/projects"}${filter.id === "all" ? "" : `?practice=${filter.id}`}${home ? "#projects" : ""}`} aria-current={active === filter.id ? "page" : undefined} scroll={false}>
             <span>{filter.label}</span><sup>{countFor(filter.id)}</sup>
           </Link>
         ))}
       </nav>
+      {active === "ai-workflow" ? <p role="status">AI 활용 프로젝트 · {filteredProjects.length}개</p> : null}
       <div className={styles.grid} key={active} aria-live="polite">
         {filteredProjects.map((project) => (
           <article className={styles.project} key={project.id}>
@@ -40,7 +41,7 @@ export default function ProjectArchive() {
               <div className={styles.thumbnail} aria-hidden="true">
                 {project.cover ? <Image className={styles.thumbnailImage} src={project.listingCover ?? project.cover} alt="" fill sizes="(min-width: 1200px) 33vw, (min-width: 640px) 50vw, 100vw" /> : null}
               </div>
-              <p>{project.keywords}</p><h2>{project.title}</h2>
+              <p>{project.keywords}</p><ProjectHeading className={styles.projectTitle}>{project.title}</ProjectHeading>
             </Link>
           </article>
         ))}

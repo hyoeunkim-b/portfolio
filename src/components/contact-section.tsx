@@ -19,7 +19,7 @@ export default function ContactSection({ surface = false }: ContactSectionProps)
           </div>
         </div>
         <div className={styles.contactDetails}>
-          <div className={styles.contactIdentity}><strong>김효은</strong><span>Product Designer</span></div>
+          <div className={styles.contactIdentity}><strong>김효은</strong><span>Designer</span></div>
           <div className={styles.contactMethods}>
             <a className={styles.contactMethod} href="mailto:hello.hyobee@gmail.com"><span>hello.hyobee@gmail.com</span><Image className={styles.contactArrow} src={assetPath("/images/arrow-right-top.svg")} alt="" width={16} height={16} /></a>
             <a className={styles.contactMethod} href="https://pf.kakao.com/_xjxdxdxaX/chat" target="_blank" rel="noopener noreferrer"><span>KakaoTalk</span><Image className={styles.contactArrow} src={assetPath("/images/arrow-right-top.svg")} alt="" width={16} height={16} /></a>

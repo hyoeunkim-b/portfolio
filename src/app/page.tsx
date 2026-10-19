@@ -1,26 +1,18 @@
+import { Suspense } from "react";
+import ProjectArchive from "@/components/project-archive";
 import Link from "next/link";
 import Image from "next/image";
 import HeroSphere from "@/components/hero-sphere";
 import SiteHeader from "@/components/site-header";
 import ContactSection from "@/components/contact-section";
-import { projects as projectData } from "@/data/projects";
 import { assetPath } from "@/lib/asset-path";
 import styles from "./page.module.css";
 
-const projects = projectData.map((project, index) => ({
-  ...project,
-  layoutSlot: String(index % 6 + 1).padStart(2, "0"),
-  category: project.keywords,
-}));
-
-const projectGroups = Array.from({ length: Math.ceil(projects.length / 6) }, (_, index) => projects.slice(index * 6, index * 6 + 6));
-
 const practices = [
-  { no: "01", title: "Digital Products", detail: "UX 리서치 · 정보구조 설계 · UX/UI 디자인 · 프로토타이핑 · 디자인 시스템 제작", filter: "digital-products" },
-  { no: "02", title: "Websites", detail: "웹 디자인 · 반응형 디자인 · 인터랙션 디자인 · 웹 퍼블리싱", filter: "websites" },
-  { no: "03", title: "Brand Identities", detail: "브랜드 전략 · 비주얼 아이덴티티 · 로고 디자인 · 브랜드 가이드라인", filter: "brand-identities" },
-  { no: "04", title: "Editorials", detail: "편집 디자인 · 인쇄물 디자인 · 프레젠테이션 디자인", filter: "editorials" },
-  { no: "05", title: "AI-Enhanced Workflow", detail: "리서치부터 디자인 탐색, 콘텐츠 제작, 프로토타이핑 및 구현까지 AI 도구 활용", filter: "ai-workflow" },
+  { no: "01", title: "UX/UI 디자인", detail: "사용자 흐름 · 정보구조 설계 · UI 디자인 · 프로토타이핑 · 디자인 시스템", filter: "digital-products" },
+  { no: "02", title: "웹 디자인", detail: "콘텐츠 구성 · 반응형 웹 디자인 · 상세 페이지 디자인 · 인터랙션 · 웹 퍼블리싱", filter: "websites" },
+  { no: "03", title: "브랜드 디자인", detail: "비주얼 아이덴티티 · 로고 디자인 · 브랜드 가이드라인 · 브랜드 제작물", filter: "brand-identities" },
+  { no: "04", title: "편집·제안서 디자인", detail: "인쇄물 · 사업 제안서 · 회사소개서 · 발표자료 디자인", filter: "editorials" },
 ];
 
 const process = [
@@ -48,24 +40,14 @@ export default function Home() {
           </section>
         </div>
 
-        <section className={styles.projects} aria-labelledby="selected-projects-title">
-          <div className={styles.sectionTop}><p id="selected-projects-title" className={styles.eyebrow}>Selected Projects</p></div>
-          <div className={styles.projectGroups}>
-            {projectGroups.map(group => <div className={styles.projectGrid} key={group[0].id}>
-            {group.map((project) => (
-              <Link className={`${styles.project} ${styles[`project${project.layoutSlot}`]}`} href={`/projects/${project.id}`} key={project.id}>
-                <div className={styles.projectVisual}>
-                  {project.cover ? <Image className={styles.projectCover} src={project.homeCover ?? project.listingCover ?? project.cover} alt="" fill sizes="(min-width: 1200px) 50vw, (min-width: 768px) 50vw, 100vw" /> : null}
-                </div>
-                <p className={styles.projectCategory}>{project.category}</p><h3>{project.title}</h3>
-              </Link>
-            ))}
-            </div>)}
-          </div>
-          <div className={styles.allProjectsGrid}><Link className={styles.allProjects} href="/projects"><span>모든 프로젝트 보기</span><Image className={styles.arrowImage} src={assetPath("/images/arrow-right.svg")} alt="" width={32} height={32} /></Link></div>
+        <section id="projects" className={styles.projects} aria-labelledby="projects-title">
+          <div className={styles.sectionTop}><h2 id="projects-title" className={styles.eyebrow}>Projects</h2></div>
+          <Suspense fallback={<p>프로젝트를 불러오는 중입니다.</p>}>
+            <ProjectArchive home />
+          </Suspense>
         </section>
 
-        <section className={styles.about} aria-labelledby="about-title">
+        <section id="about" className={styles.about} aria-labelledby="about-title">
           <p className={styles.eyebrow}>About</p>
           <div className={styles.aboutContent}>
             <figure className={styles.aboutPortrait}><Image className={styles.aboutImage} src={assetPath("/images/about-img.png")} alt="바닥에 글씨를 쓰며 관찰하는 어린 시절 모습" width={3572} height={1974} sizes="(min-width: 1200px) 65vw, (min-width: 768px) 75vw, 100vw" /></figure>
@@ -77,7 +59,11 @@ export default function Home() {
               <p>누군가에게 도움이 되는 기쁨을 동력 삼아, 재미와 의미가 있는 일을 계속하고 싶습니다.</p>
             </div>
             <div className={styles.practiceList}>
-              {practices.map((practice) => <Link href={`/projects?practice=${practice.filter}`} key={practice.no}><span><strong>{practice.title}</strong><small>{practice.detail}</small></span><Image className={styles.practiceArrow} src={assetPath("/images/arrow-right-top.svg")} alt="" width={48} height={48} /></Link>)}
+              {practices.map((practice) => <Link href={`/?practice=${practice.filter}#projects`} key={practice.no}><span><strong>{practice.title}</strong><small>{practice.detail}</small></span><Image className={styles.practiceArrow} src={assetPath("/images/arrow-right-top.svg")} alt="" width={48} height={48} /></Link>)}
+              <div className={styles.aiPractice}>
+                <strong>AI 활용</strong>
+                <p>리서치, 디자인 탐색, 이미지 동영상 등 콘텐츠 제작, 바이브 코딩, 업무 효율화 과정에 다양한 AI 툴을 활용합니다.</p>
+              </div>
             </div>
           </div>
         </section>
