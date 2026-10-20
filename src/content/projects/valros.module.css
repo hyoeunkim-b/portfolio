@@ -4,8 +4,8 @@
 
 /* Match the brand editorial gallery's mobile swipe and pagination. */
 .tutorialGallery { min-width: 0; }
-.tutorialTrack { composes: gallery slides from "./dabrand.module.css"; }
-.tutorialPagination { composes: pagination from "./dabrand.module.css"; }
+.tutorialTrack { composes: gallery slides from "../../components/project-detail/gallery.module.css"; }
+.tutorialPagination { composes: pagination from "../../components/project-detail/gallery.module.css"; }
 @media(min-width:48rem) {
   .tutorialTrack { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .tutorialTrack > :nth-child(-n+2) { grid-column: 1 / -1; }
