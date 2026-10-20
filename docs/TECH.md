@@ -229,3 +229,34 @@ format → lint → typecheck → build → browser review → accessibility rev
 - `ProjectOverview.metadata`는 `{ label, value, wide? }` 배열이다. 본문과 value는 ReactNode로 받아 프로젝트별 문단·줄바꿈을 보존한다.
 - DEEP-NDT 공통 요소와 프로젝트 전용 CSS의 중복 정의를 정리했다. 모바일 기본값과 48rem·75rem 확장 규칙으로 묶고, 사용하지 않는 스타일과 불필요한 !important를 제거했다.
 - 다음 프로젝트 작성 예시와 적용 범위는 `docs/projects/shared-elements.md`를 참고한다.
+
+## 프로젝트 대표·히어로 이미지 최적화 — 2026-10-20
+
+- `src/data/projects.ts`의 목록용 `listingCover`와 상세·이전다음 배경용 `cover`를 WebP로 연결한다. 이미지 비율·크롭·상세 URL은 유지하고 원본은 보존한다.
+- 목록 이미지는 최대 너비 1600px, 히어로는 최대 2560px(확대 없음), WebP 품질 82로 생성했다. 이미 작은 브랜드·Bluedot 이미지와 기존 VARLOS·KIT WebP 히어로는 유지한다.
+
+| 새 파일 (`public/images/projects/` 기준) | 크기 | 원본 → WebP |
+|---|---|---|
+| `ndt/cover-hero.webp` | 2516×1424 | 4464 → 167KB |
+| `ndt/cover-listing.webp` | 1600×906 | 4464 → 104KB |
+| `paia/cover-hero.webp` | 2560×1440 | 17486 → 192KB |
+| `paia/cover-listing.webp` | 1600×900 | 17486 → 46KB |
+| `ppt/ppt-hero-bg.webp` | 1774×887 | 1659 → 48KB |
+| `ppt/ppt-landing-hero-bg.webp` | 1448×1086 | 1552 → 51KB |
+| `ppt/ppt-list-hero-bg.webp` | 1222×1287 | 1608 → 52KB |
+| `valros/cover-listing.webp` | 1600×1600 | 481 → 142KB |
+| `kit/v2/listing-optimized.webp` | 1600×1200 | 490 → 109KB |
+
+## About·Contact 이미지 최적화 — 2026-10-20
+
+- About 사진은 `public/images/about-img.webp`(2000×1105, 77KB)를 사용한다. 원본 PNG는 3572×1974, 약 4.1MB이며 보존한다. 이미지의 기존 구도와 CSS 비율은 유지하고 JSX의 고유 크기만 새 파일과 맞춘다.
+- 공통 Contact 배경은 `public/contact-bg.webp`(1536×1024, 83KB)를 사용한다. 원본 해상도와 크롭을 유지하며 약 2.2MB PNG는 보존한다.
+- 두 파일은 WebP 품질 82로 생성하고 원본과 시각 비교했다.
+
+## 초기 앵커 이동 안정화 — 2026-10-20
+
+- Header의 같은 페이지 메뉴 이동은 `scrollToSection()`으로 전달해 휠과 동일한 Lenis 인스턴스를 사용한다. 이동 직전 `resize()`로 초기 폰트·콘텐츠 로딩 이후 페이지 높이를 갱신한다. 모바일 메뉴 닫힘 후 다음 프레임에 실행한다.
+- 모션 감소 설정 등 Lenis가 없는 경우에만 브라우저 스크롤을 사용하며, 모션 감소에서는 즉시 이동한다.
+- 프로젝트 목록의 Suspense fallback도 동일한 전체 목록 뷰를 렌더링한다. 짧은 로딩 문구가 전체 목록으로 바뀌며 About·Contact 앵커가 크게 이동하는 현상을 방지한다. 카테고리 URL은 hydration 이후 적용하며 기존 주소를 유지한다.
+
+- 검증: `/portfolio` 정적 빌드에서 Projects·About·Contact 각각 새 진입 후 첫 클릭의 도착 오차 1px 미만, 390px 모바일 첫 About 클릭·메뉴 닫힘, `practice=editorials` 2개 목록, 초기 HTML의 프로젝트 7개 렌더링을 확인했다. 린트·타입 검사·정적 빌드 통과.

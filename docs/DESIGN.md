@@ -283,3 +283,7 @@ DOM 순서는 가능하면 모바일과 스크린 리더에 자연스러운 읽�
 - 프로젝트 약칭·번호와 검은 배경 표식을 제거한다. 주요 작업 분야 5개(UX/UI Design, Web Design, Brand Design, Editorial Design, Presentation Design)는 보조 키워드보다 크게 표시한다.
 - 세부 역량 5개는 User Flow, Design System, Prototyping, Publishing, AI Workflow이며, 사고 방식 3개는 Observe, Connect, Make it useful이다.
 - 기존 회전·드래그·키보드 선택·연결선·모션 감소 대응은 유지하며, 관련 키워드 연결은 새 목록에 맞춘다.
+
+### 공통 헤더 상하 여백 — 2026-10-20
+
+- 모바일·데스크톱 모두 공통 Header의 상하 패딩은 `1rem`(기본 글자 크기에서 16px)으로 통일한다. 48rem 이상에서 상단만 늘리던 규칙은 제거한다. 로고와 메뉴의 중앙 정렬은 유지한다.

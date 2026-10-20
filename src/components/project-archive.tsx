@@ -17,9 +17,17 @@ const filters = [
 const visibleProjects = projects;
 
 export default function ProjectArchive({ home = false }: { home?: boolean }) {
-  const ProjectHeading = home ? "h3" : "h2";
   const params = useSearchParams();
-  const requested = params.get("practice") ?? "all";
+  return <ProjectArchiveContent home={home} requested={params.get("practice") ?? "all"} />;
+}
+
+// Keep the full archive's dimensions during hydration so lower anchors do not move.
+export function ProjectArchiveFallback({ home = false }: { home?: boolean }) {
+  return <ProjectArchiveContent home={home} />;
+}
+
+function ProjectArchiveContent({ home = false, requested = "all" }: { home?: boolean; requested?: string }) {
+  const ProjectHeading = home ? "h3" : "h2";
   const active = (requested === "ai-workflow" || filters.some((filter) => filter.id === requested)) ? requested : "all";
   const filteredProjects = active === "all" ? visibleProjects : visibleProjects.filter((project) => project.categories.includes(active));
   const countFor = (filterId: string) => filterId === "all" ? visibleProjects.length : visibleProjects.filter((project) => project.categories.includes(filterId)).length;

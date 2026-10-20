@@ -84,7 +84,6 @@
 }
 
 @media (min-width: 48rem) {
-  .header { padding-top: 1.35rem; }
   .menuButton, .mobileMenu { display: none; }
 }
 

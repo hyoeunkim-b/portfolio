@@ -27,7 +27,7 @@ export default function ContactSection({ surface = false }: ContactSectionProps)
         </div>
       </div>
       <div className={styles.contactMedia}>
-        <Image className={styles.contactBackground} src={assetPath("/contact-bg.png")} alt="" fill sizes="100vw" />
+        <Image className={styles.contactBackground} src={assetPath("/contact-bg.webp")} alt="" fill sizes="100vw" />
         <footer className={styles.footer}><small>Hyoeun Kim Portfolio © 2026</small><a className={styles.topLink} href="#top"><Image className={styles.topIcon} src={assetPath("/images/gototop.svg")} alt="" width={16} height={16} /><span>Top</span></a></footer>
       </div>
     </section>

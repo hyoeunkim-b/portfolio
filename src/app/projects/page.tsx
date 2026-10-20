@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import ProjectArchive from "@/components/project-archive";
+import ProjectArchive, { ProjectArchiveFallback } from "@/components/project-archive";
 import SiteHeader from "@/components/site-header";
 import ContactSection from "@/components/contact-section";
 import styles from "./projects.module.css";
@@ -14,7 +14,7 @@ export default function ProjectsPage() {
       <main id="main">
         <section className={styles.projects} aria-labelledby="projects-title">
           <h1 id="projects-title">Projects</h1>
-          <Suspense fallback={<p className={styles.loading}>프로젝트를 불러오는 중입니다.</p>}><ProjectArchive /></Suspense>
+          <Suspense fallback={<ProjectArchiveFallback />}><ProjectArchive /></Suspense>
         </section>
         <ContactSection surface />
       </main>

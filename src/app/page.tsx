@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import ProjectArchive from "@/components/project-archive";
+import ProjectArchive, { ProjectArchiveFallback } from "@/components/project-archive";
 import Link from "next/link";
 import Image from "next/image";
 import HeroSphere from "@/components/hero-sphere";
@@ -42,7 +42,7 @@ export default function Home() {
 
         <section id="projects" className={styles.projects} aria-labelledby="projects-title">
           <div className={styles.sectionTop}><h2 id="projects-title" className={styles.eyebrow}>Projects</h2></div>
-          <Suspense fallback={<p>프로젝트를 불러오는 중입니다.</p>}>
+          <Suspense fallback={<ProjectArchiveFallback home />}>
             <ProjectArchive home />
           </Suspense>
         </section>
@@ -50,7 +50,7 @@ export default function Home() {
         <section id="about" className={styles.about} aria-labelledby="about-title">
           <p className={styles.eyebrow}>About</p>
           <div className={styles.aboutContent}>
-            <figure className={styles.aboutPortrait}><Image className={styles.aboutImage} src={assetPath("/images/about-img.png")} alt="바닥에 글씨를 쓰며 관찰하는 어린 시절 모습" width={3572} height={1974} sizes="(min-width: 1200px) 65vw, (min-width: 768px) 75vw, 100vw" /></figure>
+            <figure className={styles.aboutPortrait}><Image className={styles.aboutImage} src={assetPath("/images/about-img.webp")} alt="바닥에 글씨를 쓰며 관찰하는 어린 시절 모습" width={2000} height={1105} sizes="(min-width: 1200px) 65vw, (min-width: 768px) 75vw, 100vw" /></figure>
             <div className={styles.aboutCopy}>
               <p id="about-title">안녕하세요, 디자이너 김효은입니다.</p>
               <p>사람은 적응의 동물이라는 말이 있듯, 익숙해지면 작은 불편함들은 쉽게 지나칩니다.</p>

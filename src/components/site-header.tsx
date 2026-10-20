@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { assetPath } from "@/lib/asset-path";
 import { type MouseEvent, useEffect, useLayoutEffect, useRef, useState } from "react";
+import { scrollToSection } from "@/components/smooth-scroll";
 import styles from "./site-header.module.css";
 
 type SiteHeaderProps = {
@@ -133,10 +134,7 @@ export default function SiteHeader({ transparentOverHero = false }: SiteHeaderPr
     const href = event.currentTarget.href;
     if (window.location.href !== href) window.history.pushState(null, "", href);
     window.requestAnimationFrame(() => {
-      section.scrollIntoView({
-        behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth",
-        block: "start",
-      });
+      scrollToSection(section);
     });
   };
 
