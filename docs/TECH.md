@@ -145,7 +145,7 @@ CSS custom properties를 사용한다.
 - 상태 관리: React 기본 기능으로 해결할 수 없는 공유 상태가 확인될 때만 검토
 - UI kit: Structured Editorial 방향과 충돌하므로 기본적으로 사용하지 않음
 - CSS framework: 프로젝트 요구와 팀 선호가 명확해지기 전 도입하지 않음
-- analytics, CMS, form service: 실제 요구와 개인정보 정책 확인 후 결정
+- analytics: GA4 직접 연결. CMS, form service는 실제 요구 확인 후 결정.
 
 새 의존성을 추가할 때는 해결하는 문제, 번들/유지보수 비용, 제거 가능성을 기록한다.
 
@@ -207,6 +207,14 @@ format → lint → typecheck → build → browser review → accessibility rev
 3. 필요하면 변경 이유를 남기는 짧은 decision note 또는 commit message
 
 `TBD`는 누락이 아니라 의도적인 미결정이다. 실제 화면과 콘텐츠 없이 확정하지 말아야 할 항목을 표시한다.
+
+## GA4 연동 — 2026-10-27
+
+- 측정 ID `G-DFVMF44LKQ`를 루트 layout의 `next/script`로 연결한다. 새 의존성은 추가하지 않는다.
+- 개발 모드에서는 초기화 스크립트를 렌더링하지 않는다. production 빌드도 브라우저의 origin이 `https://hyoeunkim-b.github.io`이고 경로가 `/portfolio` 또는 `/portfolio/` 하위일 때만 Google 스크립트를 로드한다. 로컬 정적 미리보기·LAN 주소·다른 호스트에서는 수집하지 않는다.
+- 최초 페이지 조회는 Google tag의 config로 전송하며, 이후 클라이언트 페이지 이동은 GA4 향상된 측정의 브라우저 기록 기반 페이지 조회에 맡긴다. 중복 방지를 위해 수동 page_view는 추가하지 않는다. GA4 관리 화면에서 향상된 측정 → 페이지 조회 → 브라우저 기록 이벤트 기반 페이지 변경을 켜 둔다.
+- 이번 범위는 기본 태그 연결이다. 연락 클릭 전용 이벤트와 Looker Studio 보고서는 별도 구성한다.
+- 배포 후 GA4 실시간 보고서에서 방문과 상세 페이지 이동을 확인한다. 로컬 검증만으로 실제 GA4 수신 완료로 판단하지 않는다.
 
 ## 디자인 확정 후 코드 정리 — 2026-09-19
 

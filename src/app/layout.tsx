@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import "lenis/dist/lenis.css";
 import "./globals.css";
 import { SmoothScroll } from "@/components/smooth-scroll";
@@ -34,5 +35,27 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="ko"><body><SmoothScroll />{children}</body></html>;
+  return <html lang="ko"><body>
+    <SmoothScroll />{children}
+    {process.env.NODE_ENV === "production" && (
+      <Script id="google-analytics" strategy="afterInteractive">{`
+        (function () {
+          // Also exclude locally served production builds and preview hosts.
+          if (window.location.origin !== 'https://hyoeunkim-b.github.io' ||
+              (window.location.pathname !== '/portfolio' &&
+               !window.location.pathname.startsWith('/portfolio/'))) return;
+
+          window.dataLayer = window.dataLayer || [];
+          window.gtag = function () { window.dataLayer.push(arguments); };
+          window.gtag('js', new Date());
+          window.gtag('config', 'G-DFVMF44LKQ');
+
+          var script = document.createElement('script');
+          script.async = true;
+          script.src = 'https://www.googletagmanager.com/gtag/js?id=G-DFVMF44LKQ';
+          document.head.appendChild(script);
+        })();
+      `}</Script>
+    )}
+  </body></html>;
 }
